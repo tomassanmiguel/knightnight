@@ -9,9 +9,12 @@ public class GameManager : MonoBehaviour {
     // game state variables 
     public int numOfRounds = 0;
 
-    // holding a reference to each knight 
-    // public knight1 = steed, knight, weapon
-    // public knight2 = steed, knight, weapon 
+
+    // holding reference to players' selection 
+    // steed, knight, weapon
+    public Steed p1Steed, p2Steed;  // { get; set; } ??? 
+    public Knight p1Knight, p2Knight;
+    public Weapon p1Weapon, p2Weapon; 
 
     public int p1Wins = 0;
     public int p2Wins = 0; 
@@ -29,6 +32,22 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		
 	}
+
+    // idk if this is how i should do it
+    // feed player select to GM 
+    public void p1Feed(Steed s, Knight k, Weapon w)
+    {
+        p1Steed = s;
+        p1Knight = k;
+        p1Weapon = w; 
+    }
+
+    public void p2Feed(Steed s, Knight k, Weapon w)
+    {
+        p2Steed = s;
+        p2Knight = k;
+        p2Weapon = w;
+    }
 
     // both increaseRound() and addP1Win() / addP2Win() need to be called
     public void increaseRound()
@@ -62,24 +81,9 @@ public class GameManager : MonoBehaviour {
         }
         return 2; 
     }
-
-    /* returning knights' steeds/weapons?  what return type
-     * public Combatant getP1()
-     * {
-     * 
-     * }
-     * 
-     * 
-     * 
-     * public Combatant getP2() 
-     * {
-     * 
-     * }
-     * 
-    */
-
-	// Update is called once per frame
-	void Update () {
+    
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }
