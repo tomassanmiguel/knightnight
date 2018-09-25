@@ -2,42 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Knight : MonoBehaviour {
-
-    //Serialized Fields
-    [SerializeField]
-    private bool _facingLeft;
-    [SerializeField]
-    private Vector2 _positionBounds;
-    [SerializeField]
-    private float _ridingSpeed;
-    [SerializeField]
-    private float _jumpForce;
-    [SerializeField]
-    private float _gravity;
-    [SerializeField]
-    private float _throwForce;
-    [SerializeField]
-    private KeyCode _jumpButton;
-    [SerializeField]
-    private KeyCode _throwButton;
-    [SerializeField]
-    private string _xAxisAim;
-    [SerializeField]
-    private string _yAxisAim;
-    [SerializeField]
-    private Vector2 _sortingOrders;
-    [SerializeField]
-    private GameObject _opposingKnight;
+public class NormalHorse : Steed {
 
     //Private Variables
+    private Combatant c;
     private float groundY;
     private float vSpeed;
     private bool rtt;
 
-	// Initializations
-	void Start () {
-        if (_facingLeft)
+
+    public override void go ()
+    {
+        c = GetComponent<Combatant>();
+        if (c._facingLeft)
         {
             StartCoroutine("TrotLeft");
         }
@@ -53,16 +30,16 @@ public class Knight : MonoBehaviour {
 	void Update ()
     {
         //Jump Logic
-        if (Input.GetKeyDown(_jumpButton) && transform.position.y == groundY && transform.position.x > _positionBounds.x && transform.position.x < _positionBounds.y)
+        if (Input.GetKeyDown(c._jumpButton) && transform.position.y == groundY && transform.position.x > c._positionBounds.x && transform.position.x < c._positionBounds.y)
         {
-            vSpeed = _jumpForce;
+            vSpeed = c._jumpForce;
         }
 
         transform.Translate(0, vSpeed* Time.deltaTime, 0);
 
         if (vSpeed != 0)
         {
-            vSpeed = vSpeed - _gravity * Time.deltaTime;
+            vSpeed = vSpeed - c._gravity * Time.deltaTime;
         }
 
         if (transform.position.y < groundY)
@@ -75,8 +52,8 @@ public class Knight : MonoBehaviour {
     //Knight trots right
     IEnumerator TrotRight()
     {
-        float maxDist = _positionBounds.y - _positionBounds.x;
-        float dist = _positionBounds.y - transform.position.x;
+        float maxDist = c._positionBounds.y - c._positionBounds.x;
+        float dist = c._positionBounds.y - transform.position.x;
         float speedMod = 0.1f;
         float desiredSpeedMod = 1;
         while (dist > 0 || transform.position.y != groundY || speedMod > 0.3f)
@@ -102,9 +79,9 @@ public class Knight : MonoBehaviour {
             {
                 speedMod -= Time.deltaTime;
             }
-            transform.position = (Vector2)transform.position + Vector2.right * _ridingSpeed * Time.deltaTime * speedMod;
+            transform.position = (Vector2)transform.position + Vector2.right * c._ridingSpeed * Time.deltaTime * speedMod;
             yield return null;
-            dist = _positionBounds.y - transform.position.x;
+            dist = c._positionBounds.y - transform.position.x;
         }
 
         StartCoroutine("TurnAround");
@@ -114,8 +91,8 @@ public class Knight : MonoBehaviour {
     //Knight trots left
     IEnumerator TrotLeft()
     {
-        float maxDist = _positionBounds.y - _positionBounds.x;
-        float dist = transform.position.x - _positionBounds.x;
+        float maxDist = c._positionBounds.y - c._positionBounds.x;
+        float dist = transform.position.x - c._positionBounds.x;
         float speedMod = 0.1f;
         float desiredSpeedMod = 1;
         while (dist > 0 || transform.position.y != groundY || speedMod > 0.3f)
@@ -141,9 +118,9 @@ public class Knight : MonoBehaviour {
             {
                 speedMod -= Time.deltaTime;
             }
-            transform.position = (Vector2)transform.position + Vector2.left * _ridingSpeed * Time.deltaTime * speedMod;
+            transform.position = (Vector2)transform.position + Vector2.left * c._ridingSpeed * Time.deltaTime * speedMod;
             yield return null;
-            dist = transform.position.x - _positionBounds.x;
+            dist = transform.position.x - c._positionBounds.x;
         }
 
         StartCoroutine("TurnAround");
@@ -155,36 +132,36 @@ public class Knight : MonoBehaviour {
     {
         SpriteRenderer spr = GetComponent<SpriteRenderer>();
         spr.flipX = !spr.flipX;
-        _facingLeft = !_facingLeft;
+        c._facingLeft = !c._facingLeft;
 
-        while (_facingLeft && transform.position.x > _positionBounds.y)
+        while (c._facingLeft && transform.position.x > c._positionBounds.y)
         {
-            transform.position = (Vector2)transform.position + Vector2.left * _ridingSpeed / 3 * Time.deltaTime;
+            transform.position = (Vector2)transform.position + Vector2.left * c._ridingSpeed / 3 * Time.deltaTime;
             yield return null;
         }
-        while (!_facingLeft && transform.position.x < _positionBounds.x)
+        while (!c._facingLeft && transform.position.x < c._positionBounds.x)
         {
-            transform.position = (Vector2)transform.position + Vector2.right * _ridingSpeed / 3 * Time.deltaTime;
+            transform.position = (Vector2)transform.position + Vector2.right * c._ridingSpeed / 3 * Time.deltaTime;
             yield return null;
         }
 
         rtt = true;
 
-        while (!_opposingKnight.GetComponent<Knight>().readyToTurn())
+        while (!c._opposingKnight.GetComponent<Steed>().readyToTurn())
         {
             yield return null;
         }
 
-        _opposingKnight.GetComponent<Knight>().unlockRTT();
+        c._opposingKnight.GetComponent<Steed>().unlockRTT();
 
-        if (!_facingLeft)
+        if (!c._facingLeft)
         {
-            spr.sortingOrder = (int)_sortingOrders.x;
+            spr.sortingOrder = (int)c._sortingOrders.x;
             StartCoroutine("TrotRight");
         }
         else
         {
-            spr.sortingOrder = (int)_sortingOrders.y;
+            spr.sortingOrder = (int)c._sortingOrders.y;
             StartCoroutine("TrotLeft");
         }
 
@@ -192,12 +169,12 @@ public class Knight : MonoBehaviour {
     }
 
     //Both knights should turn around simultaneously
-    public bool readyToTurn()
+    override public bool readyToTurn()
     {
         return rtt;
     }
 
-    public void unlockRTT()
+    override public void unlockRTT()
     {
         rtt = false;
     }
