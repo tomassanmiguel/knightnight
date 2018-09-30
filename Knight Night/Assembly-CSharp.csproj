@@ -64,7 +64,9 @@
     <Compile Include="Assets\Code\CameraController.cs" />
     <Compile Include="Assets\Code\Javelin.cs" />
     <Compile Include="Assets\Code\Knight.cs" />
-    <Compile Include="Assets\Code\Selection.cs" />
+    <Compile Include="Assets\Code\UI\Cursor.cs" />
+    <Compile Include="Assets\Code\UI\MultiEventSystem.cs" />
+    <Compile Include="Assets\Code\UI\ScrollSelector.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Zygnius/Documents/GitHub/knightnight/Knight Night/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
