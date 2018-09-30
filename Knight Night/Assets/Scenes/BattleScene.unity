@@ -291,7 +291,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 990430251}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc103d5802cff064eb7e66d5e5fc515a, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c0a0a3d00ad5784fa1802fe2f19cc44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _facingLeft: 0
@@ -300,12 +300,14 @@ MonoBehaviour:
   _jumpForce: 10
   _gravity: 9.8
   _throwForce: 0
-  _jumpButton: 32
+  _jumpButton: 8
   _throwButton: 0
   _xAxisAim: 
   _yAxisAim: 
-  _sortingOrders: {x: 2, y: -2}
+  _sortingOrders: {x: 1, y: -1}
   _opposingKnight: {fileID: 1121275370}
+  steed: {fileID: 0}
+  knight: {fileID: 0}
 --- !u!95 &990430253
 Animator:
   serializedVersion: 3
@@ -409,7 +411,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1121275370}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc103d5802cff064eb7e66d5e5fc515a, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c0a0a3d00ad5784fa1802fe2f19cc44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _facingLeft: 1
@@ -418,12 +420,14 @@ MonoBehaviour:
   _jumpForce: 10
   _gravity: 9.8
   _throwForce: 0
-  _jumpButton: 8
+  _jumpButton: 32
   _throwButton: 0
   _xAxisAim: 
   _yAxisAim: 
-  _sortingOrders: {x: 2, y: -2}
+  _sortingOrders: {x: 1, y: -1}
   _opposingKnight: {fileID: 990430251}
+  steed: {fileID: 0}
+  knight: {fileID: 0}
 --- !u!95 &1121275372
 Animator:
   serializedVersion: 3
