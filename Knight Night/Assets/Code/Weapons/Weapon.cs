@@ -6,7 +6,7 @@ public abstract class Weapon : MonoBehaviour
 {
 
     public abstract void weaponUpdate();
-    public abstract GameObject spawnWeapon(Combatant c);
+    public abstract GameObject spawnWeapon(Combatant c, GameObject other);
 
     void Update()
     {

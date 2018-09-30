@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class SirLance : Knight
 {
-
-    Combatant combatant;
-
+    public Combatant combatant;
     void Start()
     {
         combatant = GetComponent<Combatant>();
@@ -14,7 +12,7 @@ public class SirLance : Knight
 
     public override void throwWeapon()
     {
-        GameObject weapon = combatant.weapon.spawnWeapon(combatant);
+        GameObject weapon = combatant.weapon.spawnWeapon(combatant, combatant._opposingKnight);
         weapon.transform.position = transform.position;
 
         float hAxis = Input.GetAxis(combatant._xAxisAim);
@@ -73,5 +71,4 @@ public class SirLance : Knight
             combatant.hasJavelin = false;
         }
     }
-
 }
