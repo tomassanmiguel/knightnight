@@ -11,6 +11,10 @@ public class CameraController : MonoBehaviour
     public int shakeFactor;
     public float shakeDuration;
 
+    public Vector3 newCameraPos;
+    public float zoomDuration;
+    public float slowFactor; 
+
     [SerializeField]
     public GameObject knight1;
     [SerializeField]
@@ -27,39 +31,55 @@ public class CameraController : MonoBehaviour
 
     public void StartShake(int factor, float duration)
     {
+        // placeholder event to trigger startShake 
         if (Input.GetKeyDown(KeyCode.T))
         {
             isShaking = true; 
             shakeFactor = factor;
             shakeDuration = duration;
         }
-        /*
-        // placeholder event to trigger shake 
-        while (shakeDuration > 0)
-        {
-            //float x = UnityEngine.Random.Range(-1f, 1f) * shakeFactor;
-            //float y = UnityEngine.Random.Range(-1f, 1f) * shakeFactor;
-            //camera.transform.localPosition = new Vector3(x, y, cameraPos.z); 
-       
-            shakeDuration -= Time.deltaTime;
-            yield return null; 
-        }
-        camera.transform.position = cameraPos;
-        */ 
     }
 
     public void EndSlowMo()
     {
-        camera.transform.position = cameraPos;
-        isSlowMo = false;
-        Time.timeScale = 1.0f;
+            camera.transform.position = cameraPos;
+            camera.orthographicSize *= 2; 
+            isSlowMo = false;
+            Time.timeScale = 1.0f;
     }
 
-    public void StartSlowMo(System.Single slowFactor, int playerNum)
+    public void StartSlowMo(System.Single factor, int playerNum)
     {
         // placeholder event to trigger slowMo 
         if (Input.GetKeyDown(KeyCode.S))
         {
+            if (isSlowMo)
+                EndSlowMo(); 
+            else
+            {
+                slowFactor = factor;
+                camera.orthographicSize /= 2;
+                zoomDuration = 0.5f;
+                isSlowMo = true;
+                Time.timeScale = slowFactor;
+
+                Vector3 playerPos;
+                if (playerNum == 1)
+                    playerPos = knight1.transform.position;
+                else
+                    playerPos = knight2.transform.position;
+
+                // camera positioning - make sure to not go offscreen
+                if (playerPos.x > 14f)
+                    newCameraPos = new Vector3(14f, -3.0f, cameraPos.z);
+                else if (playerPos.x < -14f)
+                    newCameraPos = new Vector3(-14f, -3.0f, cameraPos.z);
+                else
+                    newCameraPos = new Vector3(playerPos.x, -3.0f, cameraPos.z);
+            }
+           
+
+            /* 
             // get knight position offset 
             Vector3 playerPos;
             if (playerNum == 1)
@@ -82,7 +102,6 @@ public class CameraController : MonoBehaviour
                 camera.orthographicSize /= 2;
 
                 // camera positioning - make sure to not go offscreen
-                Vector3 newCameraPos;
                 if (playerPos.x > 14f)
                     newCameraPos = new Vector3(14f, -3.0f, cameraPos.z);
                 else if (playerPos.x < -14f)
@@ -96,13 +115,17 @@ public class CameraController : MonoBehaviour
                 // camera.transform.position = Vector3.Lerp(cameraPos, newCameraPos, Time.deltaTime * 3.0f); 
                 isSlowMo = true;
             }
-            Time.fixedDeltaTime = 0.02f * Time.timeScale;
+            Time.fixedDeltaTime = 0.02f * Time.timeScale; */
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+       if (zoomDuration > 0 && isSlowMo)
+        {   
+            camera.transform.position = Vector3.Lerp(camera.transform.position, newCameraPos, Time.deltaTime/slowFactor*4.0f);
+        }
        if (shakeDuration > 0 && isShaking)
         {
             camera.transform.localPosition = Vector3.Lerp(camera.transform.localPosition,
