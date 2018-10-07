@@ -32,6 +32,12 @@ public class CameraController : MonoBehaviour
         }
         camera.transform.position = cameraPos;
     }
+    public void EndSlowMo()
+    {
+        camera.transform.position = cameraPos;
+        isSlowMo = false;
+        Time.timeScale = 1.0f;
+    }
 
     public void StartSlowMo(System.Single slowFactor, int playerNum, float zoomFactor)
     {
@@ -61,7 +67,6 @@ public class CameraController : MonoBehaviour
                 // Vector3 offset = cameraPos - playerPos;
                 // camera zoom-in
                 camera.transform.position = Vector3.Lerp(cameraPos, playerPos, Time.deltaTime * 3.0f);
-                // camera.transform.position = new Vector3(-zoomFactor*playerPos.x/2, -zoomFactor*playerPos.y/2, cameraPos.z);
                 isSlowMo = true;
             }
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
