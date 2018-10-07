@@ -9,11 +9,12 @@ public class CameraController : MonoBehaviour
     public bool isSlowMo = false;
     public bool isShaking = false;
     public int shakeFactor;
-    public float shakeDuration;
+    public float shakeDuration; 
 
     public Vector3 newCameraPos;
     public float zoomDuration;
-    public float slowFactor; 
+    public float slowFactor;
+    public float cameraZoom; 
 
     [SerializeField]
     public GameObject knight1;
@@ -58,7 +59,7 @@ public class CameraController : MonoBehaviour
             else
             {
                 slowFactor = factor;
-                camera.orthographicSize /= 2;
+                cameraZoom = camera.orthographicSize / 2;
                 zoomDuration = 0.5f;
                 isSlowMo = true;
                 Time.timeScale = slowFactor;
@@ -122,11 +123,15 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if (zoomDuration > 0 && isSlowMo)
-        {   
-            camera.transform.position = Vector3.Lerp(camera.transform.position, newCameraPos, Time.deltaTime/slowFactor*4.0f);
+        if (zoomDuration > 0 && isSlowMo)
+        {
+            camera.transform.position = Vector3.Lerp(camera.transform.position, newCameraPos, Time.deltaTime / slowFactor * 8.0f);
         }
-       if (shakeDuration > 0 && isShaking)
+        if (camera.orthographicSize > cameraZoom && isSlowMo)
+        {
+            camera.orthographicSize -= 1.0f;
+        }
+        if (shakeDuration > 0 && isShaking)
         {
             camera.transform.localPosition = Vector3.Lerp(camera.transform.localPosition,
               cameraPos + UnityEngine.Random.insideUnitSphere * shakeFactor, Time.deltaTime);
