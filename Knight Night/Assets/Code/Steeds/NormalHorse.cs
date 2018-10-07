@@ -157,11 +157,13 @@ public class NormalHorse : Steed {
         if (!c._facingLeft)
         {
             spr.sortingOrder = (int)c._sortingOrders.x;
+            c.hasJavelin = true;
             StartCoroutine("TrotRight");
         }
         else
         {
             spr.sortingOrder = (int)c._sortingOrders.y;
+            c.hasJavelin = true;
             StartCoroutine("TrotLeft");
         }
 

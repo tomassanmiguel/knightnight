@@ -28,14 +28,20 @@ public class Combatant : MonoBehaviour {
     public Vector2 _sortingOrders;
     [SerializeField]
     public GameObject _opposingKnight;
+    [SerializeField]
+    public GameObject _javelin;
 
     public Steed steed;
     public Knight knight;
+    public Weapon weapon;
+
+    public bool hasJavelin;
 
     void Awake()
     {
         steed = (Steed)(new DJ());
         knight = (Knight)(new SirLance());
+        weapon = (Weapon)(new Javelin());
     }
 
 
@@ -46,6 +52,8 @@ public class Combatant : MonoBehaviour {
 
         type = knight.GetType();
         gameObject.AddComponent(type);
+
+        hasJavelin = true;
     }
 
 }
