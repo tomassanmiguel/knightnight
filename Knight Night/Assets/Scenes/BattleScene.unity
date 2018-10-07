@@ -394,6 +394,51 @@ Prefab:
       propertyPath: _opposingKnight
       value: 
       objectReference: {fileID: 990430251}
+    - target: {fileID: 61341885352251180, guid: bdf4001cc6d77d349bc5055a17aa1c40,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61341885352251180, guid: bdf4001cc6d77d349bc5055a17aa1c40,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 61341885352251180, guid: bdf4001cc6d77d349bc5055a17aa1c40,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 212621698576103670, guid: bdf4001cc6d77d349bc5055a17aa1c40,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.47071913
+      objectReference: {fileID: 0}
+    - target: {fileID: 212621698576103670, guid: bdf4001cc6d77d349bc5055a17aa1c40,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.5467284
+      objectReference: {fileID: 0}
+    - target: {fileID: 212621698576103670, guid: bdf4001cc6d77d349bc5055a17aa1c40,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.8113208
+      objectReference: {fileID: 0}
+    - target: {fileID: 114682851088776216, guid: bdf4001cc6d77d349bc5055a17aa1c40,
+        type: 2}
+      propertyPath: _ridingSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114682851088776216, guid: bdf4001cc6d77d349bc5055a17aa1c40,
+        type: 2}
+      propertyPath: _jumpForce
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114682851088776216, guid: bdf4001cc6d77d349bc5055a17aa1c40,
+        type: 2}
+      propertyPath: _gravity
+      value: 18.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdf4001cc6d77d349bc5055a17aa1c40, type: 2}
   m_IsPrefabAsset: 0
@@ -467,6 +512,51 @@ Prefab:
       value: 
       objectReference: {fileID: 1068531828505816, guid: 2599782209aa3e44783209c3c6e6d2c1,
         type: 2}
+    - target: {fileID: 61878658411980752, guid: 786967a55fabcf74fa1e6528ed29bcbb,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61878658411980752, guid: 786967a55fabcf74fa1e6528ed29bcbb,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 61878658411980752, guid: 786967a55fabcf74fa1e6528ed29bcbb,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 212779328216510500, guid: 786967a55fabcf74fa1e6528ed29bcbb,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 212779328216510500, guid: 786967a55fabcf74fa1e6528ed29bcbb,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.6304735
+      objectReference: {fileID: 0}
+    - target: {fileID: 212779328216510500, guid: 786967a55fabcf74fa1e6528ed29bcbb,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.6304735
+      objectReference: {fileID: 0}
+    - target: {fileID: 114346846263305046, guid: 786967a55fabcf74fa1e6528ed29bcbb,
+        type: 2}
+      propertyPath: _ridingSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114346846263305046, guid: 786967a55fabcf74fa1e6528ed29bcbb,
+        type: 2}
+      propertyPath: _jumpForce
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114346846263305046, guid: 786967a55fabcf74fa1e6528ed29bcbb,
+        type: 2}
+      propertyPath: _gravity
+      value: 18.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 786967a55fabcf74fa1e6528ed29bcbb, type: 2}
   m_IsPrefabAsset: 0
