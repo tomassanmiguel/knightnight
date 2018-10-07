@@ -65,6 +65,7 @@
     <Compile Include="Assets\Code\Javelin.cs" />
     <Compile Include="Assets\Code\Knight.cs" />
     <Compile Include="Assets\Code\UI\Cursor.cs" />
+    <Compile Include="Assets\Code\UI\MenuManager.cs" />
     <Compile Include="Assets\Code\UI\MultiEventSystem.cs" />
     <Compile Include="Assets\Code\UI\ScrollSelector.cs" />
     <Reference Include="UnityEditor.StandardEvents">

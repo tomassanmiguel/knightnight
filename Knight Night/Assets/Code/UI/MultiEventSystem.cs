@@ -32,6 +32,15 @@ public class MultiEventSystem : EventSystem {
 
     public static MultiEventSystem GetMultiEventSystem(int i)
     {
+        if(i >= multiEventSystemList.Count || i < 0)
+        {
+            return null;
+        }
         return multiEventSystemList[i];
+    }
+
+    public int GetIndex()
+    {
+        return index;
     }
 }

@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Cursor : MonoBehaviour {
 
     public int eventSystemIndex;
+    public bool useDefaultEventSystem;
     public float moveSpeed;
 
-    private MultiEventSystem eventSystem;
+    private EventSystem eventSystem;
 
     private Vector3 targetPos;
     private Vector3 prevTargetPos;
@@ -15,31 +17,46 @@ public class Cursor : MonoBehaviour {
 
     private void Awake()
     {
-        eventSystem = MultiEventSystem.GetMultiEventSystem(eventSystemIndex);
+        if (useDefaultEventSystem)
+        {
+            eventSystem = GameObject.Find("DefaultEventSystem").GetComponent<EventSystem>();
+        }
+        else
+        {
+            eventSystem = MultiEventSystem.GetMultiEventSystem(eventSystemIndex);
+        }
         targetPos = transform.position;
+    }
+
+    private void Start()
+    {
+        targetPos = eventSystem.currentSelectedGameObject.transform.position;
+        transform.position = targetPos;
     }
 
     private void Update()
     {
+        prevTargetPos = targetPos;
         targetPos = eventSystem.currentSelectedGameObject.transform.position;
         if(targetPos != prevTargetPos)
         {
             if(run != null)
             {
                 StopCoroutine(run);
-                StartCoroutine(moveTo(targetPos));
             }
-
+            run = StartCoroutine(moveTo(targetPos));
         }
-        prevTargetPos = targetPos;
     }
 
     private IEnumerator moveTo(Vector3 position)
     {
+        //Swap this to sin/cos curved movement later
+        float idx = 0;
         while(transform.position != position)
         {
-            Vector3.MoveTowards(transform.position, position, moveSpeed);
+            transform.position = Vector3.Lerp(transform.position, position, idx);
             yield return new WaitForSeconds(0.01f);
+            idx += moveSpeed;
         }
     }
 
