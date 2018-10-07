@@ -69,6 +69,8 @@
     <Compile Include="Assets\Code\Steeds\DJ.cs" />
     <Compile Include="Assets\Code\Steeds\NormalHorse.cs" />
     <Compile Include="Assets\Code\Steeds\Steed.cs" />
+    <Compile Include="Assets\Code\Weapons\Javelin.cs" />
+    <Compile Include="Assets\Code\Weapons\Weapon.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/thewe/Desktop/knightnight/Knight Night/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
@@ -313,7 +315,6 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/Boo.Lang.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
