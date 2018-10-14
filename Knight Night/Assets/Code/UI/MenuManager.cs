@@ -42,13 +42,20 @@ public class MenuManager : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetButtonDown("Cancel"))
+        if(currentScreen == mainMenu)
         {
-            if(currentScreen == mainMenu)
+            
+        }
+        else if(currentScreen == characterSelect)
+        {
+            if(Input.GetButtonDown("P1Fire2") || Input.GetButtonDown("P2Fire2"))
             {
-
+                BackToMainMenu();
             }
-            else
+        }
+        else
+        {
+            if (Input.GetButtonDown("P1Fire2"))
             {
                 BackToMainMenu();
             }

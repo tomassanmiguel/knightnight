@@ -66,6 +66,7 @@
     <Compile Include="Assets\Code\Knight.cs" />
     <Compile Include="Assets\Code\KnightCollection.cs" />
     <Compile Include="Assets\Code\KnightData.cs" />
+    <Compile Include="Assets\Code\PlayerInputData.cs" />
     <Compile Include="Assets\Code\UI\Cursor.cs" />
     <Compile Include="Assets\Code\UI\DescriptionBox.cs" />
     <Compile Include="Assets\Code\UI\IntUnityEvent.cs" />
