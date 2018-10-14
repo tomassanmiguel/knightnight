@@ -141,6 +141,28 @@ public class SirLance : MonoBehaviour
                 desiredSpeedMod = 1;
             }
 
+            if (!aiming && dist > maxDist / 3)
+            {
+                float aimAxis = getThrowDirection();
+
+                if (aimAxis == 0)
+                {
+                    desiredSpeedMod = desiredSpeedMod * 2;
+                }
+                else if (aimAxis == 45 || aimAxis == 315)
+                {
+                    desiredSpeedMod = desiredSpeedMod * 1.5f;
+                }
+                else if (aimAxis == 180)
+                {
+                    desiredSpeedMod = desiredSpeedMod * 0.5f;
+                }
+                else if (aimAxis == 135 || aimAxis == 225)
+                {
+                    desiredSpeedMod = desiredSpeedMod * 0.75f;
+                }
+            }
+
             if (speedMod < desiredSpeedMod && _vSpeed == 0)
             {
                 speedMod += Time.deltaTime;
@@ -181,13 +203,35 @@ public class SirLance : MonoBehaviour
                 desiredSpeedMod = 1;
             }
 
+            if (!aiming && dist > maxDist/3)
+            {
+                float aimAxis = getThrowDirection();
+
+                if (aimAxis == 0)
+                {
+                    desiredSpeedMod = desiredSpeedMod * 0.66f;
+                }
+                else if (aimAxis == 45 || aimAxis == 315)
+                {
+                    desiredSpeedMod = desiredSpeedMod * 0.8f;
+                }
+                else if (aimAxis == 180)
+                {
+                    desiredSpeedMod = desiredSpeedMod * 1.5f;
+                }
+                else if (aimAxis == 135 || aimAxis == 225)
+                {
+                    desiredSpeedMod = desiredSpeedMod * 1.25f;
+                }
+            }
+
             if (speedMod < desiredSpeedMod && _vSpeed == 0)
             {
-                speedMod += Time.deltaTime;
+                speedMod += Time.deltaTime*2;
             }
             else if (speedMod > desiredSpeedMod && _vSpeed == 0)
             {
-                speedMod -= Time.deltaTime;
+                speedMod -= Time.deltaTime*2;
             }
             transform.position = (Vector2)transform.position + Vector2.left * ridingSpeed * Time.deltaTime * speedMod;
             yield return null;
