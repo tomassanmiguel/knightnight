@@ -64,7 +64,11 @@
     <Compile Include="Assets\Code\CameraController.cs" />
     <Compile Include="Assets\Code\Javelin.cs" />
     <Compile Include="Assets\Code\Knight.cs" />
+    <Compile Include="Assets\Code\KnightCollection.cs" />
+    <Compile Include="Assets\Code\KnightData.cs" />
     <Compile Include="Assets\Code\UI\Cursor.cs" />
+    <Compile Include="Assets\Code\UI\DescriptionBox.cs" />
+    <Compile Include="Assets\Code\UI\IntUnityEvent.cs" />
     <Compile Include="Assets\Code\UI\MenuManager.cs" />
     <Compile Include="Assets\Code\UI\MultiEventSystem.cs" />
     <Compile Include="Assets\Code\UI\ScrollSelector.cs" />

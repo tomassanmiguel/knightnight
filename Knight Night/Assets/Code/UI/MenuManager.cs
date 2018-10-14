@@ -21,6 +21,14 @@ public class MenuManager : MonoBehaviour {
     //Default EventSystem
     public EventSystem eventSystem;
 
+    //Player Specific EventSystems
+    public MultiEventSystem player1;
+    public MultiEventSystem player2;
+
+    //ScrollSelectors
+    public ScrollSelector p1Selector;
+    public ScrollSelector p2Selector;
+
     //Current Active Screen
     private GameObject currentScreen;
 
@@ -28,6 +36,23 @@ public class MenuManager : MonoBehaviour {
     {
         currentScreen = mainMenu;
         eventSystem.SetSelectedGameObject(startGameButton.gameObject);
+        player1.gameObject.SetActive(false);
+        player2.gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if(currentScreen == mainMenu)
+            {
+
+            }
+            else
+            {
+                BackToMainMenu();
+            }
+        }
     }
 
     public void StartGame()
@@ -36,6 +61,12 @@ public class MenuManager : MonoBehaviour {
         currentScreen = characterSelect;
         //Play animation
         currentScreen.SetActive(true);
+
+        eventSystem.gameObject.SetActive(false);
+        //Player 1
+        player1.gameObject.SetActive(true);
+        player1.SetSelectedGameObject(p1Selector.gameObject);
+        //Player 2
     }
 
     public void ToControls()
@@ -56,6 +87,14 @@ public class MenuManager : MonoBehaviour {
 
     public void BackToMainMenu()
     {
+        if(currentScreen == characterSelect)
+        {
+            player1.gameObject.SetActive(false);
+            player2.gameObject.SetActive(false);
+            eventSystem.gameObject.SetActive(true);
+            eventSystem.SetSelectedGameObject(startGameButton.gameObject);
+        }
+        Debug.Log(currentScreen);
         currentScreen.SetActive(false);
         currentScreen = mainMenu;
         //Play animation

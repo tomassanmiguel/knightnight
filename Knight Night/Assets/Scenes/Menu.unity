@@ -366,6 +366,7 @@ GameObject:
   - component: {fileID: 184010674}
   - component: {fileID: 184010676}
   - component: {fileID: 184010675}
+  - component: {fileID: 184010677}
   m_Layer: 5
   m_Name: Description Box
   m_TagString: Untagged
@@ -426,6 +427,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 184010673}
   m_CullTransparentMesh: 0
+--- !u!114 &184010677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 184010673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e2859b37cc6e64883c1c23aa3a82aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: {fileID: 1384086481}
+  knightCollection: {fileID: 11400000, guid: 30ee03c28bf1a9e44ae4da3795bbca56, type: 2}
 --- !u!1 &215025068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,6 +1318,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 2138958910}
     m_Modifications:
+    - target: {fileID: 114151848994248446, guid: 9b6eda3461cc7b1469401e68a67a164f,
+        type: 2}
+      propertyPath: changeSelection.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224948992367045104, guid: 9b6eda3461cc7b1469401e68a67a164f,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -1453,6 +1472,41 @@ Prefab:
         type: 2}
       propertyPath: m_AnchoredPosition.y
       value: -37.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114151848994248446, guid: 9b6eda3461cc7b1469401e68a67a164f,
+        type: 2}
+      propertyPath: changeSelection.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114151848994248446, guid: 9b6eda3461cc7b1469401e68a67a164f,
+        type: 2}
+      propertyPath: changeSelection.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114151848994248446, guid: 9b6eda3461cc7b1469401e68a67a164f,
+        type: 2}
+      propertyPath: changeSelection.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 184010677}
+    - target: {fileID: 114151848994248446, guid: 9b6eda3461cc7b1469401e68a67a164f,
+        type: 2}
+      propertyPath: changeSelection.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateDescription
+      objectReference: {fileID: 0}
+    - target: {fileID: 114151848994248446, guid: 9b6eda3461cc7b1469401e68a67a164f,
+        type: 2}
+      propertyPath: changeSelection.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 224349026124438524, guid: 9b6eda3461cc7b1469401e68a67a164f,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224349026124438524, guid: 9b6eda3461cc7b1469401e68a67a164f,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b6eda3461cc7b1469401e68a67a164f, type: 2}
@@ -1990,6 +2044,10 @@ MonoBehaviour:
   creditsButton: {fileID: 470699876}
   quitButton: {fileID: 2045774771}
   eventSystem: {fileID: 444254272}
+  player1: {fileID: 1024975305}
+  player2: {fileID: 402029031}
+  p1Selector: {fileID: 1788968088}
+  p2Selector: {fileID: 0}
 --- !u!1 &1224282499
 GameObject:
   m_ObjectHideFlags: 0
@@ -2232,7 +2290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1402168297
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2584,6 +2642,12 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1778891483}
   m_CullTransparentMesh: 0
+--- !u!114 &1788968088 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114151848994248446, guid: 9b6eda3461cc7b1469401e68a67a164f,
+    type: 2}
+  m_PrefabInternal: {fileID: 777047960}
+  m_Script: {fileID: 11500000, guid: 10639562195a5384c8aeb285af2e4e7d, type: 3}
 --- !u!1 &1925176251
 GameObject:
   m_ObjectHideFlags: 0

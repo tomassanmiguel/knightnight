@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class ScrollSelector : Selectable {
 
@@ -10,8 +11,10 @@ public class ScrollSelector : Selectable {
 
     public int eventSystemIndex;
 
+    public KnightCollection knightCollection;
 
-    private string[] names = new string[1];
+    [SerializeField] private IntUnityEvent changeSelection;
+    
     private int currIndex;
 
     //References
@@ -27,20 +30,17 @@ public class ScrollSelector : Selectable {
     {
         base.Awake();
         nameText = transform.Find("Name Box").GetComponentInChildren<Text>();
-        nameText.text = names[currIndex];
+        nameText.text = knightCollection.Collection[currIndex].KnightName;
+        changeSelection.Invoke(currIndex);
         eventSystem = MultiEventSystem.GetMultiEventSystem(eventSystemIndex);
+
+        if (changeSelection == null) changeSelection = new IntUnityEvent();
     }
 
     protected override void Start()
     {
         base.Start();
         //grab array of names from GameManager
-    }
-
-    public void setNames(string[] nm)
-    {
-        names = nm;
-        nameText.text = names[currIndex];
     }
 
     public int getSelection()
@@ -71,16 +71,17 @@ public class ScrollSelector : Selectable {
     {
         if(currIndex < 0)
         {
-            currIndex = names.Length - 1;
+            currIndex = knightCollection.Collection.Length - 1;
         }
-        else if (currIndex >= names.Length)
+        else if (currIndex >= knightCollection.Collection.Length)
         {
             currIndex = 0;
         }
     }
 
-    private void SpamDelayed()
+    private IEnumerator SpamDelayed()
     {
+        yield return new WaitForSeconds(cycleTime);
         noSpam = false;
     }
 
@@ -93,26 +94,21 @@ public class ScrollSelector : Selectable {
                 //Right
                 currIndex++;
                 checkIndexBounds();
-                nameText.text = names[currIndex];
+                nameText.text = knightCollection.Collection[currIndex].KnightName;
+                changeSelection.Invoke(currIndex);
                 noSpam = true;
-                Invoke("SpamDelayed", cycleTime);
+                StartCoroutine(SpamDelayed());
             }
             else if (Input.GetAxis("Horizontal") < 0)
             {
                 //Left
                 currIndex--;
                 checkIndexBounds();
-                nameText.text = names[currIndex];
+                nameText.text = knightCollection.Collection[currIndex].KnightName;
+                changeSelection.Invoke(currIndex);
                 noSpam = true;
-                Invoke("SpamDelayed", cycleTime);
+                StartCoroutine(SpamDelayed());
             }
-        }
-
-        //DEBUG
-        if (Input.GetKeyDown(KeyCode.BackQuote))
-        {
-            string[] temp = { "A", "B", "C", "D" };
-            setNames(temp);
         }
     }
 }
