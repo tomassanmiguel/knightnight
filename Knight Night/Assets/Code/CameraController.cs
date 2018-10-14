@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
-{
-
+{ 
     public bool isSlowMo = false;
     public bool isShaking = false;
     public int shakeFactor;
@@ -23,11 +22,13 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     public Camera camera;
     public Vector3 cameraPos;
+    public float cameraSize; 
 
     // Use this for initialization
     void Start()
     {
         cameraPos = camera.transform.position;
+        cameraSize = camera.orthographicSize; 
     }
 
     public void StartShake(int factor, float duration)
@@ -43,21 +44,20 @@ public class CameraController : MonoBehaviour
 
     public void EndSlowMo()
     {
-            camera.transform.position = cameraPos;
-            camera.orthographicSize *= 2; 
-            isSlowMo = false;
-            Time.timeScale = 1.0f;
+        zoomDuration = 0; 
+        // camera.orthographicSize = cameraSize;
+        // camera.transform.position = cameraPos;
+        isSlowMo = false;
+        Time.timeScale = 1.0f;
     }
 
-    public void StartSlowMo(System.Single factor, int playerNum)
+    public void StartSlowMo(float factor, int playerNum)
     {
+        if (isSlowMo && zoomDuration == 0)
+            EndSlowMo();
         // placeholder event to trigger slowMo 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if (isSlowMo)
-                EndSlowMo(); 
-            else
-            {
                 slowFactor = factor;
                 cameraZoom = camera.orthographicSize / 2;
                 zoomDuration = 0.5f;
@@ -77,72 +77,57 @@ public class CameraController : MonoBehaviour
                     newCameraPos = new Vector3(-14f, -3.0f, cameraPos.z);
                 else
                     newCameraPos = new Vector3(playerPos.x, -3.0f, cameraPos.z);
-            }
-           
-
-            /* 
-            // get knight position offset 
-            Vector3 playerPos;
-            if (playerNum == 1)
-                playerPos = knight1.transform.position;
-            else
-                playerPos = knight2.transform.position;
-
-            if (isSlowMo)
-            {
-                Time.timeScale = 1.0f;
-                // reset camera 
-                camera.orthographicSize *= 2; //Mathf.Lerp(camera.orthographicSize, camera.orthographicSize  zoomFactor, Time.deltaTime);
-                camera.transform.position = cameraPos;
-                isSlowMo = false;
-            }
-            else
-            {
-                Time.timeScale = slowFactor;
-                // zoom in on indicated knight 
-                camera.orthographicSize /= 2;
-
-                // camera positioning - make sure to not go offscreen
-                if (playerPos.x > 14f)
-                    newCameraPos = new Vector3(14f, -3.0f, cameraPos.z);
-                else if (playerPos.x < -14f)
-                    newCameraPos = new Vector3(-14f, -3.0f, cameraPos.z);
-                else 
-                    newCameraPos = new Vector3(playerPos.x, -3.0f, cameraPos.z);
-                while (camera.transform.position != newCameraPos)
-                {
-                    camera.transform.position = Vector3.Lerp(camera.transform.position, newCameraPos, 2.0f);
-                }
-                // camera.transform.position = Vector3.Lerp(cameraPos, newCameraPos, Time.deltaTime * 3.0f); 
-                isSlowMo = true;
-            }
-            Time.fixedDeltaTime = 0.02f * Time.timeScale; */
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        // slowMo update - zoom in 
         if (zoomDuration > 0 && isSlowMo)
         {
             camera.transform.position = Vector3.Lerp(camera.transform.position, newCameraPos, Time.deltaTime / slowFactor * 8.0f);
+            if (Vector3.Equals(camera.transform.position, newCameraPos))
+                EndSlowMo();
+            if (zoomDuration - Time.deltaTime < 0)
+                zoomDuration = 0; 
+            else
+                zoomDuration -= Time.deltaTime; 
         }
         if (camera.orthographicSize > cameraZoom && isSlowMo)
         {
             camera.orthographicSize -= 1.0f;
         }
+
+        // end slowMo update - zoom out 
+        if (zoomDuration == 0 && !isSlowMo)
+        {
+            camera.transform.position = Vector3.Lerp(camera.transform.position, cameraPos, Time.deltaTime / slowFactor * 1.75f);
+        }
+        if (zoomDuration == 0 && !isSlowMo && camera.orthographicSize != cameraSize)
+        {
+            if (cameraSize - camera.orthographicSize < .75f)
+                camera.orthographicSize = cameraSize;
+            else
+                camera.orthographicSize += .75f;
+        }
+   
         if (shakeDuration > 0 && isShaking)
         {
+            // zoom in, otherwise camera will go offscreen 
+            camera.orthographicSize = cameraSize - 1; 
             camera.transform.localPosition = Vector3.Lerp(camera.transform.localPosition,
               cameraPos + UnityEngine.Random.insideUnitSphere * shakeFactor, Time.deltaTime);
             if (shakeDuration <= 1.0f)
             {
-                camera.transform.position = cameraPos;
+                camera.orthographicSize = cameraSize;
+                camera.transform.localPosition = cameraPos; 
                 isShaking = false; 
             }
             shakeDuration -= Time.deltaTime; 
         }
+ 
         StartSlowMo(0.1f, 1);
-        StartShake(10, 3.0f);
+        StartShake(10, 5.0f);
     }
 }
