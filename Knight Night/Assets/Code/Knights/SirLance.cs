@@ -18,7 +18,10 @@ public class SirLance : MonoBehaviour
     public float jumpForce;
     [SerializeField]
     public float gravity;
+    [SerializeField]
+    public GameObject aimArrow;
 
+    private bool aiming = false;
     private bool _hasJavelin = true;
     private float _groundY;
     private float _vSpeed;
@@ -34,66 +37,50 @@ public class SirLance : MonoBehaviour
         }
     }
 
-    public void throwWeapon()
+    public void throwWeapon(float aimDir)
     {
         GameObject jav = Instantiate(javelin);
         jav.GetComponent<Javelin>()._otherKnight = combatant.opposingKnight;
         jav.transform.position = transform.position;
-
-        float hAxis = Input.GetAxis(combatant.xAxisAim);
-        float vAxis = Input.GetAxis(combatant.yAxisAim);
-        if (hAxis > 0.2f)
-        {
-            if (vAxis > 0.2f)
-            {
-                jav.transform.Rotate(0, 0, 45);
-            }
-            else if (vAxis < -0.2f)
-            {
-                jav.transform.Rotate(0, 0, 315);
-            }
-
-        }
-        else if (hAxis < -0.2f)
-        {
-            if (vAxis > 0.2f)
-            {
-                jav.transform.Rotate(0, 0, 135);
-            }
-            else if (vAxis < -0.2f)
-            {
-                jav.transform.Rotate(0, 0, 225);
-            }
-            else
-            {
-                jav.transform.Rotate(0, 0, 180);
-            }
-
-        }
-        else
-        {
-            if (vAxis > 0.2f)
-            {
-                jav.transform.Rotate(0, 0, 90);
-            }
-            else if (vAxis < -0.2f)
-            {
-                jav.transform.Rotate(0, 0, 270);
-            }
-            else if (facingLeft)
-            {
-                jav.transform.Rotate(0, 0, 180);
-            }
-        }
-
+        jav.transform.Rotate(0, 0, aimDir);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(combatant.throwButton) && _hasJavelin)
+        float aimDir = getThrowDirection();
+        if (Input.GetKeyUp(combatant.throwButton) && _hasJavelin)
         {
-            throwWeapon();
-            _hasJavelin = false;
+            if (aimDir >= 0)
+            {
+                throwWeapon(aimDir);
+                aiming = false;
+                _hasJavelin = false;
+            }
+        }
+        else if (Input.GetKey(combatant.throwButton) && _hasJavelin)
+        {
+            if (aimDir >= 0)
+            {
+                aiming = true;
+            }
+            else
+            {
+                aiming = false;
+            }
+        }
+        else
+        {
+            aiming = false;
+        }
+
+        if (aiming)
+        {
+            aimArrow.GetComponent<SpriteRenderer>().enabled = true;
+            aimArrow.transform.eulerAngles = new Vector3(0, 0, aimDir);
+        }
+        else
+        {
+            aimArrow.GetComponent<SpriteRenderer>().enabled = false;
         }
 
         //Jump Logic
@@ -253,5 +240,109 @@ public class SirLance : MonoBehaviour
         }
 
         yield return null;
+    }
+
+    float getThrowDirection()
+    {
+        bool u = Input.GetKey(combatant.aimUpButton);
+        bool d = Input.GetKey(combatant.aimDownButton);
+        bool r = Input.GetKey(combatant.aimRightButton);
+        bool l = Input.GetKey(combatant.aimLeftButton);
+        float hAxis = Input.GetAxis(combatant.xAxisAim);
+        float vAxis = Input.GetAxis(combatant.yAxisAim);
+
+        if (u || d || r || l)
+        {
+            if (r)
+            {
+                if (u)
+                {
+                    return 45;
+                }
+                else if (d)
+                {
+                    return 315;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            else if (l)
+            {
+                if (u)
+                {
+                    return 135;
+                }
+                else if (d)
+                {
+                    return 225;
+                }
+                else
+                {
+                    return 180;
+                }
+            }
+            else if (u)
+            {
+                return 90;
+            }
+            else if (d)
+            {
+                return 270;
+            }
+        }
+
+        else if (hAxis != 0 || vAxis != 0)
+        {
+            if (hAxis > 0.2f)
+            {
+                if (vAxis > 0.2f)
+                {
+                    return 45;
+                }
+                else if (vAxis < -0.2f)
+                {
+                    return 315;
+                }
+                else
+                {
+                    return 0;
+                }
+
+            }
+            else if (hAxis < -0.2f)
+            {
+                if (vAxis > 0.2f)
+                {
+                    return 135;
+                }
+                else if (vAxis < -0.2f)
+                {
+                    return 225;
+                }
+                else
+                {
+                    return 180;
+                }
+
+            }
+            else
+            {
+                if (vAxis > 0.2f)
+                {
+                    return 90;
+                }
+                else if (vAxis < -0.2f)
+                {
+                    return 270;
+                }
+                else if (facingLeft)
+                {
+                    return 180;
+                }
+            }
+        }
+        return -1;
     }
 }
