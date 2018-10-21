@@ -12,9 +12,11 @@ public class Javelin : MonoBehaviour
 
     public GameObject _otherKnight;
     private float _createTime;
+    private Vector3 previousPosition;
 
     void Update()
     {
+        previousPosition = transform.position;
         transform.Translate(_speed * Time.deltaTime, 0, 0);
         if (Time.time - _createTime > _timeToDestroy)
         {
@@ -50,8 +52,14 @@ public class Javelin : MonoBehaviour
                 Debug.Log("Player 2 Wins!");
             }
 
-            int scene = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(scene, LoadSceneMode.Single);
+            Camera.main.GetComponent<CameraController>().StartSlowMo(0.2f, other.GetComponent<Combatant>().player);
+            other.GetComponent<Rigidbody2D>().isKinematic = false;
+            other.GetComponent<Rigidbody2D>().mass = 10;
+            other.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
+            other.GetComponent<Rigidbody2D>().AddForce((transform.position + new Vector3(0,0.5f,0) - previousPosition)/(transform.position-previousPosition).magnitude * 6000);
+            other.GetComponent<Combatant>().deadTimer = 1.0f;
+            Time.timeScale = 0.3f;
+            Destroy(gameObject);
         }
     }
 }

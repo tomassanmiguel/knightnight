@@ -127,7 +127,7 @@ public class CameraController : MonoBehaviour
             shakeDuration -= Time.deltaTime; 
         }
  
-        StartSlowMo(0.1f, 1);
-        StartShake(10, 5.0f);
+        //StartSlowMo(0.1f, 1);
+        //StartShake(10, 5.0f);
     }
 }

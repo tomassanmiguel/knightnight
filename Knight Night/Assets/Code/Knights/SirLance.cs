@@ -47,59 +47,62 @@ public class SirLance : MonoBehaviour
 
     void Update()
     {
-        float aimDir = getThrowDirection();
-        if (Input.GetKeyUp(combatant.throwButton) && _hasJavelin)
+        if (combatant.deadTimer == 0)
         {
-            if (aimDir >= 0)
+            float aimDir = getThrowDirection();
+            if (Input.GetKeyUp(combatant.throwButton) && _hasJavelin)
             {
-                throwWeapon(aimDir);
-                aiming = false;
-                _hasJavelin = false;
+                if (aimDir >= 0)
+                {
+                    throwWeapon(aimDir);
+                    aiming = false;
+                    _hasJavelin = false;
+                }
             }
-        }
-        else if (Input.GetKey(combatant.throwButton) && _hasJavelin)
-        {
-            if (aimDir >= 0)
+            else if (Input.GetKey(combatant.throwButton) && _hasJavelin)
             {
-                aiming = true;
+                if (aimDir >= 0)
+                {
+                    aiming = true;
+                }
+                else
+                {
+                    aiming = false;
+                }
             }
             else
             {
                 aiming = false;
             }
-        }
-        else
-        {
-            aiming = false;
-        }
 
-        if (aiming)
-        {
-            aimArrow.GetComponent<SpriteRenderer>().enabled = true;
-            aimArrow.transform.eulerAngles = new Vector3(0, 0, aimDir);
-        }
-        else
-        {
-            aimArrow.GetComponent<SpriteRenderer>().enabled = false;
-        }
+            if (aiming)
+            {
+                aimArrow.GetComponent<SpriteRenderer>().enabled = true;
+                aimArrow.transform.eulerAngles = new Vector3(0, 0, aimDir);
+            }
+            else
+            {
+                aimArrow.GetComponent<SpriteRenderer>().enabled = false;
+            }
 
-        //Jump Logic
-        if (Input.GetKeyDown(combatant.jumpButton) && transform.position.y == _groundY && transform.position.x > positionBounds.x && transform.position.x < positionBounds.y)
-        {
-            _vSpeed = jumpForce;
-        }
+            //Jump Logic
+            if (Input.GetKeyDown(combatant.jumpButton) && transform.position.y == _groundY && transform.position.x > positionBounds.x && transform.position.x < positionBounds.y)
+            {
+                _vSpeed = jumpForce;
+            }
 
-        transform.Translate(0, _vSpeed * Time.deltaTime, 0);
+            transform.Translate(0, _vSpeed * Time.deltaTime, 0);
 
-        if (_vSpeed != 0)
-        {
-            _vSpeed = _vSpeed - gravity * Time.deltaTime;
-        }
+            if (_vSpeed != 0)
+            {
+                _vSpeed = _vSpeed - gravity * Time.deltaTime;
+            }
 
-        if (transform.position.y < _groundY)
-        {
-            _vSpeed = 0;
-            transform.position = new Vector3(transform.position.x, _groundY, 0);
+            if (transform.position.y < _groundY)
+            {
+                _vSpeed = 0;
+                transform.position = new Vector3(transform.position.x, _groundY, 0);
+            }
         }
     }
 
@@ -121,169 +124,176 @@ public class SirLance : MonoBehaviour
     //Knight trots right
     IEnumerator TrotRight()
     {
-        Debug.Log("TR");
-        float maxDist = positionBounds.y - positionBounds.x;
-        float dist = positionBounds.y - transform.position.x;
-        float speedMod = 0.1f;
-        float desiredSpeedMod = 1;
-        while (dist > 0 || transform.position.y != _groundY || speedMod > 0.3f)
+        if (combatant.deadTimer == 0)
         {
-            if (dist < maxDist / 5 && _vSpeed == 0)
+            float maxDist = positionBounds.y - positionBounds.x;
+            float dist = positionBounds.y - transform.position.x;
+            float speedMod = 0.1f;
+            float desiredSpeedMod = 1;
+            while ((dist > 0 || transform.position.y != _groundY || speedMod > 0.3f) && combatant.deadTimer == 0)
             {
-                desiredSpeedMod = 0.1f * (1 + (dist / maxDist) * 45);
-            }
-            else if (dist > 4 * maxDist / 5 && _vSpeed == 0)
-            {
-                desiredSpeedMod = 0.1f * (1 + ((maxDist - dist) / maxDist) * 45);
-            }
-            else if (_vSpeed == 0)
-            {
-                desiredSpeedMod = 1;
+                if (dist < maxDist / 5 && _vSpeed == 0)
+                {
+                    desiredSpeedMod = 0.1f * (1 + (dist / maxDist) * 45);
+                }
+                else if (dist > 4 * maxDist / 5 && _vSpeed == 0)
+                {
+                    desiredSpeedMod = 0.1f * (1 + ((maxDist - dist) / maxDist) * 45);
+                }
+                else if (_vSpeed == 0)
+                {
+                    desiredSpeedMod = 1;
+                }
+
+                if (!aiming && dist > maxDist / 3)
+                {
+                    float aimAxis = getThrowDirection();
+
+                    if (aimAxis == 0)
+                    {
+                        desiredSpeedMod = desiredSpeedMod * 2;
+                    }
+                    else if (aimAxis == 45 || aimAxis == 315)
+                    {
+                        desiredSpeedMod = desiredSpeedMod * 1.5f;
+                    }
+                    else if (aimAxis == 180)
+                    {
+                        desiredSpeedMod = desiredSpeedMod * 0.5f;
+                    }
+                    else if (aimAxis == 135 || aimAxis == 225)
+                    {
+                        desiredSpeedMod = desiredSpeedMod * 0.75f;
+                    }
+                }
+
+                if (speedMod < desiredSpeedMod && _vSpeed == 0)
+                {
+                    speedMod += Time.deltaTime;
+                }
+                else if (speedMod > desiredSpeedMod && _vSpeed == 0)
+                {
+                    speedMod -= Time.deltaTime;
+                }
+                transform.position = (Vector2)transform.position + Vector2.right * ridingSpeed * Time.deltaTime * speedMod;
+                yield return null;
+                dist = positionBounds.y - transform.position.x;
             }
 
-            if (!aiming && dist > maxDist / 3)
-            {
-                float aimAxis = getThrowDirection();
-
-                if (aimAxis == 0)
-                {
-                    desiredSpeedMod = desiredSpeedMod * 2;
-                }
-                else if (aimAxis == 45 || aimAxis == 315)
-                {
-                    desiredSpeedMod = desiredSpeedMod * 1.5f;
-                }
-                else if (aimAxis == 180)
-                {
-                    desiredSpeedMod = desiredSpeedMod * 0.5f;
-                }
-                else if (aimAxis == 135 || aimAxis == 225)
-                {
-                    desiredSpeedMod = desiredSpeedMod * 0.75f;
-                }
-            }
-
-            if (speedMod < desiredSpeedMod && _vSpeed == 0)
-            {
-                speedMod += Time.deltaTime;
-            }
-            else if (speedMod > desiredSpeedMod && _vSpeed == 0)
-            {
-                speedMod -= Time.deltaTime;
-            }
-            transform.position = (Vector2)transform.position + Vector2.right * ridingSpeed * Time.deltaTime * speedMod;
+            StartCoroutine("TurnAround");
             yield return null;
-            dist = positionBounds.y - transform.position.x;
         }
-
-        StartCoroutine("TurnAround");
-        yield return null;
     }
 
     //Knight trots left
     IEnumerator TrotLeft()
     {
-        Debug.Log("TL");
-        float maxDist = positionBounds.y - positionBounds.x;
-        float dist = transform.position.x - positionBounds.x;
-        float speedMod = 0.1f;
-        float desiredSpeedMod = 1;
-        while (dist > 0 || transform.position.y != _groundY || speedMod > 0.3f)
+        if (combatant.deadTimer == 0)
         {
-            if (dist < maxDist / 5 && _vSpeed == 0)
+            float maxDist = positionBounds.y - positionBounds.x;
+            float dist = transform.position.x - positionBounds.x;
+            float speedMod = 0.1f;
+            float desiredSpeedMod = 1;
+            while ((dist > 0 || transform.position.y != _groundY || speedMod > 0.3f) && combatant.deadTimer == 0)
             {
-                desiredSpeedMod = 0.1f * (1 + (dist / maxDist) * 45);
-            }
-            else if (dist > 4 * maxDist / 5 && _vSpeed == 0)
-            {
-                desiredSpeedMod = 0.1f * (1 + ((maxDist - dist) / maxDist) * 45);
-            }
-            else if (_vSpeed == 0)
-            {
-                desiredSpeedMod = 1;
+                if (dist < maxDist / 5 && _vSpeed == 0)
+                {
+                    desiredSpeedMod = 0.1f * (1 + (dist / maxDist) * 45);
+                }
+                else if (dist > 4 * maxDist / 5 && _vSpeed == 0)
+                {
+                    desiredSpeedMod = 0.1f * (1 + ((maxDist - dist) / maxDist) * 45);
+                }
+                else if (_vSpeed == 0)
+                {
+                    desiredSpeedMod = 1;
+                }
+
+                if (!aiming && dist > maxDist / 3)
+                {
+                    float aimAxis = getThrowDirection();
+
+                    if (aimAxis == 0)
+                    {
+                        desiredSpeedMod = desiredSpeedMod * 0.66f;
+                    }
+                    else if (aimAxis == 45 || aimAxis == 315)
+                    {
+                        desiredSpeedMod = desiredSpeedMod * 0.8f;
+                    }
+                    else if (aimAxis == 180)
+                    {
+                        desiredSpeedMod = desiredSpeedMod * 1.5f;
+                    }
+                    else if (aimAxis == 135 || aimAxis == 225)
+                    {
+                        desiredSpeedMod = desiredSpeedMod * 1.25f;
+                    }
+                }
+
+                if (speedMod < desiredSpeedMod && _vSpeed == 0)
+                {
+                    speedMod += Time.deltaTime * 2;
+                }
+                else if (speedMod > desiredSpeedMod && _vSpeed == 0)
+                {
+                    speedMod -= Time.deltaTime * 2;
+                }
+                transform.position = (Vector2)transform.position + Vector2.left * ridingSpeed * Time.deltaTime * speedMod;
+                yield return null;
+                dist = transform.position.x - positionBounds.x;
             }
 
-            if (!aiming && dist > maxDist/3)
-            {
-                float aimAxis = getThrowDirection();
-
-                if (aimAxis == 0)
-                {
-                    desiredSpeedMod = desiredSpeedMod * 0.66f;
-                }
-                else if (aimAxis == 45 || aimAxis == 315)
-                {
-                    desiredSpeedMod = desiredSpeedMod * 0.8f;
-                }
-                else if (aimAxis == 180)
-                {
-                    desiredSpeedMod = desiredSpeedMod * 1.5f;
-                }
-                else if (aimAxis == 135 || aimAxis == 225)
-                {
-                    desiredSpeedMod = desiredSpeedMod * 1.25f;
-                }
-            }
-
-            if (speedMod < desiredSpeedMod && _vSpeed == 0)
-            {
-                speedMod += Time.deltaTime*2;
-            }
-            else if (speedMod > desiredSpeedMod && _vSpeed == 0)
-            {
-                speedMod -= Time.deltaTime*2;
-            }
-            transform.position = (Vector2)transform.position + Vector2.left * ridingSpeed * Time.deltaTime * speedMod;
+            StartCoroutine("TurnAround");
             yield return null;
-            dist = transform.position.x - positionBounds.x;
         }
-
-        StartCoroutine("TurnAround");
-        yield return null;
     }
 
     //Round the tilts
     IEnumerator TurnAround()
     {
-        Debug.Log("TA");
-        SpriteRenderer spr = GetComponent<SpriteRenderer>();
-        spr.flipX = !spr.flipX;
-        facingLeft = !facingLeft;
-
-        while (facingLeft && transform.position.x > positionBounds.y)
+        if (combatant.deadTimer == 0)
         {
-            transform.position = (Vector2)transform.position + Vector2.left * ridingSpeed / 3 * Time.deltaTime;
+            Debug.Log("TA");
+            SpriteRenderer spr = GetComponent<SpriteRenderer>();
+            spr.flipX = !spr.flipX;
+            facingLeft = !facingLeft;
+
+            while (facingLeft && transform.position.x > positionBounds.y)
+            {
+                transform.position = (Vector2)transform.position + Vector2.left * ridingSpeed / 3 * Time.deltaTime;
+                yield return null;
+            }
+            while (!facingLeft && transform.position.x < positionBounds.x)
+            {
+                transform.position = (Vector2)transform.position + Vector2.right * ridingSpeed / 3 * Time.deltaTime;
+                yield return null;
+            }
+
+            combatant.rtt = true;
+
+            while (!combatant.opposingKnight.GetComponent<Combatant>().rtt)
+            {
+                yield return null;
+            }
+
+            combatant.opposingKnight.GetComponent<Combatant>().rtt = false;
+
+            if (facingLeft)
+            {
+                spr.sortingOrder = (int)combatant.sortingOrders.x;
+                _hasJavelin = true;
+                StartCoroutine("TrotLeft");
+            }
+            else
+            {
+                spr.sortingOrder = (int)combatant.sortingOrders.y;
+                _hasJavelin = true;
+                StartCoroutine("TrotRight");
+            }
+
             yield return null;
         }
-        while (!facingLeft && transform.position.x < positionBounds.x)
-        {
-            transform.position = (Vector2)transform.position + Vector2.right * ridingSpeed / 3 * Time.deltaTime;
-            yield return null;
-        }
-
-        combatant.rtt = true;
-
-        while (!combatant.opposingKnight.GetComponent<Combatant>().rtt)
-        {
-            yield return null;
-        }
-
-        combatant.opposingKnight.GetComponent<Combatant>().rtt = false;
-
-        if (facingLeft)
-        {
-            spr.sortingOrder = (int)combatant.sortingOrders.x;
-            _hasJavelin = true;
-            StartCoroutine("TrotLeft");
-        }
-        else
-        {
-            spr.sortingOrder = (int)combatant.sortingOrders.y;
-            _hasJavelin = true;
-            StartCoroutine("TrotRight");
-        }
-
-        yield return null;
     }
 
     float getThrowDirection()
