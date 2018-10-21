@@ -2,19 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NormalHorse : Steed {
+public class Knight : MonoBehaviour {
+
+    //Serialized Fields
+    [SerializeField]
+    private bool _facingLeft;
+    [SerializeField]
+    private Vector2 _positionBounds;
+    [SerializeField]
+    private float _ridingSpeed;
+    [SerializeField]
+    private float _jumpForce;
+    [SerializeField]
+    private float _gravity;
+    [SerializeField]
+    private float _throwForce;
+    [SerializeField]
+    private KeyCode _jumpButton;
+    [SerializeField]
+    private KeyCode _throwButton;
+    [SerializeField]
+    private string _xAxisAim;
+    [SerializeField]
+    private string _yAxisAim;
+    [SerializeField]
+    private Vector2 _sortingOrders;
+    [SerializeField]
+    private GameObject _opposingKnight;
 
     //Private Variables
-    private Combatant c;
     private float groundY;
     private float vSpeed;
     private bool rtt;
 
-
-    public override void go ()
-    {
-        c = GetComponent<Combatant>();
-        if (c._facingLeft)
+	// Initializations
+	void Start () {
+        if (_facingLeft)
         {
             StartCoroutine("TrotLeft");
         }
@@ -30,16 +53,16 @@ public class NormalHorse : Steed {
 	void Update ()
     {
         //Jump Logic
-        if (Input.GetKeyDown(c._jumpButton) && transform.position.y == groundY && transform.position.x > c._positionBounds.x && transform.position.x < c._positionBounds.y)
+        if (Input.GetKeyDown(_jumpButton) && transform.position.y == groundY && transform.position.x > _positionBounds.x && transform.position.x < _positionBounds.y)
         {
-            vSpeed = c._jumpForce;
+            vSpeed = _jumpForce;
         }
 
         transform.Translate(0, vSpeed* Time.deltaTime, 0);
 
         if (vSpeed != 0)
         {
-            vSpeed = vSpeed - c._gravity * Time.deltaTime;
+            vSpeed = vSpeed - _gravity * Time.deltaTime;
         }
 
         if (transform.position.y < groundY)
@@ -52,8 +75,8 @@ public class NormalHorse : Steed {
     //Knight trots right
     IEnumerator TrotRight()
     {
-        float maxDist = c._positionBounds.y - c._positionBounds.x;
-        float dist = c._positionBounds.y - transform.position.x;
+        float maxDist = _positionBounds.y - _positionBounds.x;
+        float dist = _positionBounds.y - transform.position.x;
         float speedMod = 0.1f;
         float desiredSpeedMod = 1;
         while (dist > 0 || transform.position.y != groundY || speedMod > 0.3f)
@@ -79,9 +102,9 @@ public class NormalHorse : Steed {
             {
                 speedMod -= Time.deltaTime;
             }
-            transform.position = (Vector2)transform.position + Vector2.right * c._ridingSpeed * Time.deltaTime * speedMod;
+            transform.position = (Vector2)transform.position + Vector2.right * _ridingSpeed * Time.deltaTime * speedMod;
             yield return null;
-            dist = c._positionBounds.y - transform.position.x;
+            dist = _positionBounds.y - transform.position.x;
         }
 
         StartCoroutine("TurnAround");
@@ -91,8 +114,8 @@ public class NormalHorse : Steed {
     //Knight trots left
     IEnumerator TrotLeft()
     {
-        float maxDist = c._positionBounds.y - c._positionBounds.x;
-        float dist = transform.position.x - c._positionBounds.x;
+        float maxDist = _positionBounds.y - _positionBounds.x;
+        float dist = transform.position.x - _positionBounds.x;
         float speedMod = 0.1f;
         float desiredSpeedMod = 1;
         while (dist > 0 || transform.position.y != groundY || speedMod > 0.3f)
@@ -118,9 +141,9 @@ public class NormalHorse : Steed {
             {
                 speedMod -= Time.deltaTime;
             }
-            transform.position = (Vector2)transform.position + Vector2.left * c._ridingSpeed * Time.deltaTime * speedMod;
+            transform.position = (Vector2)transform.position + Vector2.left * _ridingSpeed * Time.deltaTime * speedMod;
             yield return null;
-            dist = transform.position.x - c._positionBounds.x;
+            dist = transform.position.x - _positionBounds.x;
         }
 
         StartCoroutine("TurnAround");
@@ -132,36 +155,36 @@ public class NormalHorse : Steed {
     {
         SpriteRenderer spr = GetComponent<SpriteRenderer>();
         spr.flipX = !spr.flipX;
-        c._facingLeft = !c._facingLeft;
+        _facingLeft = !_facingLeft;
 
-        while (c._facingLeft && transform.position.x > c._positionBounds.y)
+        while (_facingLeft && transform.position.x > _positionBounds.y)
         {
-            transform.position = (Vector2)transform.position + Vector2.left * c._ridingSpeed / 3 * Time.deltaTime;
+            transform.position = (Vector2)transform.position + Vector2.left * _ridingSpeed / 3 * Time.deltaTime;
             yield return null;
         }
-        while (!c._facingLeft && transform.position.x < c._positionBounds.x)
+        while (!_facingLeft && transform.position.x < _positionBounds.x)
         {
-            transform.position = (Vector2)transform.position + Vector2.right * c._ridingSpeed / 3 * Time.deltaTime;
+            transform.position = (Vector2)transform.position + Vector2.right * _ridingSpeed / 3 * Time.deltaTime;
             yield return null;
         }
 
         rtt = true;
 
-        while (!c._opposingKnight.GetComponent<Steed>().readyToTurn())
+        while (!_opposingKnight.GetComponent<Knight>().readyToTurn())
         {
             yield return null;
         }
 
-        c._opposingKnight.GetComponent<Steed>().unlockRTT();
+        _opposingKnight.GetComponent<Knight>().unlockRTT();
 
-        if (!c._facingLeft)
+        if (!_facingLeft)
         {
-            spr.sortingOrder = (int)c._sortingOrders.x;
+            spr.sortingOrder = (int)_sortingOrders.x;
             StartCoroutine("TrotRight");
         }
         else
         {
-            spr.sortingOrder = (int)c._sortingOrders.y;
+            spr.sortingOrder = (int)_sortingOrders.y;
             StartCoroutine("TrotLeft");
         }
 
@@ -169,12 +192,12 @@ public class NormalHorse : Steed {
     }
 
     //Both knights should turn around simultaneously
-    override public bool readyToTurn()
+    public bool readyToTurn()
     {
         return rtt;
     }
 
-    override public void unlockRTT()
+    public void unlockRTT()
     {
         rtt = false;
     }
