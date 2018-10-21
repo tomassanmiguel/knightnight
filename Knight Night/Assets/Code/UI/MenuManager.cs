@@ -32,19 +32,33 @@ public class MenuManager : MonoBehaviour {
     //Current Active Screen
     private GameObject currentScreen;
 
+    //Current active gameobject
+    private GameObject lastSelected;
+
     private void Awake()
     {
         currentScreen = mainMenu;
         eventSystem.SetSelectedGameObject(startGameButton.gameObject);
+        lastSelected = startGameButton.gameObject;
         player1.gameObject.SetActive(false);
         player2.gameObject.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
+    
 
     private void Update()
     {
         if(currentScreen == mainMenu)
         {
-            
+            if(eventSystem.currentSelectedGameObject == null)
+            {
+                eventSystem.SetSelectedGameObject(lastSelected);
+            }
+            else
+            {
+                lastSelected = eventSystem.currentSelectedGameObject;
+            }
         }
         else if(currentScreen == characterSelect)
         {

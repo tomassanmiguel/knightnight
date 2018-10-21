@@ -7,6 +7,7 @@ public class KnightData : ScriptableObject {
 
     [SerializeField] private string knightName;
     [SerializeField] private string description;
+    [SerializeField] private GameObject prefab;
     //Maybe reference to prefab
 
     public string KnightName
@@ -22,6 +23,14 @@ public class KnightData : ScriptableObject {
         get
         {
             return description;
+        }
+    }
+
+    public GameObject Prefab
+    {
+        get
+        {
+            return prefab;
         }
     }
 }
