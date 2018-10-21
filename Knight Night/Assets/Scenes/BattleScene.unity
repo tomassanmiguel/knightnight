@@ -543,6 +543,21 @@ Prefab:
       propertyPath: aimLeftButton
       value: 276
       objectReference: {fileID: 0}
+    - target: {fileID: 212593003267896248, guid: 635ab5036d6bc0b469fc5862c11604ed,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212593003267896248, guid: 635ab5036d6bc0b469fc5862c11604ed,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.0963881
+      objectReference: {fileID: 0}
+    - target: {fileID: 212593003267896248, guid: 635ab5036d6bc0b469fc5862c11604ed,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 635ab5036d6bc0b469fc5862c11604ed, type: 2}
   m_IsPrefabAsset: 0
