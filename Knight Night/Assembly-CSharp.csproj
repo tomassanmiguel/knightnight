@@ -72,11 +72,14 @@
     <Compile Include="Assets\Code\PlayerInputData.cs" />
     <Compile Include="Assets\Code\SirDance.cs" />
     <Compile Include="Assets\Code\SirExpanse.cs" />
+    <Compile Include="Assets\Code\UI\AnnouncementGenerator.cs" />
+    <Compile Include="Assets\Code\UI\AnnouncementText.cs" />
     <Compile Include="Assets\Code\UI\DescriptionBox.cs" />
     <Compile Include="Assets\Code\UI\Highlighter.cs" />
     <Compile Include="Assets\Code\UI\IntUnityEvent.cs" />
     <Compile Include="Assets\Code\UI\MenuManager.cs" />
     <Compile Include="Assets\Code\UI\MultiEventSystem.cs" />
+    <Compile Include="Assets\Code\UI\ScoreIndicator.cs" />
     <Compile Include="Assets\Code\UI\ScrollSelector.cs" />
     <Compile Include="Assets\Code\Weapons\Javelin.cs" />
     <Reference Include="UnityEditor.StandardEvents">
