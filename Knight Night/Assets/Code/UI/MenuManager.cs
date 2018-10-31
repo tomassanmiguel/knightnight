@@ -35,6 +35,13 @@ public class MenuManager : MonoBehaviour {
     //Current active gameobject
     private GameObject lastSelected;
 
+    //Character selects
+    [SerializeField] private CharacterSelect p1Select;
+    [SerializeField] private CharacterSelect p2Select;
+
+    //Player Knight Choice
+    [SerializeField] private PlayerChoiceData playerChoice;
+
     private void Awake()
     {
         currentScreen = mainMenu;
@@ -62,9 +69,11 @@ public class MenuManager : MonoBehaviour {
         }
         else if(currentScreen == characterSelect)
         {
-            if(Input.GetButtonDown("P1Fire2") || Input.GetButtonDown("P2Fire2"))
+            if(p1Select.ReadyCheck() && p2Select.ReadyCheck())
             {
-                BackToMainMenu();
+                playerChoice.player1 = p1Selector.GetSelectedKnight();
+                playerChoice.player2 = p2Selector.GetSelectedKnight();
+                LoadManager.instance.LoadScene("BattleScene");
             }
         }
         else

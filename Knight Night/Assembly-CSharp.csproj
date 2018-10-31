@@ -69,11 +69,13 @@
     <Compile Include="Assets\Code\KnightData.cs" />
     <Compile Include="Assets\Code\Knights\SirLance.cs" />
     <Compile Include="Assets\Code\LoadManager.cs" />
+    <Compile Include="Assets\Code\PlayerChoiceData.cs" />
     <Compile Include="Assets\Code\PlayerInputData.cs" />
     <Compile Include="Assets\Code\SirDance.cs" />
     <Compile Include="Assets\Code\SirExpanse.cs" />
     <Compile Include="Assets\Code\UI\AnnouncementGenerator.cs" />
     <Compile Include="Assets\Code\UI\AnnouncementText.cs" />
+    <Compile Include="Assets\Code\UI\CharacterSelect.cs" />
     <Compile Include="Assets\Code\UI\DescriptionBox.cs" />
     <Compile Include="Assets\Code\UI\Highlighter.cs" />
     <Compile Include="Assets\Code\UI\IntUnityEvent.cs" />

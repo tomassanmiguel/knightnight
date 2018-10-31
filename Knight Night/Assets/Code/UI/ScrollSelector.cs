@@ -24,6 +24,7 @@ public class ScrollSelector : Selectable {
     //internal use
     private bool selected = false;
     private bool noSpam = false;
+    private bool active = true;
 
 
     protected override void Awake()
@@ -40,7 +41,6 @@ public class ScrollSelector : Selectable {
     protected override void Start()
     {
         base.Start();
-        //grab array of names from GameManager
     }
 
     public int getSelection()
@@ -85,9 +85,19 @@ public class ScrollSelector : Selectable {
         noSpam = false;
     }
 
+    public void SetActive(bool a)
+    {
+        active = a;
+    }
+
+    public KnightData GetSelectedKnight()
+    {
+        return knightCollection.Collection[currIndex];
+    }
+
     private void Update()
     {
-        if (selected && !noSpam)
+        if (selected && active && !noSpam)
         {
             if(Input.GetAxis("Horizontal") > 0)
             {
