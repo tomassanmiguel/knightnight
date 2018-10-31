@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Cursor : MonoBehaviour {
+public class Highlighter : MonoBehaviour {
 
     public int eventSystemIndex;
     public bool useDefaultEventSystem;
@@ -36,15 +36,18 @@ public class Cursor : MonoBehaviour {
 
     private void Update()
     {
-        prevTargetPos = targetPos;
-        targetPos = eventSystem.currentSelectedGameObject.transform.position;
-        if(targetPos != prevTargetPos)
+        if(eventSystem.currentSelectedGameObject != null)
         {
-            if(run != null)
+            prevTargetPos = targetPos;
+            targetPos = eventSystem.currentSelectedGameObject.transform.position;
+            if (targetPos != prevTargetPos)
             {
-                StopCoroutine(run);
+                if (run != null)
+                {
+                    StopCoroutine(run);
+                }
+                run = StartCoroutine(moveTo(targetPos));
             }
-            run = StartCoroutine(moveTo(targetPos));
         }
     }
 
