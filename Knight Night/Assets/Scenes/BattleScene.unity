@@ -1262,6 +1262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1749885401797474, guid: ac0efb498a58b65459996db5b6c4d957, type: 2}
+  canvas: {fileID: 1881614250}
 --- !u!1 &1131612666
 GameObject:
   m_ObjectHideFlags: 0
@@ -1627,6 +1628,7 @@ MonoBehaviour:
   ag: {fileID: 1118192359}
   p1Knight: {fileID: 11400000, guid: bafec5c7faff07946937140e99446bb8, type: 2}
   p2Knight: {fileID: 11400000, guid: bafec5c7faff07946937140e99446bb8, type: 2}
+  knightsReady: 0
   p1Wins: 0
   p2Wins: 0
   winHistory: 

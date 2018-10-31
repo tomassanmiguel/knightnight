@@ -36,12 +36,15 @@ public class GameManager : MonoBehaviour {
     private GameObject p1;
     private GameObject p2;
 
+    public bool knightsReady;
+
     public int p1Wins;
     public int p2Wins; 
     public List<int> winHistory = new List<int>(); 
 
     void Awake ()
     {
+        knightsReady = false;
         if (GameManager.instance == null)
         {
             instance = this;
@@ -80,6 +83,8 @@ public class GameManager : MonoBehaviour {
         p2Text.text = p2Knight.KnightName;
 
         //Set Portraits
+
+        startBattle();
     }
 
     // both increaseRound() and addP1Win() / addP2Win() need to be called
@@ -123,8 +128,26 @@ public class GameManager : MonoBehaviour {
         Destroy(p1);
         Destroy(p2);
 
+        knightsReady = false;
+
         instantiateKnights();
         Time.timeScale = 1;
+        startBattle();
+    }
+
+    public void startBattle()
+    {
+        ag.Announce("Ready?", 1);
+        ag.Announce("3", 0.5f);
+        ag.Announce("2", 0.5f);
+        ag.Announce("1", 0.5f);
+        ag.Announce("Fight!", 0.75f);
+        Invoke("unlock", 4.0f);
+    }
+
+    void unlock()
+    {
+        knightsReady = true;
     }
 
     public void addP1Win()

@@ -22,11 +22,11 @@ public class SirLance : MonoBehaviour
     private float _groundY;
     private float _vSpeed;
     private bool doubleJump;
+    private bool going;
 
     void Start()
     {
         combatant = GetComponent<Combatant>();
-        go();
 
         if (combatant == null)
         {
@@ -34,6 +34,7 @@ public class SirLance : MonoBehaviour
         }
 
         doubleJump = false;
+        going = false;
     }
 
     public void throwWeapon(float aimDir)
@@ -46,70 +47,85 @@ public class SirLance : MonoBehaviour
 
     void Update()
     {
-        if (combatant.deadTimer == 0)
+        if (!going)
         {
-            float aimDir = getThrowDirection();
-            if (Input.GetButtonUp(combatant.throwButton) && _hasJavelin)
+            aimArrow.GetComponent<SpriteRenderer>().enabled = false;
+            if (GameManager.instance.knightsReady)
             {
-                if (aimDir >= 0)
-                {
-                    throwWeapon(aimDir);
-                    aiming = false;
-                    _hasJavelin = false;
-                }
+                go();
+                going = true;
             }
-            else if (Input.GetButton(combatant.throwButton) && _hasJavelin)
+        }
+        else
+        {
+            if (combatant.deadTimer == 0)
             {
-                if (aimDir >= 0)
+                float aimDir = getThrowDirection();
+                if (Input.GetButtonUp(combatant.throwButton) && _hasJavelin)
                 {
-                    aiming = true;
+                    if (aimDir >= 0)
+                    {
+                        throwWeapon(aimDir);
+                        aiming = false;
+                        _hasJavelin = false;
+                    }
+                }
+                else if (Input.GetButton(combatant.throwButton) && _hasJavelin)
+                {
+                    if (aimDir >= 0)
+                    {
+                        aiming = true;
+                    }
+                    else
+                    {
+                        aiming = false;
+                    }
                 }
                 else
                 {
                     aiming = false;
                 }
-            }
-            else
-            {
-                aiming = false;
-            }
 
-            if (aiming)
-            {
-                aimArrow.GetComponent<SpriteRenderer>().enabled = true;
-                aimArrow.transform.eulerAngles = new Vector3(0, 0, aimDir);
+                //Jump Logic
+                if (Input.GetButtonDown(combatant.jumpButton) && transform.position.x > combatant.positionBounds.x && transform.position.x < combatant.positionBounds.y)
+                {
+                    if (transform.position.y == _groundY)
+                    {
+                        _vSpeed = jumpForce;
+                    }
+                    else if (doubleJump)
+                    {
+                        doubleJump = false;
+                        _vSpeed = jumpForce / 1.5f;
+                    }
+                }
+
+                transform.Translate(0, _vSpeed * Time.deltaTime, 0);
+
+                if (_vSpeed != 0)
+                {
+                    _vSpeed = _vSpeed - gravity * Time.deltaTime;
+                }
+
+                if (transform.position.y < _groundY)
+                {
+                    _vSpeed = 0;
+                    doubleJump = true;
+                    transform.position = new Vector3(transform.position.x, _groundY, 0);
+                }
+                if (aiming)
+                {
+                    aimArrow.GetComponent<SpriteRenderer>().enabled = true;
+                    aimArrow.transform.eulerAngles = new Vector3(0, 0, aimDir);
+                }
+                else
+                {
+                    aimArrow.GetComponent<SpriteRenderer>().enabled = false;
+                }
             }
             else
             {
                 aimArrow.GetComponent<SpriteRenderer>().enabled = false;
-            }
-
-            //Jump Logic
-            if (Input.GetButtonDown(combatant.jumpButton) && transform.position.x > combatant.positionBounds.x && transform.position.x < combatant.positionBounds.y)
-            {
-                if (transform.position.y == _groundY)
-                {
-                    _vSpeed = jumpForce;
-                }
-                else if (doubleJump)
-                {
-                    doubleJump = false;
-                    _vSpeed = jumpForce/1.5f;
-                }
-            }
-
-            transform.Translate(0, _vSpeed * Time.deltaTime, 0);
-
-            if (_vSpeed != 0)
-            {
-                _vSpeed = _vSpeed - gravity * Time.deltaTime;
-            }
-
-            if (transform.position.y < _groundY)
-            {
-                _vSpeed = 0;
-                doubleJump = true;
-                transform.position = new Vector3(transform.position.x, _groundY, 0);
             }
         }
     }
