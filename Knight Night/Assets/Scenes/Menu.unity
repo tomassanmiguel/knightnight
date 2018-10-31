@@ -2144,6 +2144,9 @@ MonoBehaviour:
   player2: {fileID: 402029031}
   p1Selector: {fileID: 1788968088}
   p2Selector: {fileID: 0}
+  p1Select: {fileID: 1584856978}
+  p2Select: {fileID: 0}
+  playerChoice: {fileID: 11400000, guid: b4768ff515b5a2f44a8c652d04dc0106, type: 2}
 --- !u!1 &1224282499
 GameObject:
   m_ObjectHideFlags: 0
@@ -2532,6 +2535,7 @@ GameObject:
   - component: {fileID: 1584856975}
   - component: {fileID: 1584856977}
   - component: {fileID: 1584856976}
+  - component: {fileID: 1584856978}
   m_Layer: 5
   m_Name: Player 1
   m_TagString: Untagged
@@ -2598,6 +2602,21 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1584856974}
   m_CullTransparentMesh: 0
+--- !u!114 &1584856978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1584856974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f118bafaffe0d3e4f87ac57032bed7e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuManager: {fileID: 1199696413}
+  input: {fileID: 11400000, guid: 8bc85a969338d7c418ca3f79ead8a047, type: 2}
+  readyOverlay: {fileID: 2076290384}
+  selector: {fileID: 1788968088}
 --- !u!1 &1586998849
 GameObject:
   m_ObjectHideFlags: 0

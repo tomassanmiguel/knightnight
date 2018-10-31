@@ -13,3 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knightName: Sir Lance
   description: Default Knight
+  prefab: {fileID: 1294198668226220, guid: 635ab5036d6bc0b469fc5862c11604ed, type: 2}
