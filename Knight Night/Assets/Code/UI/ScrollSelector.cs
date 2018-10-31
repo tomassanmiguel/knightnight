@@ -14,6 +14,9 @@ public class ScrollSelector : Selectable {
     public KnightCollection knightCollection;
 
     [SerializeField] private IntUnityEvent changeSelection;
+
+    [SerializeField]
+    private PlayerInputData input;
     
     private int currIndex;
 
@@ -99,7 +102,7 @@ public class ScrollSelector : Selectable {
     {
         if (selected && active && !noSpam)
         {
-            if(Input.GetAxis("Horizontal") > 0)
+            if(Input.GetAxis(input.Horizontal) > 0)
             {
                 //Right
                 currIndex++;
@@ -109,7 +112,7 @@ public class ScrollSelector : Selectable {
                 noSpam = true;
                 StartCoroutine(SpamDelayed());
             }
-            else if (Input.GetAxis("Horizontal") < 0)
+            else if (Input.GetAxis(input.Horizontal) < 0)
             {
                 //Left
                 currIndex--;
