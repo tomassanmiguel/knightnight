@@ -6,27 +6,23 @@ using UnityEngine.SceneManagement;
 public class Combatant : MonoBehaviour {
 
     [SerializeField]
-    public KeyCode jumpButton;
+    public string jumpButton;
     [SerializeField]
-    public KeyCode throwButton;
+    public string throwButton;
     [SerializeField]
     public string xAxisAim;
     [SerializeField]
     public string yAxisAim;
-    [SerializeField]
-    public KeyCode aimUpButton;
-    [SerializeField]
-    public KeyCode aimDownButton;
-    [SerializeField]
-    public KeyCode aimRightButton;
-    [SerializeField]
-    public KeyCode aimLeftButton;
     [SerializeField]
     public Vector2 sortingOrders;
     [SerializeField]
     public GameObject opposingKnight;
     [SerializeField]
     public int player;
+    [SerializeField]
+    public bool facingLeft;
+    [SerializeField]
+    public Vector2 positionBounds;
 
     public float deadTimer = 0;
 
@@ -39,9 +35,7 @@ public class Combatant : MonoBehaviour {
             deadTimer -= Time.deltaTime;
             if (deadTimer <= 0)
             {
-                Time.timeScale = 1.0f;
-                int scene = SceneManager.GetActiveScene().buildIndex;
-                SceneManager.LoadScene(scene, LoadSceneMode.Single);
+                GameManager.instance.resetScene();
             }
         }
     }

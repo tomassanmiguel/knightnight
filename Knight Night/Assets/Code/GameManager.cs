@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -11,8 +13,28 @@ public class GameManager : MonoBehaviour {
 
     private int currentRound = 0;
 
-    public int p1Knight;
-    public int p2Knight;
+    public ScoreIndicator p1ScoreIndicator;
+    public ScoreIndicator p2ScoreIndicator;
+
+    public Transform p1Spawn;
+    public Transform p2Spawn;
+
+    public Image p1Portrait;
+    public Image p2Portrait;
+
+    public Text p1Text;
+    public Text p2Text;
+
+    public PlayerInputData p1inputdata;
+    public PlayerInputData p2inputdata;
+
+    public AnnouncementGenerator ag;
+
+    public KnightData p1Knight;
+    public KnightData p2Knight;
+
+    private GameObject p1;
+    private GameObject p2;
 
     public int p1Wins;
     public int p2Wins; 
@@ -27,13 +49,38 @@ public class GameManager : MonoBehaviour {
         else if (instance != this)
             Destroy(gameObject);
 
-        DontDestroyOnLoad(gameObject);
+        //Non-Persistant Now!
+        //DontDestroyOnLoad(gameObject);
     }
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
+
+    public void setKnightData(KnightData p1, KnightData p2)
+    {
+        p1Knight = p1;
+        p2Knight = p2;
+    }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnLevelFinishedLoading;
+    }
+
+    void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+    {
+        //Set Knight UI Stuff
+
+        //Instantiate the Knights
+        instantiateKnights();
+
+        p1Text.text = p1Knight.KnightName;
+        p2Text.text = p2Knight.KnightName;
+
+        //Set Portraits
+    }
 
     // both increaseRound() and addP1Win() / addP2Win() need to be called
     public void increaseRound()
@@ -41,10 +88,50 @@ public class GameManager : MonoBehaviour {
         currentRound += 1; 
     }
 
+    public void instantiateKnights()
+    {
+        p1 = Instantiate(p1Knight.Prefab);
+        p2 = Instantiate(p2Knight.Prefab);
+
+        Combatant c1 = p1.GetComponent<Combatant>();
+        Combatant c2 = p2.GetComponent<Combatant>();
+
+        c1.opposingKnight = p2;
+        c2.opposingKnight = p1;
+
+        c1.jumpButton = p1inputdata.Fire1;
+        c2.jumpButton = p2inputdata.Fire1;
+        c1.throwButton = p1inputdata.Fire2;
+        c2.throwButton = p2inputdata.Fire2;
+        c1.xAxisAim = p1inputdata.Horizontal;
+        c2.xAxisAim = p2inputdata.Horizontal;
+        c1.yAxisAim = p1inputdata.Vertical;
+        c2.yAxisAim = p2inputdata.Vertical;
+        c1.positionBounds = new Vector2(p1Spawn.position.x, p2Spawn.position.x);
+        c2.positionBounds = new Vector2(p1Spawn.position.x, p2Spawn.position.x);
+        c2.facingLeft = true;
+        c1.player = 1;
+        c2.player = 2;
+        p2.GetComponent<SpriteRenderer>().flipX = true;
+
+        p1.transform.position = p1Spawn.position;
+        p2.transform.position = p2Spawn.position;
+    }
+
+    public void resetScene()
+    {
+        Destroy(p1);
+        Destroy(p2);
+
+        instantiateKnights();
+        Time.timeScale = 1;
+    }
+
     public void addP1Win()
     {
         p1Wins += 1;
         winHistory.Add(1);
+        p1ScoreIndicator.ShowScore(p1Wins);
         increaseRound();
     }
 
@@ -52,6 +139,7 @@ public class GameManager : MonoBehaviour {
     {
         p2Wins += 1;
         winHistory.Add(2);
+        p2ScoreIndicator.ShowScore(p2Wins);
         increaseRound();
     }
 	
@@ -74,9 +162,4 @@ public class GameManager : MonoBehaviour {
 
         return 0;
     }
-    
-    // Update is called once per frame
-    void Update () {
-		
-	}
 }

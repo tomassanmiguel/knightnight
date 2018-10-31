@@ -43,16 +43,7 @@ public class Javelin : MonoBehaviour
                 GameManager.instance.addP2Win();
             }
 
-            if (GameManager.instance.getOverallWinner() == 1)
-            {
-                Debug.Log("Player 1 Wins!");
-            }
-            else if (GameManager.instance.getOverallWinner() == 2)
-            {
-                Debug.Log("Player 2 Wins!");
-            }
-
-            Camera.main.GetComponent<CameraController>().StartSlowMo(0.2f, other.GetComponent<Combatant>().player);
+            //Camera.main.GetComponent<CameraController>().StartSlowMo(0.2f, other.GetComponent<Combatant>().player);
             other.GetComponent<Rigidbody2D>().isKinematic = false;
             other.GetComponent<Rigidbody2D>().mass = 10;
             other.GetComponent<Rigidbody2D>().gravityScale = 1.0f;

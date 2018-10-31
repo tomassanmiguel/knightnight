@@ -9,10 +9,6 @@ public class SirLance : MonoBehaviour
     [SerializeField]
     public GameObject javelin;
     [SerializeField]
-    public bool facingLeft;
-    [SerializeField]
-    public Vector2 positionBounds;
-    [SerializeField]
     public float ridingSpeed;
     [SerializeField]
     public float jumpForce;
@@ -25,6 +21,7 @@ public class SirLance : MonoBehaviour
     private bool _hasJavelin = true;
     private float _groundY;
     private float _vSpeed;
+    private bool doubleJump;
 
     void Start()
     {
@@ -35,6 +32,8 @@ public class SirLance : MonoBehaviour
         {
             Debug.Log("Sir Lance requires Combatant component");
         }
+
+        doubleJump = false;
     }
 
     public void throwWeapon(float aimDir)
@@ -50,7 +49,7 @@ public class SirLance : MonoBehaviour
         if (combatant.deadTimer == 0)
         {
             float aimDir = getThrowDirection();
-            if (Input.GetKeyUp(combatant.throwButton) && _hasJavelin)
+            if (Input.GetButtonUp(combatant.throwButton) && _hasJavelin)
             {
                 if (aimDir >= 0)
                 {
@@ -59,7 +58,7 @@ public class SirLance : MonoBehaviour
                     _hasJavelin = false;
                 }
             }
-            else if (Input.GetKey(combatant.throwButton) && _hasJavelin)
+            else if (Input.GetButton(combatant.throwButton) && _hasJavelin)
             {
                 if (aimDir >= 0)
                 {
@@ -86,9 +85,17 @@ public class SirLance : MonoBehaviour
             }
 
             //Jump Logic
-            if (Input.GetKeyDown(combatant.jumpButton) && transform.position.y == _groundY && transform.position.x > positionBounds.x && transform.position.x < positionBounds.y)
+            if (Input.GetButtonDown(combatant.jumpButton) && transform.position.x > combatant.positionBounds.x && transform.position.x < combatant.positionBounds.y)
             {
-                _vSpeed = jumpForce;
+                if (transform.position.y == _groundY)
+                {
+                    _vSpeed = jumpForce;
+                }
+                else if (doubleJump)
+                {
+                    doubleJump = false;
+                    _vSpeed = jumpForce/1.5f;
+                }
             }
 
             transform.Translate(0, _vSpeed * Time.deltaTime, 0);
@@ -101,6 +108,7 @@ public class SirLance : MonoBehaviour
             if (transform.position.y < _groundY)
             {
                 _vSpeed = 0;
+                doubleJump = true;
                 transform.position = new Vector3(transform.position.x, _groundY, 0);
             }
         }
@@ -108,7 +116,7 @@ public class SirLance : MonoBehaviour
 
     void go()
     {
-        if (facingLeft)
+        if (combatant.facingLeft)
         {
             StartCoroutine("TrotLeft");
         }
@@ -126,8 +134,8 @@ public class SirLance : MonoBehaviour
     {
         if (combatant.deadTimer == 0)
         {
-            float maxDist = positionBounds.y - positionBounds.x;
-            float dist = positionBounds.y - transform.position.x;
+            float maxDist = combatant.positionBounds.y - combatant.positionBounds.x;
+            float dist = combatant.positionBounds.y - transform.position.x;
             float speedMod = 0.1f;
             float desiredSpeedMod = 1;
             while ((dist > 0 || transform.position.y != _groundY || speedMod > 0.3f) && combatant.deadTimer == 0)
@@ -177,7 +185,7 @@ public class SirLance : MonoBehaviour
                 }
                 transform.position = (Vector2)transform.position + Vector2.right * ridingSpeed * Time.deltaTime * speedMod;
                 yield return null;
-                dist = positionBounds.y - transform.position.x;
+                dist = combatant.positionBounds.y - transform.position.x;
             }
 
             StartCoroutine("TurnAround");
@@ -190,8 +198,8 @@ public class SirLance : MonoBehaviour
     {
         if (combatant.deadTimer == 0)
         {
-            float maxDist = positionBounds.y - positionBounds.x;
-            float dist = transform.position.x - positionBounds.x;
+            float maxDist = combatant.positionBounds.y - combatant.positionBounds.x;
+            float dist = transform.position.x - combatant.positionBounds.x;
             float speedMod = 0.1f;
             float desiredSpeedMod = 1;
             while ((dist > 0 || transform.position.y != _groundY || speedMod > 0.3f) && combatant.deadTimer == 0)
@@ -241,7 +249,7 @@ public class SirLance : MonoBehaviour
                 }
                 transform.position = (Vector2)transform.position + Vector2.left * ridingSpeed * Time.deltaTime * speedMod;
                 yield return null;
-                dist = transform.position.x - positionBounds.x;
+                dist = transform.position.x - combatant.positionBounds.x;
             }
 
             StartCoroutine("TurnAround");
@@ -257,14 +265,14 @@ public class SirLance : MonoBehaviour
             Debug.Log("TA");
             SpriteRenderer spr = GetComponent<SpriteRenderer>();
             spr.flipX = !spr.flipX;
-            facingLeft = !facingLeft;
+            combatant.facingLeft = !combatant.facingLeft;
 
-            while (facingLeft && transform.position.x > positionBounds.y)
+            while (combatant.facingLeft && transform.position.x > combatant.positionBounds.y)
             {
                 transform.position = (Vector2)transform.position + Vector2.left * ridingSpeed / 3 * Time.deltaTime;
                 yield return null;
             }
-            while (!facingLeft && transform.position.x < positionBounds.x)
+            while (!combatant.facingLeft && transform.position.x < combatant.positionBounds.x)
             {
                 transform.position = (Vector2)transform.position + Vector2.right * ridingSpeed / 3 * Time.deltaTime;
                 yield return null;
@@ -279,7 +287,7 @@ public class SirLance : MonoBehaviour
 
             combatant.opposingKnight.GetComponent<Combatant>().rtt = false;
 
-            if (facingLeft)
+            if (combatant.facingLeft)
             {
                 spr.sortingOrder = (int)combatant.sortingOrders.x;
                 _hasJavelin = true;
@@ -298,56 +306,10 @@ public class SirLance : MonoBehaviour
 
     float getThrowDirection()
     {
-        bool u = Input.GetKey(combatant.aimUpButton);
-        bool d = Input.GetKey(combatant.aimDownButton);
-        bool r = Input.GetKey(combatant.aimRightButton);
-        bool l = Input.GetKey(combatant.aimLeftButton);
         float hAxis = Input.GetAxis(combatant.xAxisAim);
         float vAxis = Input.GetAxis(combatant.yAxisAim);
 
-        if (u || d || r || l)
-        {
-            if (r)
-            {
-                if (u)
-                {
-                    return 45;
-                }
-                else if (d)
-                {
-                    return 315;
-                }
-                else
-                {
-                    return 0;
-                }
-            }
-            else if (l)
-            {
-                if (u)
-                {
-                    return 135;
-                }
-                else if (d)
-                {
-                    return 225;
-                }
-                else
-                {
-                    return 180;
-                }
-            }
-            else if (u)
-            {
-                return 90;
-            }
-            else if (d)
-            {
-                return 270;
-            }
-        }
-
-        else if (hAxis != 0 || vAxis != 0)
+        if (hAxis != 0 || vAxis != 0)
         {
             if (hAxis > 0.2f)
             {
@@ -391,7 +353,7 @@ public class SirLance : MonoBehaviour
                 {
                     return 270;
                 }
-                else if (facingLeft)
+                else if (combatant.facingLeft)
                 {
                     return 180;
                 }
