@@ -2069,6 +2069,12 @@ Prefab:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114151848994248446, guid: 9b6eda3461cc7b1469401e68a67a164f,
+        type: 2}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: 11400000, guid: 8bc85a969338d7c418ca3f79ead8a047,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b6eda3461cc7b1469401e68a67a164f, type: 2}
   m_IsPrefabAsset: 0
@@ -3286,6 +3292,12 @@ Prefab:
       propertyPath: m_Text
       value: Sir Lance
       objectReference: {fileID: 0}
+    - target: {fileID: 114151848994248446, guid: 9b6eda3461cc7b1469401e68a67a164f,
+        type: 2}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: 11400000, guid: e3f59a1ccce989e4d83af972f2d7b0ee,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b6eda3461cc7b1469401e68a67a164f, type: 2}
   m_IsPrefabAsset: 0

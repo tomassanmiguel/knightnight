@@ -117,6 +117,7 @@ public class GameManager : MonoBehaviour {
         c2.facingLeft = true;
         c1.player = 1;
         c2.player = 2;
+        p1.GetComponent<SpriteRenderer>().color = Color.blue;
         p2.GetComponent<SpriteRenderer>().flipX = true;
 
         p1.transform.position = p1Spawn.position;

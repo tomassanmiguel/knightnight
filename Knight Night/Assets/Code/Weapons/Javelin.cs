@@ -9,15 +9,34 @@ public class Javelin : MonoBehaviour
     private float _speed;
     [SerializeField]
     private float _timeToDestroy = 5;
+    [SerializeField]
+    private float _gravity = 1.2f;
 
     public GameObject _otherKnight;
     private float _createTime;
+    private float vspeed = 0;
     private Vector3 previousPosition;
+    private bool stopped = false;
 
     void Update()
     {
-        previousPosition = transform.position;
-        transform.Translate(_speed * Time.deltaTime, 0, 0);
+        if (!stopped)
+        {
+            previousPosition = transform.position;
+            transform.Translate(_speed * Time.deltaTime, 0, 0);
+
+            transform.position = transform.position - new Vector3(0, vspeed * Time.deltaTime, 0);
+
+            vspeed += _gravity;
+
+            Vector3 moveDirection = transform.position - previousPosition;
+            if (moveDirection != Vector3.zero)
+            {
+                float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            }
+        }
+
         if (Time.time - _createTime > _timeToDestroy)
         {
             Destroy(gameObject);
@@ -32,7 +51,7 @@ public class Javelin : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject == _otherKnight)
+        if (other.gameObject == _otherKnight && !stopped)
         {
             if (other.GetComponent<Combatant>().player == 1)
             {
@@ -51,6 +70,11 @@ public class Javelin : MonoBehaviour
             other.GetComponent<Combatant>().deadTimer = 1.0f;
             Time.timeScale = 0.3f;
             Destroy(gameObject);
+        }
+
+        if (other.gameObject.tag == "Ground")
+        {
+            stopped = true;
         }
     }
 }

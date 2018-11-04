@@ -15,6 +15,8 @@ public class SirLance : MonoBehaviour
     [SerializeField]
     public float gravity;
     [SerializeField]
+    private float doubleJumpForce;
+    [SerializeField]
     public GameObject aimArrow;
 
     private bool aiming = false;
@@ -96,7 +98,7 @@ public class SirLance : MonoBehaviour
                     else if (doubleJump)
                     {
                         doubleJump = false;
-                        _vSpeed = jumpForce / 1.5f;
+                        _vSpeed = doubleJumpForce;
                     }
                 }
 
@@ -285,12 +287,12 @@ public class SirLance : MonoBehaviour
 
             while (combatant.facingLeft && transform.position.x > combatant.positionBounds.y)
             {
-                transform.position = (Vector2)transform.position + Vector2.left * ridingSpeed / 3 * Time.deltaTime;
+                transform.position = (Vector2)transform.position + Vector2.left * ridingSpeed * Time.deltaTime;
                 yield return null;
             }
             while (!combatant.facingLeft && transform.position.x < combatant.positionBounds.x)
             {
-                transform.position = (Vector2)transform.position + Vector2.right * ridingSpeed / 3 * Time.deltaTime;
+                transform.position = (Vector2)transform.position + Vector2.right * ridingSpeed * Time.deltaTime;
                 yield return null;
             }
 
