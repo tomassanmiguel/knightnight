@@ -9,6 +9,8 @@ public class Highlighter : MonoBehaviour {
     public bool useDefaultEventSystem;
     public float moveSpeed;
 
+    public float buttonWidth;
+
     private EventSystem eventSystem;
 
     private Vector3 targetPos;
@@ -30,7 +32,8 @@ public class Highlighter : MonoBehaviour {
 
     private void Start()
     {
-        targetPos = eventSystem.currentSelectedGameObject.transform.position;
+        Vector3 offset = eventSystem.currentSelectedGameObject.transform.right * (buttonWidth / 2);
+        targetPos = eventSystem.currentSelectedGameObject.transform.position - offset;
         transform.position = targetPos;
     }
 
@@ -39,7 +42,8 @@ public class Highlighter : MonoBehaviour {
         if(eventSystem.currentSelectedGameObject != null)
         {
             prevTargetPos = targetPos;
-            targetPos = eventSystem.currentSelectedGameObject.transform.position;
+            Vector3 offset = eventSystem.currentSelectedGameObject.transform.right * (buttonWidth / 2);
+            targetPos = eventSystem.currentSelectedGameObject.transform.position - offset;
             if (targetPos != prevTargetPos)
             {
                 if (run != null)
