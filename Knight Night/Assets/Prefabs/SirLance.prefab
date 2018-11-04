@@ -174,8 +174,9 @@ MonoBehaviour:
   combatant: {fileID: 0}
   javelin: {fileID: 1068531828505816, guid: 2599782209aa3e44783209c3c6e6d2c1, type: 2}
   ridingSpeed: 10
-  jumpForce: 15
-  gravity: 18
+  jumpForce: 30
+  gravity: 64
+  doubleJumpForce: 24
   aimArrow: {fileID: 1548073140692546}
 --- !u!212 &212090565237631848
 SpriteRenderer:
