@@ -64,6 +64,7 @@
     <Compile Include="Assets\Code\CameraController.cs" />
     <Compile Include="Assets\Code\Combatant.cs" />
     <Compile Include="Assets\Code\Crowd\CrowdController.cs" />
+    <Compile Include="Assets\Code\Crowd\CrowdGroup.cs" />
     <Compile Include="Assets\Code\Knights\Knight.cs" />
     <Compile Include="Assets\Code\Knights\SirLance.cs" />
     <Compile Include="Assets\Code\Steeds\DJ.cs" />

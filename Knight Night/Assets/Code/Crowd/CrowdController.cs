@@ -4,13 +4,8 @@ using System;
 
 public class CrowdController : MonoBehaviour
 {
-
-    //adjust this to change speed
-    float speed = 4f;
-    //adjust this to change how high it goes
-    float height = 1.5f;
-
     public float id;
+    public CrowdGroup parent;
 
     // Use this for initialization
     void Start()
@@ -21,20 +16,34 @@ public class CrowdController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        string parent = transform.parent.name;
+        //System.Random rand = new System.Random();
+        string parentName = transform.parent.name;
         //get the objects current position and put it in a variable so we can access it later with less code
         Vector3 pos = transform.position;
-        float newY;
-        if (parent == "RedCrowd")
+        float newY = 0;
+        if (parentName == "RedCrowd")
         {
-            //calculate what the new Y position will be
-            newY = Mathf.Sin(Time.time * 2 * speed + id);
+            float crowdThreshold = parent.redExcitement*transform.parent.childCount;
+
+            if (id < crowdThreshold)
+            {
+                //calculate what the new Y position will be
+                newY = Mathf.Sin(Time.time * parent.speed * parent.redExcitement + id);
+            }
+            //set the object's Y to the new calculated Y
+            transform.position = new Vector3(pos.x, parent.redHeight + newY * parent.amp, pos.z);
         }
         else
         {
-            newY = Mathf.Sin(Time.time * speed + id);
+            float crowdThreshold = parent.blueExcitement*transform.parent.childCount;
+
+            if (id < crowdThreshold)
+            {
+                newY = Mathf.Sin(Time.time * parent.speed * parent.blueExcitement);
+            }
+            //set the object's Y to the new calculated Y
+            transform.position = new Vector3(pos.x, parent.blueHeight + newY * parent.amp, pos.z);
         }
-        //set the object's Y to the new calculated Y
-        transform.position = new Vector3(pos.x, newY*height, pos.z);
+        
     }
 }
