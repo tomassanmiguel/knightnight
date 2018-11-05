@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Highlighter : MonoBehaviour {
 
     public int eventSystemIndex;
     public bool useDefaultEventSystem;
     public float moveSpeed;
-
-    public float buttonWidth;
 
     private EventSystem eventSystem;
 
@@ -32,8 +31,7 @@ public class Highlighter : MonoBehaviour {
 
     private void Start()
     {
-        Vector3 offset = eventSystem.currentSelectedGameObject.transform.right * (buttonWidth / 2);
-        targetPos = eventSystem.currentSelectedGameObject.transform.position - offset;
+        targetPos = FindRightSide();
         transform.position = targetPos;
     }
 
@@ -42,8 +40,10 @@ public class Highlighter : MonoBehaviour {
         if(eventSystem.currentSelectedGameObject != null)
         {
             prevTargetPos = targetPos;
-            Vector3 offset = eventSystem.currentSelectedGameObject.transform.right * (buttonWidth / 2);
-            targetPos = eventSystem.currentSelectedGameObject.transform.position - offset;
+            targetPos = FindRightSide();
+            transform.position = targetPos;
+            //For Smooth Movement
+            /*
             if (targetPos != prevTargetPos)
             {
                 if (run != null)
@@ -52,9 +52,11 @@ public class Highlighter : MonoBehaviour {
                 }
                 run = StartCoroutine(moveTo(targetPos));
             }
+            */
         }
     }
 
+    //For smooth movement
     private IEnumerator moveTo(Vector3 position)
     {
         //Swap this to sin/cos curved movement later
@@ -65,6 +67,18 @@ public class Highlighter : MonoBehaviour {
             yield return new WaitForSeconds(0.01f);
             idx += moveSpeed;
         }
+    }
+
+    private Vector3 FindLeftSide()
+    {
+        GameObject curr = eventSystem.currentSelectedGameObject;
+        return curr.transform.position - (curr.transform.right * (curr.GetComponent<RectTransform>().sizeDelta.x / (curr.GetComponent<Image>().canvas.referencePixelsPerUnit * 2)));
+    }
+
+    private Vector3 FindRightSide()
+    {
+        GameObject curr = eventSystem.currentSelectedGameObject;
+        return curr.transform.position + (curr.transform.right * (curr.GetComponent<RectTransform>().sizeDelta.x / (curr.GetComponent<Image>().canvas.referencePixelsPerUnit * 2)));
     }
 
 }

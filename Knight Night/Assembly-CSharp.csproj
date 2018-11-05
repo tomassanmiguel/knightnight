@@ -75,6 +75,7 @@
     <Compile Include="Assets\Code\SirExpanse.cs" />
     <Compile Include="Assets\Code\UI\AnnouncementGenerator.cs" />
     <Compile Include="Assets\Code\UI\AnnouncementText.cs" />
+    <Compile Include="Assets\Code\UI\AudioFade.cs" />
     <Compile Include="Assets\Code\UI\CharacterSelect.cs" />
     <Compile Include="Assets\Code\UI\DescriptionBox.cs" />
     <Compile Include="Assets\Code\UI\Highlighter.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Assets\Code\UI\ScoreIndicator.cs" />
     <Compile Include="Assets\Code\UI\ScrollSelector.cs" />
     <Compile Include="Assets\Code\Weapons\Javelin.cs" />
+    <Compile Include="Assets\Code\Weapons\Record.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
