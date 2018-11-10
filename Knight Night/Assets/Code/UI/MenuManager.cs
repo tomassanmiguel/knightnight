@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.PostProcessing;
 
 public class MenuManager : MonoBehaviour {
 
@@ -29,11 +30,17 @@ public class MenuManager : MonoBehaviour {
     public ScrollSelector p1Selector;
     public ScrollSelector p2Selector;
 
+    //TransitionScreen
+    [SerializeField] private Animator transitionScreen;
+
     //Current Active Screen
     private GameObject currentScreen;
 
     //Current active gameobject
     private GameObject lastSelected;
+
+    //currently running transition
+    private Coroutine currTransition;
 
     //Character selects
     [SerializeField] private CharacterSelect p1Select;
@@ -101,18 +108,78 @@ public class MenuManager : MonoBehaviour {
 
     public void ToControls()
     {
+        if(currTransition == null)
+        {
+            currTransition = StartCoroutine(transitionToControls());
+        }
+    }
+
+    private IEnumerator transitionToControls()
+    {
+        eventSystem.gameObject.SetActive(false);
+        transitionScreen.gameObject.SetActive(true);
+        transitionScreen.SetBool("active", true);
+        yield return new WaitForSeconds(0.5f);
+        Camera.main.GetComponent<PostProcessingBehaviour>().enabled = false;
         currentScreen.SetActive(false);
         currentScreen = controls;
-        //Play animation
         currentScreen.SetActive(true);
+        controls.GetComponent<Animator>().SetBool("active", true);
+        yield return new WaitForSeconds(0.5f);
+        currTransition = null;
+
+    }
+
+    private IEnumerator transitionFromControls()
+    {
+        controls.GetComponent<Animator>().SetBool("active", false);
+        yield return new WaitForSeconds(0.5f);
+        currentScreen.SetActive(false);
+        Camera.main.GetComponent<PostProcessingBehaviour>().enabled = true;
+        currentScreen = mainMenu;
+        currentScreen.SetActive(true);
+        transitionScreen.SetBool("active", false);
+        yield return new WaitForSeconds(0.5f);
+        eventSystem.gameObject.SetActive(true);
+        currTransition = null;
     }
 
     public void ToCredits()
     {
+        if (currTransition == null)
+        {
+            currTransition = StartCoroutine(transitionToCredits());
+        }
+    }
+
+    private IEnumerator transitionToCredits()
+    {
+        eventSystem.gameObject.SetActive(false);
+        transitionScreen.gameObject.SetActive(true);
+        transitionScreen.SetBool("active", true);
+        yield return new WaitForSeconds(0.5f);
+        Camera.main.GetComponent<PostProcessingBehaviour>().enabled = false;
         currentScreen.SetActive(false);
         currentScreen = credits;
-        //Play animation
         currentScreen.SetActive(true);
+        credits.GetComponent<Animator>().SetBool("active", true);
+        yield return new WaitForSeconds(0.5f);
+        currTransition = null;
+
+    }
+
+    private IEnumerator transitionFromCredits()
+    {
+        credits.GetComponent<Animator>().SetBool("active", false);
+        yield return new WaitForSeconds(0.5f);
+        currentScreen.SetActive(false);
+        Camera.main.GetComponent<PostProcessingBehaviour>().enabled = true;
+        currentScreen = mainMenu;
+        currentScreen.SetActive(true);
+        transitionScreen.SetBool("active", false);
+        yield return new WaitForSeconds(0.5f);
+        eventSystem.gameObject.SetActive(true);
+        currTransition = null;
     }
 
     public void BackToMainMenu()
@@ -124,11 +191,27 @@ public class MenuManager : MonoBehaviour {
             eventSystem.gameObject.SetActive(true);
             eventSystem.SetSelectedGameObject(startGameButton.gameObject);
         }
-        Debug.Log(currentScreen);
-        currentScreen.SetActive(false);
-        currentScreen = mainMenu;
-        //Play animation
-        currentScreen.SetActive(true);
+        else if(currentScreen == controls)
+        {
+            if(currTransition == null)
+            {
+                currTransition = StartCoroutine(transitionFromControls());
+            }
+        }
+        else if(currentScreen == credits)
+        {
+            if (currTransition == null)
+            {
+                currTransition = StartCoroutine(transitionFromCredits());
+            }
+        }
+        else
+        {
+            currentScreen.SetActive(false);
+            currentScreen = mainMenu;
+            //Play animation
+            currentScreen.SetActive(true);
+        }
     }
 
     public void Quit()

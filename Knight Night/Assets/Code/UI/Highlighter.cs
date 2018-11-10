@@ -73,12 +73,14 @@ public class Highlighter : MonoBehaviour {
     {
         GameObject curr = eventSystem.currentSelectedGameObject;
         return curr.transform.position - (curr.transform.right * (curr.GetComponent<RectTransform>().sizeDelta.x / (curr.GetComponent<Image>().canvas.referencePixelsPerUnit * 2)));
+        //return new Vector3(curr.transform.position.x - (curr.GetComponent<RectTransform>().sizeDelta.x / (curr.GetComponent<Image>().canvas.referencePixelsPerUnit)), curr.transform.position.y - (curr.GetComponent<RectTransform>().sizeDelta.y / (curr.GetComponent<Image>().canvas.referencePixelsPerUnit * 2)), curr.transform.position.z);
     }
 
     private Vector3 FindRightSide()
     {
         GameObject curr = eventSystem.currentSelectedGameObject;
         return curr.transform.position + (curr.transform.right * (curr.GetComponent<RectTransform>().sizeDelta.x / (curr.GetComponent<Image>().canvas.referencePixelsPerUnit * 2)));
+        //return new Vector3(curr.transform.position.x + (curr.GetComponent<RectTransform>().sizeDelta.x / (curr.GetComponent<Image>().canvas.referencePixelsPerUnit)), curr.transform.position.y - (curr.GetComponent<RectTransform>().sizeDelta.y / (curr.GetComponent<Image>().canvas.referencePixelsPerUnit * 2)), curr.transform.position.z);
     }
 
 }

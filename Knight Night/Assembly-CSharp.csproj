@@ -76,6 +76,7 @@
     <Compile Include="Assets\Code\UI\AnnouncementGenerator.cs" />
     <Compile Include="Assets\Code\UI\AnnouncementText.cs" />
     <Compile Include="Assets\Code\UI\AudioFade.cs" />
+    <Compile Include="Assets\Code\UI\ButtonSelectEffect.cs" />
     <Compile Include="Assets\Code\UI\CharacterSelect.cs" />
     <Compile Include="Assets\Code\UI\DescriptionBox.cs" />
     <Compile Include="Assets\Code\UI\Highlighter.cs" />
