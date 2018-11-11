@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 95444050637659316}
   - component: {fileID: 114830735463099830}
   - component: {fileID: 61736409030271808}
-  - component: {fileID: 114866081605982466}
   - component: {fileID: 50264133488686752}
+  - component: {fileID: 114830921072216174}
   m_Layer: 0
   m_Name: SirLance
   m_TagString: Knight
@@ -160,7 +160,7 @@ MonoBehaviour:
   positionBounds: {x: 0, y: 0}
   deadTimer: 0
   rtt: 0
---- !u!114 &114866081605982466
+--- !u!114 &114830921072216174
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,16 +168,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1294198668226220}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7566f34f94ed82943b71c4fccf5322ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 4985411618483474e9e344ab684eabf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   combatant: {fileID: 0}
-  javelin: {fileID: 1068531828505816, guid: 2599782209aa3e44783209c3c6e6d2c1, type: 2}
-  ridingSpeed: 10
-  jumpForce: 30
-  gravity: 64
-  doubleJumpForce: 24
+  ridingSpeed: 12
   aimArrow: {fileID: 1548073140692546}
+  javelin: {fileID: 1068531828505816, guid: 2599782209aa3e44783209c3c6e6d2c1, type: 2}
+  jumpForce: 40
+  gravity: 130
+  doubleJumpForce: 35
 --- !u!212 &212090565237631848
 SpriteRenderer:
   m_ObjectHideFlags: 1

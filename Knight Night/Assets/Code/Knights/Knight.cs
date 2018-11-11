@@ -282,6 +282,9 @@ public abstract class Knight : MonoBehaviour {
         float hAxis = Input.GetAxis(combatant.xAxisAim);
         float vAxis = Input.GetAxis(combatant.yAxisAim);
 
+        if (hAxis != 0)
+            Debug.Log(hAxis);
+
         if (hAxis != 0 || vAxis != 0)
         {
             if (hAxis > 0.2f)
