@@ -27,6 +27,7 @@ public class SoundEffectsManager : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        // assign each sound effect a number 
         Sounds[0] = buttonDeselect;
         Sounds[1] = buttonDown;
         Sounds[2] = buttonSelect;
@@ -54,6 +55,7 @@ public class SoundEffectsManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject); 
     }
 
+    // call each of the clips by number 
     public void playSound(int clipNum)
     {
         if (clipNum < 0 || clipNum >= Sounds.Length)
