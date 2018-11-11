@@ -86,6 +86,7 @@ public abstract class Knight : MonoBehaviour {
     }
     
     public abstract void throwWeapon(float aimDir);
+    public abstract void turnAround();
 
     void go()
     {
@@ -233,6 +234,7 @@ public abstract class Knight : MonoBehaviour {
     //Round the tilts
     IEnumerator TurnAround()
     {
+        turnAround();
         if (combatant.deadTimer == 0)
         {
             Debug.Log("TA");
@@ -281,9 +283,6 @@ public abstract class Knight : MonoBehaviour {
     {
         float hAxis = Input.GetAxis(combatant.xAxisAim);
         float vAxis = Input.GetAxis(combatant.yAxisAim);
-
-        if (hAxis != 0)
-            Debug.Log(hAxis);
 
         if (hAxis != 0 || vAxis != 0)
         {

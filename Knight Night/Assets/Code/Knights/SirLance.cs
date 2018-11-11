@@ -60,4 +60,10 @@ public class SirLance : Knight
         jav.transform.position = transform.position;
         jav.transform.Rotate(0, 0, aimDir);
     }
+
+    //Dummy
+    public override void turnAround()
+    {
+        return;
+    }
 }
