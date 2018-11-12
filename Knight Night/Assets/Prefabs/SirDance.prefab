@@ -174,7 +174,7 @@ MonoBehaviour:
   combatant: {fileID: 114425805681962120}
   ridingSpeed: 12
   aimArrow: {fileID: 1606023814352448}
-  discus: {fileID: 1068531828505816, guid: 2599782209aa3e44783209c3c6e6d2c1, type: 2}
+  discus: {fileID: 1658849218952848, guid: 8a2892b501bc6544bbce50d7b1055077, type: 2}
   jumpForce: 40
   gravity: 130
   dashSpeed: 10

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knightName: Sir Dance
   description: An expert saxophone player and master of the DiscoJoust
+  prefab: {fileID: 1841254986594150, guid: 380d577acbb326c4390997b8df93e74d, type: 2}

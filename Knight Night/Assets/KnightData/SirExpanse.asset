@@ -13,3 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knightName: Sir Expanse
   description: Comes from another planet and got roped into this farcical duel
+  prefab: {fileID: 1710820829088960, guid: e6ca27d41f5164c46b31d7d00fa03257, type: 2}

@@ -101,7 +101,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -121,8 +121,9 @@ MonoBehaviour:
   _otherKnight: {fileID: 0}
   _timeToDestroy: 20
   stopped: 0
-  _speed: 30
-  _turnAroundSpeed: 5
+  _speed: 40
+  _turnAroundSpeed: 40
+  delayTime: 0.3
 --- !u!212 &212992177125043494
 SpriteRenderer:
   m_ObjectHideFlags: 1
