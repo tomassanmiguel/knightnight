@@ -38,6 +38,15 @@ public class Javelin : Weapon
     void OnTriggerEnter2D(Collider2D other)
     {
         onTriggerEnter2D(other);
+        if (other.gameObject == _otherKnight)
+        {
+            SoundEffectsManager.instance.playSound(10, false);
+            SoundEffectsManager.instance.playSound(5, false);
+        }
+        else if (other.gameObject.tag == "Ground")
+        {
+            SoundEffectsManager.instance.playSound(8, false);
+        }
     }
 }
 

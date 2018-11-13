@@ -65,7 +65,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1068531828505816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.226498, y: 0.19381905, z: 0.015625}
+  m_LocalPosition: {x: -12.831979, y: 0.888188, z: 0.015625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4541832738397500}
@@ -104,7 +104,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 1, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -115,7 +115,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.75, y: 0.5}
+  m_Size: {x: 2.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!114 &114550900215425456
 MonoBehaviour:
@@ -131,8 +131,8 @@ MonoBehaviour:
   _otherKnight: {fileID: 0}
   _timeToDestroy: 60
   stopped: 0
-  _speed: 40
-  _gravity: 0.25
+  _speed: 69
+  _gravity: 0.08
 --- !u!212 &212859194558823736
 SpriteRenderer:
   m_ObjectHideFlags: 1

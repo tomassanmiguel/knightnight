@@ -12,6 +12,7 @@ TextureImporter:
     21300014: lance_throw_body_7
     21300016: lance_throw_body_8
     21300018: lance_throw_body_9
+    21300020: lance_throw_body_10
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -55,7 +56,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1000
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -90,6 +91,17 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -97,10 +109,10 @@ TextureImporter:
       name: lance_throw_body_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1968
-        width: 656
-        height: 656
+        x: 266
+        y: 1520
+        width: 227
+        height: 355
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -108,7 +120,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e177021b9d9cbf4d8efe17b2b38eb3d
+      spriteID: ce8768a23e287f143b026f4c4f2c2499
       vertices: []
       indices: 
       edges: []
@@ -117,10 +129,10 @@ TextureImporter:
       name: lance_throw_body_1
       rect:
         serializedVersion: 2
-        x: 656
-        y: 1968
-        width: 656
-        height: 656
+        x: 928
+        y: 1508
+        width: 273
+        height: 345
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,7 +140,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccf5a183193e9894b917e06487cab1a8
+      spriteID: b372280ef6094054685c60537d3e9beb
       vertices: []
       indices: 
       edges: []
@@ -137,10 +149,10 @@ TextureImporter:
       name: lance_throw_body_2
       rect:
         serializedVersion: 2
-        x: 1312
-        y: 1968
-        width: 656
-        height: 656
+        x: 1582
+        y: 1508
+        width: 290
+        height: 346
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,7 +160,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bdd06e4e48b638947b293cf09f280d76
+      spriteID: f7e11c63b74bcce4490903d4550fd56a
       vertices: []
       indices: 
       edges: []
@@ -157,10 +169,10 @@ TextureImporter:
       name: lance_throw_body_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1312
-        width: 656
-        height: 656
+        x: 449
+        y: 1222
+        width: 12
+        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,7 +180,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26dd5e1fc68e761408b46d8710921d9b
+      spriteID: 304fd21264658354a9a68fbf3a44f3d0
       vertices: []
       indices: 
       edges: []
@@ -177,10 +189,10 @@ TextureImporter:
       name: lance_throw_body_4
       rect:
         serializedVersion: 2
-        x: 656
-        y: 1312
-        width: 656
-        height: 656
+        x: 1594
+        y: 868
+        width: 230
+        height: 357
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,7 +200,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a60eb540210ddfb468b6a78a0f714086
+      spriteID: 809a3632a2025564e971b43bd26e92eb
       vertices: []
       indices: 
       edges: []
@@ -197,10 +209,10 @@ TextureImporter:
       name: lance_throw_body_5
       rect:
         serializedVersion: 2
-        x: 1312
-        y: 1312
-        width: 656
-        height: 656
+        x: 267
+        y: 848
+        width: 269
+        height: 353
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,7 +220,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35f45c53d6d49d74685d6429f8568b18
+      spriteID: 8dfd21d02a6fe5443b6ed0ac774cae87
       vertices: []
       indices: 
       edges: []
@@ -217,10 +229,10 @@ TextureImporter:
       name: lance_throw_body_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 656
-        width: 656
-        height: 656
+        x: 920
+        y: 844
+        width: 256
+        height: 330
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,7 +240,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea73c08778ad3544db94c22e247f8c5c
+      spriteID: 53455694da4aff446938b1e5c53e31e2
       vertices: []
       indices: 
       edges: []
@@ -237,10 +249,10 @@ TextureImporter:
       name: lance_throw_body_7
       rect:
         serializedVersion: 2
-        x: 656
-        y: 656
-        width: 656
-        height: 656
+        x: 1730
+        y: 556
+        width: 12
+        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,7 +260,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bee6b6c57f868c148b423e498fbb0b6b
+      spriteID: 83e7bdec6ffbf9e4084f5813c4b467f8
       vertices: []
       indices: 
       edges: []
@@ -257,10 +269,10 @@ TextureImporter:
       name: lance_throw_body_8
       rect:
         serializedVersion: 2
-        x: 1312
-        y: 656
-        width: 656
-        height: 656
+        x: 186
+        y: 207
+        width: 350
+        height: 347
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,7 +280,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83dfc6c733533b347b97fe112f95418b
+      spriteID: 68ff7b8e28ee6a24e978317ade68389e
       vertices: []
       indices: 
       edges: []
@@ -277,10 +289,10 @@ TextureImporter:
       name: lance_throw_body_9
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 656
-        height: 656
+        x: 928
+        y: 196
+        width: 260
+        height: 350
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,7 +300,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 005126d10202f744189a6b92104fc362
+      spriteID: 800d2c679002f9241b97b9777b445994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lance_throw_body_10
+      rect:
+        serializedVersion: 2
+        x: 1566
+        y: 190
+        width: 251
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 838b2cc971622334ab1d000bfe0bb670
       vertices: []
       indices: 
       edges: []
@@ -296,7 +328,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 1c6beb58efe4ec548a869b7e2f5533cc
+    spriteID: 04626f6b8bf0f3d4c9936678826e3362
     vertices: []
     indices: 
     edges: []

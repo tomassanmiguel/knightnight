@@ -7,13 +7,10 @@ using UnityEngine.SceneManagement;
 public class SoundEffectsManager : MonoBehaviour {
 
     public static SoundEffectsManager instance = null;
+    public GameObject sfxPrefab;
 
     // each sound effect is assigned a number in the inspector
-    public AudioSource[] Sounds = new AudioSource[14];
-
-    // Use this for initialization
-    void Start()
-    { }
+    public AudioClip[] Sounds;
 
     void Awake ()
     {
@@ -22,20 +19,17 @@ public class SoundEffectsManager : MonoBehaviour {
 
         else if (instance != this)
             Destroy(gameObject);
-
-        DontDestroyOnLoad(gameObject); 
     }
 
     // call each of the clips by number 
-    public void playSound(int clipNum)
+    public void playSound(int clipNum, bool looping)
     {
         if (clipNum < 0 || clipNum >= Sounds.Length)
             return;
 
-        Sounds[clipNum].Play();
+        GameObject g = Instantiate(sfxPrefab);
+        g.GetComponent<AudioSource>().loop = looping;
+        g.GetComponent<AudioSource>().clip = Sounds[clipNum];
+        g.GetComponent<AudioSource>().Play();
     }
-	
-	// Update is called once per frame
-	void Update () {
-	}
 }

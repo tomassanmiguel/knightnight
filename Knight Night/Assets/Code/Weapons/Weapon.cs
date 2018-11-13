@@ -33,20 +33,27 @@ public abstract class Weapon : MonoBehaviour
         {
             if (other.GetComponent<Combatant>().player == 1)
             {
-                GameManager.instance.addP1Win();
+                GameManager.instance.addP2Win();
+                GameManager.instance.GetComponent<CrowdController>().increaseExcitement(2, 0.8f);
             }
             else
             {
-                GameManager.instance.addP2Win();
+                GameManager.instance.addP1Win();
+                GameManager.instance.GetComponent<CrowdController>().increaseExcitement(1, 0.8f);
             }
 
             //Camera.main.GetComponent<CameraController>().StartSlowMo(0.2f, other.GetComponent<Combatant>().player);
-            other.GetComponent<Rigidbody2D>().isKinematic = false;
-            other.GetComponent<Rigidbody2D>().mass = 10;
-            other.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
-            other.GetComponent<Rigidbody2D>().AddForce((transform.position + new Vector3(0, 0.5f, 0) - previousPosition) / (transform.position - previousPosition).magnitude * 6000);
+            GameObject g = other.GetComponent<Knight>().body;
+            g.transform.parent = null;
+            other.GetComponent<BoxCollider2D>().enabled = false;
+            g.GetComponent<BoxCollider2D>().enabled = true;
+            g.GetComponent<Rigidbody2D>().isKinematic = false;
+            g.GetComponent<Rigidbody2D>().mass = 10;
+            g.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
+            g.GetComponent<Rigidbody2D>().AddForce((transform.position + new Vector3(0, 0.5f, 0) - previousPosition) / (transform.position - previousPosition).magnitude * 8000);
             other.GetComponent<Combatant>().deadTimer = 1.0f;
-            Time.timeScale = 0.3f;
+            GameManager.instance.toDelete = g;
+            Time.timeScale = 0.6f;
             Destroy(gameObject);
         }
 

@@ -4,46 +4,41 @@ using System;
 
 public class CrowdController : MonoBehaviour
 {
-    public float id;
-    public CrowdGroup parent;
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
+    public GameObject[] audienceMembersP1;
+    public GameObject[] audienceMembersP2;
+    public float p1excitement;
+    public float p2excitement;
 
     // Update is called once per frame
     void Update()
     {
-        //System.Random rand = new System.Random();
-        string parentName = transform.parent.name;
-        //get the objects current position and put it in a variable so we can access it later with less code
-        Vector3 pos = transform.position;
-        float newY = 0;
-        if (parentName == "RedCrowd")
+        for (int i = 0; i < audienceMembersP1.Length; i++)
         {
-            float crowdThreshold = parent.redExcitement*transform.parent.childCount;
+            audienceMembersP1[i].GetComponent<AudienceMember>().setExcitementLevel(p1excitement);
+        }
+        for (int i = 0; i < audienceMembersP2.Length; i++)
+        {
+            audienceMembersP2[i].GetComponent<AudienceMember>().setExcitementLevel(p2excitement);
+        }
+    }
 
-            if (id < crowdThreshold)
+    public void increaseExcitement(int player, float excitement)
+    {
+        if (player == 1)
+        {
+            p1excitement += excitement;
+            if (p1excitement < 0)
             {
-                //calculate what the new Y position will be
-                newY = Mathf.Sin(Time.time * parent.speed * parent.redExcitement + id);
+                p1excitement = 0;
             }
-            //set the object's Y to the new calculated Y
-            transform.position = new Vector3(pos.x, parent.redHeight + newY * parent.amp, pos.z);
         }
         else
         {
-            float crowdThreshold = parent.blueExcitement*transform.parent.childCount;
-
-            if (id < crowdThreshold)
+            p2excitement += excitement;
+            if (p2excitement < 0)
             {
-                newY = Mathf.Sin(Time.time * parent.speed * parent.blueExcitement);
+                p2excitement = 0;
             }
-            //set the object's Y to the new calculated Y
-            transform.position = new Vector3(pos.x, parent.blueHeight + newY * parent.amp, pos.z);
         }
-        
     }
 }

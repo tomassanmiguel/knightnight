@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour {
     public Text p1Text;
     public Text p2Text;
 
+    public GameObject toDelete = null;
+
     public PlayerInputData p1inputdata;
     public PlayerInputData p2inputdata;
 
@@ -117,9 +119,6 @@ public class GameManager : MonoBehaviour {
         c2.facingLeft = true;
         c1.player = 1;
         c2.player = 2;
-        p1.GetComponent<SpriteRenderer>().color = Color.blue;
-        p2.GetComponent<SpriteRenderer>().flipX = true;
-
         p1.transform.position = p1Spawn.position;
         p2.transform.position = p2Spawn.position;
     }
@@ -128,6 +127,8 @@ public class GameManager : MonoBehaviour {
     {
         Destroy(p1);
         Destroy(p2);
+        if (toDelete != null)
+            Destroy(toDelete);
 
         knightsReady = false;
 

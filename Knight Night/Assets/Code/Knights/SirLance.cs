@@ -44,11 +44,16 @@ public class SirLance : Knight
         if (_vSpeed != 0)
         {
             _vSpeed = _vSpeed - gravity * Time.deltaTime;
+            airborne = true;
         }
 
         if (transform.position.y < _groundY)
         {
             doubleJump = true;
+            if (_vSpeed != 0)
+            {
+                airborne = false;
+            }
             _vSpeed = 0;
             transform.position = new Vector3(transform.position.x, _groundY, 0);
         }
@@ -56,6 +61,7 @@ public class SirLance : Knight
     public override void throwWeapon(float aimDir)
     {
         GameObject jav = Instantiate(javelin);
+        SoundEffectsManager.instance.playSound(9, false);
         jav.GetComponent<Javelin>()._otherKnight = combatant.opposingKnight;
         jav.transform.position = transform.position;
         jav.transform.Rotate(0, 0, aimDir);

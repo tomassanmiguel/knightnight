@@ -23,6 +23,8 @@ public class Combatant : MonoBehaviour {
     public bool facingLeft;
     [SerializeField]
     public Vector2 positionBounds;
+    [SerializeField]
+    public Vector2 hitBoxXOffsets;
 
     public float deadTimer = 0;
 
