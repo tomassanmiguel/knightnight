@@ -85,7 +85,7 @@ public class MenuManager : MonoBehaviour {
         }
         else
         {
-            if (Input.GetButtonDown("P1Fire2"))
+            if (Input.GetButtonDown("AllFire2"))
             {
                 BackToMainMenu();
             }
@@ -94,16 +94,56 @@ public class MenuManager : MonoBehaviour {
 
     public void StartGame()
     {
+        if (currTransition == null)
+        {
+            currTransition = StartCoroutine(transitionToCharSelect());
+        }
+    }
+
+    private IEnumerator transitionToCharSelect()
+    {
+        eventSystem.gameObject.SetActive(false);
+        transitionScreen.gameObject.SetActive(true);
+        transitionScreen.SetBool("active", true);
+        yield return new WaitForSeconds(0.5f);
+
         currentScreen.SetActive(false);
         currentScreen = characterSelect;
-        //Play animation
         currentScreen.SetActive(true);
 
-        eventSystem.gameObject.SetActive(false);
+        transitionScreen.SetBool("active", false);
+        yield return new WaitForSeconds(0.5f);
+        transitionScreen.gameObject.SetActive(false);
+
         //Player 1
         player1.gameObject.SetActive(true);
         player1.SetSelectedGameObject(p1Selector.gameObject);
         //Player 2
+        player2.gameObject.SetActive(true);
+        player2.SetSelectedGameObject(p2Selector.gameObject);
+
+        currTransition = null;
+    }
+
+    private IEnumerator transitionFromCharSelect()
+    {
+        player1.gameObject.SetActive(false);
+        player2.gameObject.SetActive(false);
+        transitionScreen.gameObject.SetActive(true);
+        transitionScreen.SetBool("active", true);
+        yield return new WaitForSeconds(0.5f);
+
+        currentScreen.SetActive(false);
+        currentScreen = mainMenu;
+        currentScreen.SetActive(true);
+
+        transitionScreen.SetBool("active", false);
+        yield return new WaitForSeconds(0.5f);
+        transitionScreen.gameObject.SetActive(false);
+
+        eventSystem.gameObject.SetActive(true);
+        eventSystem.SetSelectedGameObject(startGameButton.gameObject);
+        currTransition = null;
     }
 
     public void ToControls()
@@ -140,6 +180,7 @@ public class MenuManager : MonoBehaviour {
         currentScreen.SetActive(true);
         transitionScreen.SetBool("active", false);
         yield return new WaitForSeconds(0.5f);
+        transitionScreen.gameObject.SetActive(false);
         eventSystem.gameObject.SetActive(true);
         currTransition = null;
     }
@@ -178,6 +219,7 @@ public class MenuManager : MonoBehaviour {
         currentScreen.SetActive(true);
         transitionScreen.SetBool("active", false);
         yield return new WaitForSeconds(0.5f);
+        transitionScreen.gameObject.SetActive(false);
         eventSystem.gameObject.SetActive(true);
         currTransition = null;
     }
@@ -186,10 +228,10 @@ public class MenuManager : MonoBehaviour {
     {
         if(currentScreen == characterSelect)
         {
-            player1.gameObject.SetActive(false);
-            player2.gameObject.SetActive(false);
-            eventSystem.gameObject.SetActive(true);
-            eventSystem.SetSelectedGameObject(startGameButton.gameObject);
+            if (currTransition == null)
+            {
+                currTransition = StartCoroutine(transitionFromCharSelect());
+            }
         }
         else if(currentScreen == controls)
         {

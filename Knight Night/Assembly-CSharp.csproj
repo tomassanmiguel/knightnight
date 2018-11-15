@@ -83,6 +83,7 @@
     <Compile Include="Assets\Code\UI\IntUnityEvent.cs" />
     <Compile Include="Assets\Code\UI\MenuManager.cs" />
     <Compile Include="Assets\Code\UI\MultiEventSystem.cs" />
+    <Compile Include="Assets\Code\UI\PauseScreen.cs" />
     <Compile Include="Assets\Code\UI\ScoreIndicator.cs" />
     <Compile Include="Assets\Code\UI\ScrollSelector.cs" />
     <Compile Include="Assets\Code\Weapons\Javelin.cs" />
