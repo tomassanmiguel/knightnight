@@ -42,11 +42,13 @@ public class SirExpanse : Knight
         if (_vSpeed != 0)
         {
             _vSpeed = _vSpeed - gravity * Time.deltaTime;
+            airborne = true;
         }
 
         if (transform.position.y < _groundY)
         {
             _vSpeed = 0;
+            airborne = false;
             transform.position = new Vector3(transform.position.x, _groundY, 0);
         }
     }
@@ -54,7 +56,7 @@ public class SirExpanse : Knight
     {
         GameObject saber = Instantiate(lightsaber);
         saber.GetComponent<LightSaber>()._otherKnight = combatant.opposingKnight;
-        saber.transform.position = transform.position;
+        saber.transform.position = transform.position + new Vector3(0, 0.2f, 0);
         saber.transform.Rotate(0, 0, aimDir);
     }
 

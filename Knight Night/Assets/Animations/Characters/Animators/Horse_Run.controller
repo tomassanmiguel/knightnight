@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Horse_0
+  m_Name: Horse_Run
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:

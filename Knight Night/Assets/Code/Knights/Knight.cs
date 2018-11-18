@@ -121,8 +121,8 @@ public abstract class Knight : MonoBehaviour {
                     armLeft.GetComponent<Animator>().enabled = true;
                     bodyLeft.GetComponent<SpriteRenderer>().enabled = true;
                     armLeft.GetComponent<SpriteRenderer>().enabled = true;
-                    bodyLeft.GetComponent<Animator>().Play("Lance_Body");
-                    armLeft.GetComponent<Animator>().Play("Lance_arm");
+                    bodyLeft.GetComponent<Animator>().Play("Body");
+                    armLeft.GetComponent<Animator>().Play("Arm");
                     bodyRight.GetComponent<Animator>().enabled = false;
                     armRight.GetComponent<Animator>().enabled = false;
                     bodyRight.GetComponent<SpriteRenderer>().enabled = false;
@@ -134,8 +134,8 @@ public abstract class Knight : MonoBehaviour {
                     armRight.GetComponent<Animator>().enabled = true;
                     bodyRight.GetComponent<SpriteRenderer>().enabled = true;
                     armRight.GetComponent<SpriteRenderer>().enabled = true;
-                    bodyRight.GetComponent<Animator>().Play("Lance_Body");
-                    armRight.GetComponent<Animator>().Play("Lance_arm");
+                    bodyRight.GetComponent<Animator>().Play("Body");
+                    armRight.GetComponent<Animator>().Play("Arm");
                     bodyLeft.GetComponent<Animator>().enabled = false;
                     armLeft.GetComponent<Animator>().enabled = false;
                     bodyLeft.GetComponent<SpriteRenderer>().enabled = false;
