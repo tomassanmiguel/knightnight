@@ -42,7 +42,8 @@ public class GameManager : MonoBehaviour {
 
     public int p1Wins;
     public int p2Wins; 
-    public List<int> winHistory = new List<int>(); 
+    public List<int> winHistory = new List<int>();
+    private int soundToPlay;
 
     void Awake ()
     {
@@ -130,21 +131,82 @@ public class GameManager : MonoBehaviour {
         if (toDelete != null)
             Destroy(toDelete);
 
+        if (p1Wins > 2 || p2Wins > 2)
+        {
+            LoadManager.instance.LoadScene("CharacterSelect");
+        }
+
         knightsReady = false;
 
         instantiateKnights();
         Time.timeScale = 1;
-        startBattle();
+        startBattle(false);
     }
 
-    public void startBattle()
+    public void startBattle(bool first = true)
     {
-        ag.Announce("Ready?", 1);
+        if (first)
+        {
+            SoundEffectsManager.instance.playSound(22, false);
+        }
+        else
+        {
+            if (p1Wins == 0)
+            {
+                if (p2Wins == 1)
+                {
+                    SoundEffectsManager.instance.playSound(14, false);
+                }
+                else
+                {
+                    SoundEffectsManager.instance.playSound(15, false);
+                }
+            }
+            else if (p1Wins == 1)
+            {
+                if (p2Wins == 0)
+                {
+                    SoundEffectsManager.instance.playSound(16, false);
+                }
+                else if (p2Wins == 1)
+                {
+                    SoundEffectsManager.instance.playSound(17, false);
+                }
+                else
+                {
+                    SoundEffectsManager.instance.playSound(18, false);
+                }
+            }
+            else
+            {
+                if (p2Wins == 0)
+                {
+                    SoundEffectsManager.instance.playSound(19, false);
+                }
+                else if (p2Wins == 1)
+                {
+                    SoundEffectsManager.instance.playSound(20, false);
+                }
+                else
+                {
+                    SoundEffectsManager.instance.playSound(21, false);
+                }
+            }
+        }
+        if (first)
+        {
+            ag.Announce("Ready?", 2.75f);
+            Invoke("unlock", 5.75f);
+        }
+        else
+        {
+            ag.Announce("Ready?", 1.0f);
+            Invoke("unlock", 4f);
+        }
         ag.Announce("3", 0.5f);
         ag.Announce("2", 0.5f);
         ag.Announce("1", 0.5f);
         ag.Announce("Fight!", 0.75f, true, 0.5f, 2);
-        Invoke("unlock", 4.0f);
     }
 
     void unlock()
@@ -158,6 +220,24 @@ public class GameManager : MonoBehaviour {
         winHistory.Add(1);
         p1ScoreIndicator.ShowScore(p1Wins);
         increaseRound();
+        if (p1Wins == 3)
+        {
+            SoundEffectsManager.instance.playSound(23, false);
+            if (p1Knight.KnightName == "Sir Lance")
+            {
+                soundToPlay = 24;
+            }
+            else if (p1Knight.KnightName == "Sir Dance")
+            {
+                soundToPlay = 26;
+            }
+            else
+            {
+                soundToPlay = 25;
+            }
+            Invoke("delaySound", 0.2f);
+        }
+
     }
 
     public void addP2Win()
@@ -166,7 +246,30 @@ public class GameManager : MonoBehaviour {
         winHistory.Add(2);
         p2ScoreIndicator.ShowScore(p2Wins);
         increaseRound();
+        if (p2Wins == 3)
+        {
+            SoundEffectsManager.instance.playSound(23, false);
+            if (p2Knight.KnightName == "Sir Lance")
+            {
+                soundToPlay = 24;
+            }
+            else if (p2Knight.KnightName == "Sir Dance")
+            {
+                soundToPlay = 26;
+            }
+            else
+            {
+                soundToPlay = 25;
+            }
+            Invoke("delaySound", 0.2f);
+        }
     }
+
+    private void delaySound()
+    {
+        SoundEffectsManager.instance.playSound(soundToPlay, false);
+    }
+
 	
     // get winner of a specific round 
     public int getWinner(int round)

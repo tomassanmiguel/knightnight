@@ -10,6 +10,7 @@ public class LightSaber : Weapon
 
     void Start()
     {
+        SoundEffectsManager.instance.playSound(28, false);
         start();
     }
     void Update()
@@ -36,6 +37,7 @@ public class LightSaber : Weapon
             Vector3 moveDirection = transform.position - previousPosition;
             float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(360 - angle, Vector3.forward);
+            SoundEffectsManager.instance.playSound(30, false);
             //Works because we bounce only off the ground!
         }
 
@@ -51,6 +53,8 @@ public class LightSaber : Weapon
                 GameManager.instance.addP1Win();
                 GameManager.instance.GetComponent<CrowdController>().increaseExcitement(1, 0.8f);
             }
+            SoundEffectsManager.instance.playSound(29, false);
+            SoundEffectsManager.instance.playSound(5, false, 0.4f);
 
             //Camera.main.GetComponent<CameraController>().StartSlowMo(0.2f, other.GetComponent<Combatant>().player);
             GameObject g = other.GetComponent<Knight>().body;

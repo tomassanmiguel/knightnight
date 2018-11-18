@@ -41,7 +41,7 @@ public class Javelin : Weapon
         if (other.gameObject == _otherKnight)
         {
             SoundEffectsManager.instance.playSound(10, false);
-            SoundEffectsManager.instance.playSound(5, false);
+            SoundEffectsManager.instance.playSound(5, false, 0.4f);
         }
         else if (other.gameObject.tag == "Ground")
         {

@@ -29,6 +29,7 @@ public class SirExpanse : Knight
             if (transform.position.y == _groundY)
             {
                 _vSpeed = jumpForce;
+                SoundEffectsManager.instance.playSound(27, false);
             }
         }
 

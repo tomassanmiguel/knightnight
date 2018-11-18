@@ -11,6 +11,7 @@ public abstract class Weapon : MonoBehaviour
     private float _timeToDestroy = 5;
 
     public bool stopped = false;
+    private BoxCollider2D col;
     protected Vector3 previousPosition;
 
     public void update()
@@ -20,10 +21,17 @@ public abstract class Weapon : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (stopped)
+        {
+            col.enabled = false;
+        }
+
+
     }
 
     public void start()
     {
+        col = GetComponent<BoxCollider2D>();
         _createTime = Time.time;
     }
 

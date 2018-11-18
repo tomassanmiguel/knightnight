@@ -22,13 +22,14 @@ public class SoundEffectsManager : MonoBehaviour {
     }
 
     // call each of the clips by number 
-    public void playSound(int clipNum, bool looping)
+    public void playSound(int clipNum, bool looping, float vol = 1.0f)
     {
         if (clipNum < 0 || clipNum >= Sounds.Length)
             return;
 
         GameObject g = Instantiate(sfxPrefab);
         g.GetComponent<AudioSource>().loop = looping;
+        g.GetComponent<AudioSource>().volume = vol;
         g.GetComponent<AudioSource>().clip = Sounds[clipNum];
         g.GetComponent<AudioSource>().Play();
     }
