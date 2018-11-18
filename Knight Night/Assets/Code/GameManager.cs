@@ -126,21 +126,23 @@ public class GameManager : MonoBehaviour {
 
     public void resetScene()
     {
-        Destroy(p1);
-        Destroy(p2);
-        if (toDelete != null)
-            Destroy(toDelete);
-
         if (p1Wins > 2 || p2Wins > 2)
         {
             LoadManager.instance.LoadScene("CharacterSelect");
         }
+        else
+        {
+            Destroy(p1);
+            Destroy(p2);
+            if (toDelete != null)
+                Destroy(toDelete);
 
-        knightsReady = false;
+            knightsReady = false;
 
-        instantiateKnights();
-        Time.timeScale = 1;
-        startBattle(false);
+            instantiateKnights();
+            Time.timeScale = 1;
+            startBattle(false);
+        }
     }
 
     public void startBattle(bool first = true)
