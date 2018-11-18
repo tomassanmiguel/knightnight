@@ -52,6 +52,7 @@ public abstract class Weapon : MonoBehaviour
             g.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
             g.GetComponent<Rigidbody2D>().AddForce((transform.position + new Vector3(0, 0.5f, 0) - previousPosition) / (transform.position - previousPosition).magnitude * 8000);
             other.GetComponent<Combatant>().deadTimer = 1.0f;
+            Camera.main.GetComponent<Shake>().startShake(1.0f, 1f);
             GameManager.instance.toDelete = g;
             Time.timeScale = 0.6f;
             Destroy(gameObject);
