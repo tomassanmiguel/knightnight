@@ -78,6 +78,7 @@
     <Compile Include="Assets\Code\UI\AudioFade.cs" />
     <Compile Include="Assets\Code\UI\ButtonSelectEffect.cs" />
     <Compile Include="Assets\Code\UI\CharacterSelect.cs" />
+    <Compile Include="Assets\Code\UI\CharacterSelectManager.cs" />
     <Compile Include="Assets\Code\UI\DescriptionBox.cs" />
     <Compile Include="Assets\Code\UI\Highlighter.cs" />
     <Compile Include="Assets\Code\UI\IntUnityEvent.cs" />
