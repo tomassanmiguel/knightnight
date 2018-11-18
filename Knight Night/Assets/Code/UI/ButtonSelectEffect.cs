@@ -26,6 +26,15 @@ public class ButtonSelectEffect : MonoBehaviour, ISelectHandler, IDeselectHandle
         text.color = new Color(color.r, color.g, color.b, deselectedOpacity);
     }
 
+    private void Start()
+    {
+        if(EventSystem.current.currentSelectedGameObject == gameObject)
+        {
+            text.color = color;
+            text.fontSize = selectedFontSize;
+        }
+    }
+
     public void OnSelect(BaseEventData eventData)
     {
         if (current != null) StopCoroutine(current);

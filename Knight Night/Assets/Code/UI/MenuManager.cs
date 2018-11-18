@@ -9,7 +9,7 @@ public class MenuManager : MonoBehaviour {
 
     //Screens
     public GameObject mainMenu;
-    public GameObject characterSelect;
+    //public GameObject characterSelect;
     public GameObject controls;
     public GameObject credits;
 
@@ -23,12 +23,12 @@ public class MenuManager : MonoBehaviour {
     public EventSystem eventSystem;
 
     //Player Specific EventSystems
-    public MultiEventSystem player1;
-    public MultiEventSystem player2;
+    //public MultiEventSystem player1;
+    //public MultiEventSystem player2;
 
     //ScrollSelectors
-    public ScrollSelector p1Selector;
-    public ScrollSelector p2Selector;
+    //public ScrollSelector p1Selector;
+    //public ScrollSelector p2Selector;
 
     //TransitionScreen
     [SerializeField] private Animator transitionScreen;
@@ -43,23 +43,23 @@ public class MenuManager : MonoBehaviour {
     private Coroutine currTransition;
 
     //Character selects
-    [SerializeField] private CharacterSelect p1Select;
-    [SerializeField] private CharacterSelect p2Select;
+    //[SerializeField] private CharacterSelect p1Select;
+    //[SerializeField] private CharacterSelect p2Select;
 
     //Player Knight Choice
-    [SerializeField] private PlayerChoiceData playerChoice;
+    //[SerializeField] private PlayerChoiceData playerChoice;
 
     private void Awake()
     {
         currentScreen = mainMenu;
         eventSystem.SetSelectedGameObject(startGameButton.gameObject);
         lastSelected = startGameButton.gameObject;
-        player1.gameObject.SetActive(false);
-        player2.gameObject.SetActive(false);
+        //player1.gameObject.SetActive(false);
+        //player2.gameObject.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-    
+
 
     private void Update()
     {
@@ -74,6 +74,7 @@ public class MenuManager : MonoBehaviour {
                 lastSelected = eventSystem.currentSelectedGameObject;
             }
         }
+        /*
         else if(currentScreen == characterSelect)
         {
             if(p1Select.ReadyCheck() && p2Select.ReadyCheck())
@@ -83,9 +84,10 @@ public class MenuManager : MonoBehaviour {
                 LoadManager.instance.LoadScene("BattleScene");
             }
         }
+        */
         else
         {
-            if (Input.GetButtonDown("P1Fire2"))
+            if (Input.GetButtonDown("AllFire2") || Input.GetButtonDown("AllMenu"))
             {
                 BackToMainMenu();
             }
@@ -94,17 +96,61 @@ public class MenuManager : MonoBehaviour {
 
     public void StartGame()
     {
+        if (currTransition == null)
+        {
+            //currTransition = StartCoroutine(transitionToCharSelect());
+            eventSystem.gameObject.SetActive(false);
+            LoadManager.instance.LoadScene("CharacterSelect");
+        }
+    }
+
+    /*
+    private IEnumerator transitionToCharSelect()
+    {
+        eventSystem.gameObject.SetActive(false);
+        transitionScreen.gameObject.SetActive(true);
+        transitionScreen.SetBool("active", true);
+        yield return new WaitForSeconds(0.5f);
+
         currentScreen.SetActive(false);
         currentScreen = characterSelect;
-        //Play animation
         currentScreen.SetActive(true);
 
-        eventSystem.gameObject.SetActive(false);
+        transitionScreen.SetBool("active", false);
+        yield return new WaitForSeconds(0.5f);
+        transitionScreen.gameObject.SetActive(false);
+
         //Player 1
         player1.gameObject.SetActive(true);
         player1.SetSelectedGameObject(p1Selector.gameObject);
         //Player 2
+        player2.gameObject.SetActive(true);
+        player2.SetSelectedGameObject(p2Selector.gameObject);
+
+        currTransition = null;
     }
+
+    private IEnumerator transitionFromCharSelect()
+    {
+        player1.gameObject.SetActive(false);
+        player2.gameObject.SetActive(false);
+        transitionScreen.gameObject.SetActive(true);
+        transitionScreen.SetBool("active", true);
+        yield return new WaitForSeconds(0.5f);
+
+        currentScreen.SetActive(false);
+        currentScreen = mainMenu;
+        currentScreen.SetActive(true);
+
+        transitionScreen.SetBool("active", false);
+        yield return new WaitForSeconds(0.5f);
+        transitionScreen.gameObject.SetActive(false);
+
+        eventSystem.gameObject.SetActive(true);
+        eventSystem.SetSelectedGameObject(startGameButton.gameObject);
+        currTransition = null;
+    }
+    */
 
     public void ToControls()
     {
@@ -119,13 +165,13 @@ public class MenuManager : MonoBehaviour {
         eventSystem.gameObject.SetActive(false);
         transitionScreen.gameObject.SetActive(true);
         transitionScreen.SetBool("active", true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         Camera.main.GetComponent<PostProcessingBehaviour>().enabled = false;
         currentScreen.SetActive(false);
         currentScreen = controls;
         currentScreen.SetActive(true);
         controls.GetComponent<Animator>().SetBool("active", true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         currTransition = null;
 
     }
@@ -133,13 +179,14 @@ public class MenuManager : MonoBehaviour {
     private IEnumerator transitionFromControls()
     {
         controls.GetComponent<Animator>().SetBool("active", false);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         currentScreen.SetActive(false);
         Camera.main.GetComponent<PostProcessingBehaviour>().enabled = true;
         currentScreen = mainMenu;
         currentScreen.SetActive(true);
         transitionScreen.SetBool("active", false);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
+        transitionScreen.gameObject.SetActive(false);
         eventSystem.gameObject.SetActive(true);
         currTransition = null;
     }
@@ -157,13 +204,13 @@ public class MenuManager : MonoBehaviour {
         eventSystem.gameObject.SetActive(false);
         transitionScreen.gameObject.SetActive(true);
         transitionScreen.SetBool("active", true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         Camera.main.GetComponent<PostProcessingBehaviour>().enabled = false;
         currentScreen.SetActive(false);
         currentScreen = credits;
         currentScreen.SetActive(true);
         credits.GetComponent<Animator>().SetBool("active", true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         currTransition = null;
 
     }
@@ -171,27 +218,31 @@ public class MenuManager : MonoBehaviour {
     private IEnumerator transitionFromCredits()
     {
         credits.GetComponent<Animator>().SetBool("active", false);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         currentScreen.SetActive(false);
         Camera.main.GetComponent<PostProcessingBehaviour>().enabled = true;
         currentScreen = mainMenu;
         currentScreen.SetActive(true);
         transitionScreen.SetBool("active", false);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
+        transitionScreen.gameObject.SetActive(false);
         eventSystem.gameObject.SetActive(true);
         currTransition = null;
     }
 
     public void BackToMainMenu()
     {
+        /*
         if(currentScreen == characterSelect)
         {
-            player1.gameObject.SetActive(false);
-            player2.gameObject.SetActive(false);
-            eventSystem.gameObject.SetActive(true);
-            eventSystem.SetSelectedGameObject(startGameButton.gameObject);
+            if (currTransition == null)
+            {
+                currTransition = StartCoroutine(transitionFromCharSelect());
+            }
         }
-        else if(currentScreen == controls)
+        else 
+        */
+        if(currentScreen == controls)
         {
             if(currTransition == null)
             {

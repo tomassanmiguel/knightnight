@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterSelect : MonoBehaviour {
 
-    [SerializeField] private MenuManager menuManager;
+    [SerializeField] private CharacterSelectManager cManager;
    
     [SerializeField] private PlayerInputData input;
     [SerializeField] private GameObject readyOverlay;
@@ -39,7 +39,7 @@ public class CharacterSelect : MonoBehaviour {
         {
             if (Input.GetButtonDown(input.Fire2))
             {
-                menuManager.BackToMainMenu();
+                cManager.BackToMainMenu();
             }
         }
     }

@@ -25,7 +25,6 @@ public class LoadManager : MonoBehaviour {
         }
         DontDestroyOnLoad(gameObject);
         blackScreen = GetComponentInChildren<Image>();
-        Debug.Log(blackScreen);
     }
 
     private void Start()
