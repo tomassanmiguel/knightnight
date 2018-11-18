@@ -6713,9 +6713,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3a606ead0d60543458d8f4a544b18cb8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 677621593e4c1b6438b3262201fa7a9b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.262
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -9125,6 +9125,24 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c66ea8c0d58fd1f4da823b62b455eddc, type: 3}
   - {fileID: 8300000, guid: f044e4015c4426c4db165fb310d94861, type: 3}
   - {fileID: 8300000, guid: 695cb28fc6dadfb48a65800825ddec99, type: 3}
+  - {fileID: 8300000, guid: 46e17fc98af8b234db2623b8d9e3de51, type: 3}
+  - {fileID: 8300000, guid: ea74aee3636146c40bc12f5730e4f944, type: 3}
+  - {fileID: 8300000, guid: 183d60959abae1c4c97765ff1c484ca2, type: 3}
+  - {fileID: 8300000, guid: a238d54c6f7335d47a7272f150e57d12, type: 3}
+  - {fileID: 8300000, guid: 4468b7ff33d17fb4b8688d5af1ed8566, type: 3}
+  - {fileID: 8300000, guid: c1aa969827c4be3458770dda01e70b83, type: 3}
+  - {fileID: 8300000, guid: 4d8ac8eccff348c408ad17289f98811b, type: 3}
+  - {fileID: 8300000, guid: 62118837589abfc4792c13d6f5234d15, type: 3}
+  - {fileID: 8300000, guid: 31cc9b28aa3520f42bbe2e00eeeb907a, type: 3}
+  - {fileID: 8300000, guid: 6811de41f6751b54c8474f80db86f5a6, type: 3}
+  - {fileID: 8300000, guid: 75aa7776c8239f44d868587bdc679124, type: 3}
+  - {fileID: 8300000, guid: fa7f4689759c0194994580f525a15eeb, type: 3}
+  - {fileID: 8300000, guid: f319c29f1b8d06240879568a890a403b, type: 3}
+  - {fileID: 8300000, guid: 15c457f3eaf66fe40a3e5127c1b653e6, type: 3}
+  - {fileID: 8300000, guid: 9c5b9d0b249577a4b9eb6705617f05b8, type: 3}
+  - {fileID: 8300000, guid: 35298b07648d54042a57869223aeb2af, type: 3}
+  - {fileID: 8300000, guid: e64c0ad67b2c95741a3008917a9ebeee, type: 3}
+  - {fileID: 8300000, guid: 0164f89383e585d49b501e6a55c4cfbd, type: 3}
 --- !u!1 &1325427294
 GameObject:
   m_ObjectHideFlags: 0
@@ -9955,7 +9973,7 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: cd1776f4cc28d604486fd7fcb784d0df, type: 2}
+  - {fileID: 2100000, guid: 564cc71088d5f3947ab7fb3da4efcb83, type: 2}
   - {fileID: 2100000, guid: cd1776f4cc28d604486fd7fcb784d0df, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -16310,8 +16328,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0, y: 2.901}
-  m_SizeDelta: {x: 4852.061, y: 2237.262}
+  m_AnchoredPosition: {x: -0.65, y: 3.49}
+  m_SizeDelta: {x: 5816.98, y: 3148.68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2025205897
 GameObject:
