@@ -42,17 +42,21 @@ public abstract class Knight : MonoBehaviour {
             SpriteRenderer spr2 = horse.GetComponent<SpriteRenderer>();
             spr.flipX = !spr.flipX;
             spr2.flipX = !spr2.flipX;
-            spr.sortingOrder = (int)combatant.sortingOrders.y;
-            spr2.sortingOrder = (int)combatant.sortingOrders.y;
+            spr.sortingOrder = (int)combatant.sortingOrders.x;
+            spr2.sortingOrder = (int)combatant.sortingOrders.x;
             GetComponent<BoxCollider2D>().offset = new Vector2(combatant.hitBoxXOffsets.y,0.2f);
         }
         else
         {
+            SpriteRenderer spr = body.GetComponent<SpriteRenderer>();
+            SpriteRenderer spr2 = horse.GetComponent<SpriteRenderer>();
             body.GetComponent<SpriteRenderer>().color = Color.blue;
             armLeft.GetComponent<SpriteRenderer>().color = Color.blue;
             armRight.GetComponent<SpriteRenderer>().color = Color.blue;
             bodyLeft.GetComponent<SpriteRenderer>().color = Color.blue;
             bodyRight.GetComponent<SpriteRenderer>().color = Color.blue;
+            spr.sortingOrder = (int)combatant.sortingOrders.y;
+            spr2.sortingOrder = (int)combatant.sortingOrders.y;
         }
     }
 
