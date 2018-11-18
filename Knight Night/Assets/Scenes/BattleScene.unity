@@ -6717,7 +6717,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -9019,7 +9019,7 @@ MonoBehaviour:
   p2inputdata: {fileID: 11400000, guid: e3f59a1ccce989e4d83af972f2d7b0ee, type: 2}
   ag: {fileID: 1118192359}
   p1Knight: {fileID: 11400000, guid: 75ac1bb7408ff6e448dad23002a21278, type: 2}
-  p2Knight: {fileID: 11400000, guid: 75ac1bb7408ff6e448dad23002a21278, type: 2}
+  p2Knight: {fileID: 11400000, guid: bafec5c7faff07946937140e99446bb8, type: 2}
   knightsReady: 0
   p1Wins: 0
   p2Wins: 0
