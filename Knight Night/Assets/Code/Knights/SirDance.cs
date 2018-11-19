@@ -31,12 +31,16 @@ public class SirDance : Knight
             _vSpeed = 0.1f;
             StartCoroutine("dash");
             _canDash = false;
+            GameManager.instance.GetComponent<CrowdController>().increaseExcitement(combatant.player, 0.05f);
+            SoundEffectsManager.instance.playSound(31, false);
         }
         if (Input.GetButtonDown(combatant.jumpButton) && transform.position.x > combatant.positionBounds.x && transform.position.x < combatant.positionBounds.y)
         {
             if (transform.position.y == _groundY)
             {
                 _vSpeed = jumpForce;
+                SoundEffectsManager.instance.playSound(27, false);
+                GameManager.instance.GetComponent<CrowdController>().increaseExcitement(combatant.player, 0.05f);
             }
         }
 

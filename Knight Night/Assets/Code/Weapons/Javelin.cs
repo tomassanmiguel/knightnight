@@ -37,7 +37,6 @@ public class Javelin : Weapon
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        onTriggerEnter2D(other);
         if (other.gameObject == _otherKnight)
         {
             SoundEffectsManager.instance.playSound(10, false);
@@ -47,6 +46,13 @@ public class Javelin : Weapon
         {
             SoundEffectsManager.instance.playSound(8, false);
         }
+        else if (other.gameObject.tag == "Weapon" && !collided)
+        {
+            SoundEffectsManager.instance.playSound(10, false);
+            transform.Rotate(0, 0, 180);
+            Camera.main.GetComponent<Shake>().startShake(0.15f, 0.5f);
+        }
+        onTriggerEnter2D(other);
     }
 }
 

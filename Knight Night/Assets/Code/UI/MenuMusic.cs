@@ -21,7 +21,7 @@ public class MenuMusic : MonoBehaviour {
 
     private void OnLevelWasLoaded(int level)
     {
-        if(LoadManager.GetCurrentSceneName() != "Menu" || LoadManager.GetCurrentSceneName() != "CharacterSelect")
+        if(LoadManager.GetCurrentSceneName() != "Menu" && LoadManager.GetCurrentSceneName() != "CharacterSelect")
         {
             Destroy(gameObject);
         }

@@ -13,6 +13,7 @@ public abstract class Weapon : MonoBehaviour
     public bool stopped = false;
     private BoxCollider2D col;
     protected Vector3 previousPosition;
+    public bool collided = false;
 
     public void update()
     {
@@ -69,6 +70,14 @@ public abstract class Weapon : MonoBehaviour
         if (other.gameObject.tag == "Ground")
         {
             stopped = true;
+        }
+
+        if (other.gameObject.tag == "Weapon")
+        {
+            GameManager.instance.GetComponent<CrowdController>().increaseExcitement(1, 0.4f);
+            GameManager.instance.GetComponent<CrowdController>().increaseExcitement(1, 0.4f);
+            SoundEffectsManager.instance.playSound(4, false, 0.3f);
+            collided = true;
         }
     }
 }

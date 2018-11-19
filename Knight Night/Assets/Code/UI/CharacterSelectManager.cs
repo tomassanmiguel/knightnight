@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class CharacterSelectManager : MonoBehaviour {
@@ -8,6 +9,8 @@ public class CharacterSelectManager : MonoBehaviour {
     //ScrollSelectors
     public ScrollSelector p1Selector;
     public ScrollSelector p2Selector;
+    public Image p1Image;
+    public Image p2Image;
     public static PlayerChoiceData knightChoice;
 
     //Character selects
@@ -20,6 +23,8 @@ public class CharacterSelectManager : MonoBehaviour {
 
     private void Update()
     {
+        p1Image.sprite = p1Selector.GetSelectedKnight().CharSelectImage;
+        p2Image.sprite = p2Selector.GetSelectedKnight().CharSelectImage;
         if (p1Select.ReadyCheck() && p2Select.ReadyCheck())
         {
             p1Select.enabled = false;
