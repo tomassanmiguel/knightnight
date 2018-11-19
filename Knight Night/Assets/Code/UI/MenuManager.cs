@@ -92,6 +92,21 @@ public class MenuManager : MonoBehaviour {
                 BackToMainMenu();
             }
         }
+
+        //DEBUG
+        if (Input.GetKeyDown(KeyCode.BackQuote))
+        {
+            if (Cursor.visible)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+        }
     }
 
     public void StartGame()

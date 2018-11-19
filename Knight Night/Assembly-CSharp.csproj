@@ -62,7 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Code\CameraController.cs" />
-    <Compile Include="Assets\Code\Combatant.cs" />
     <Compile Include="Assets\Code\Crowd\AudienceMember.cs" />
     <Compile Include="Assets\Code\Crowd\CrowdController.cs" />
     <Compile Include="Assets\Code\Crowd\CrowdGroup.cs" />
@@ -70,6 +69,7 @@
     <Compile Include="Assets\Code\GameManager.cs" />
     <Compile Include="Assets\Code\KnightCollection.cs" />
     <Compile Include="Assets\Code\KnightData.cs" />
+    <Compile Include="Assets\Code\Knights\Combatant.cs" />
     <Compile Include="Assets\Code\Knights\Knight.cs" />
     <Compile Include="Assets\Code\Knights\SirDance.cs" />
     <Compile Include="Assets\Code\Knights\SirExpanse.cs" />
