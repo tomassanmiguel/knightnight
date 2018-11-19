@@ -38,6 +38,7 @@ public class Combatant : MonoBehaviour {
             if (deadTimer <= 0)
             {
                 GameManager.instance.resetScene();
+                deadTimer = 10000;
             }
         }
     }

@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/BattleScene.unity
+=======
+- path: Assets/Scenes/UITest.unity
+>>>>>>> 30e72af27ab055f20c8d230051acecc55c439187
   isLoaded: 1
   isActive: 1

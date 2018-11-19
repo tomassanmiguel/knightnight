@@ -47,16 +47,10 @@ public class GameManager : MonoBehaviour {
 
     void Awake ()
     {
+        instance = this;
+        p1Wins = 0;
+        p2Wins = 0;
         knightsReady = false;
-        if (GameManager.instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-            Destroy(gameObject);
-
-        //Non-Persistant Now!
-        //DontDestroyOnLoad(gameObject);
     }
 
 	// Use this for initialization
@@ -80,14 +74,17 @@ public class GameManager : MonoBehaviour {
         //Set Knight UI Stuff
 
         //Instantiate the Knights
-        instantiateKnights();
+        if (p1Wins < 3 && p2Wins < 3)
+        {
+            instantiateKnights();
 
-        p1Text.text = p1Knight.KnightName;
-        p2Text.text = p2Knight.KnightName;
+            p1Text.text = p1Knight.KnightName;
+            p2Text.text = p2Knight.KnightName;
 
-        //Set Portraits
+            //Set Portraits
 
-        startBattle();
+            startBattle();
+        }
     }
 
     // both increaseRound() and addP1Win() / addP2Win() need to be called

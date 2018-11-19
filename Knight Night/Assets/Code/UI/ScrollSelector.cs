@@ -22,7 +22,7 @@ public class ScrollSelector : Selectable {
 
     //References
     private Text nameText;
-    private MultiEventSystem eventSystem;
+    //private MultiEventSystem eventSystem;
 
     //internal use
     private bool selected = false;
@@ -36,7 +36,6 @@ public class ScrollSelector : Selectable {
         nameText = transform.Find("Name Box").GetComponentInChildren<Text>();
         nameText.text = knightCollection.Collection[currIndex].KnightName;
         changeSelection.Invoke(currIndex);
-        eventSystem = MultiEventSystem.GetMultiEventSystem(eventSystemIndex);
 
         if (changeSelection == null) changeSelection = new IntUnityEvent();
     }
@@ -44,6 +43,9 @@ public class ScrollSelector : Selectable {
     protected override void Start()
     {
         base.Start();
+
+        //eventSystem = MultiEventSystem.GetMultiEventSystem(eventSystemIndex);
+        selected = true;
     }
 
     public int getSelection()
@@ -63,12 +65,14 @@ public class ScrollSelector : Selectable {
         selected = false;
     }
 
+    /*
     public override void Select()
     {
         if (eventSystem.alreadySelecting)
             return;
         eventSystem.SetSelectedGameObject(gameObject);
     }
+    */
 
     private void checkIndexBounds()
     {
@@ -121,6 +125,14 @@ public class ScrollSelector : Selectable {
                 changeSelection.Invoke(currIndex);
                 noSpam = true;
                 StartCoroutine(SpamDelayed());
+            }
+        }
+        else if(selected && active)
+        {
+            if(Input.GetAxis(input.Horizontal) == 0)
+            {
+                StopAllCoroutines();
+                noSpam = false;
             }
         }
     }

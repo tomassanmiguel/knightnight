@@ -5,13 +5,18 @@ using UnityEngine.EventSystems;
 
 public class MultiEventSystem : EventSystem {
 
-    private static List<MultiEventSystem> multiEventSystemList = new List<MultiEventSystem>();
+    private static List<MultiEventSystem> multiEventSystemList;
 
     private int index = -1;
 
     protected override void Awake()
     {
         base.Awake();
+
+        if(multiEventSystemList == null)
+        {
+            multiEventSystemList = new List<MultiEventSystem>();
+        } 
 
         multiEventSystemList.Add(this);
         index = multiEventSystemList.IndexOf(this);

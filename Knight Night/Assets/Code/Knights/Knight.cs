@@ -74,7 +74,7 @@ public abstract class Knight : MonoBehaviour {
         }
         else
         {
-            if (Input.GetButtonUp(combatant.throwButton) && _hasJavelin)
+            if (Input.GetButtonUp(combatant.throwButton) && _hasJavelin && combatant.deadTimer == 0)
             {
                 if (aiming)
                 {
