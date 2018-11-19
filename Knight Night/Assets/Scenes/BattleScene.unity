@@ -9668,6 +9668,8 @@ MonoBehaviour:
   p1Knight: {fileID: 11400000, guid: bafec5c7faff07946937140e99446bb8, type: 2}
   p2Knight: {fileID: 11400000, guid: bafec5c7faff07946937140e99446bb8, type: 2}
   knightsReady: 0
+  fireworks: {fileID: 1891743629111002, guid: b8ef82357ead7884baa85ec7129e41c8, type: 2}
+  fireworksposition: {x: 12, y: 8, z: -1}
   p1Wins: 0
   p2Wins: 0
   winHistory: 

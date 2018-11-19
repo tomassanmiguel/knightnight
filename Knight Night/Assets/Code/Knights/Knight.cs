@@ -8,6 +8,7 @@ public abstract class Knight : MonoBehaviour {
     
     public float ridingSpeed;
     public GameObject aimArrow;
+    public GameObject jumpCloud;
 
     private bool aiming = false;
     private bool _hasJavelin = true;
@@ -174,11 +175,11 @@ public abstract class Knight : MonoBehaviour {
             body.GetComponent<Animator>().speed = movementMod;
             horse.GetComponent<Animator>().speed = movementMod;
         }
-        if (transform.position.x < combatant.invisibleWallBounds.x)
+        if (transform.position.x < combatant.invisibleWallBounds.x && combatant.deadTimer == 0)
         {
             transform.position = new Vector3(combatant.invisibleWallBounds.x, transform.position.y, transform.position.z);
         }
-        if (transform.position.x > combatant.invisibleWallBounds.y)
+        if (transform.position.x > combatant.invisibleWallBounds.y && combatant.deadTimer == 0)
         {
             transform.position = new Vector3(combatant.invisibleWallBounds.y, transform.position.y, transform.position.z);
         }
@@ -363,51 +364,69 @@ public abstract class Knight : MonoBehaviour {
     //Round the tilts
     IEnumerator TurnAround()
     {
-        turnAround();
-        SpriteRenderer spr = body.GetComponent<SpriteRenderer>();
-        SpriteRenderer spr2 = horse.GetComponent<SpriteRenderer>();
-        spr.flipX = !spr.flipX;
-        spr2.flipX = !spr2.flipX;
-        combatant.facingLeft = !combatant.facingLeft;
-
-        while (combatant.facingLeft && transform.position.x > combatant.positionBounds.y)
+        if (combatant.deadTimer == 0)
         {
-            transform.position = (Vector2)transform.position + Vector2.left * ridingSpeed * Time.deltaTime;
+            turnAround();
+            SpriteRenderer spr = body.GetComponent<SpriteRenderer>();
+            SpriteRenderer spr2 = horse.GetComponent<SpriteRenderer>();
+            spr.flipX = !spr.flipX;
+            spr2.flipX = !spr2.flipX;
+            combatant.facingLeft = !combatant.facingLeft;
+
+            while (combatant.facingLeft && transform.position.x > combatant.positionBounds.y)
+            {
+                transform.position = (Vector2)transform.position + Vector2.left * ridingSpeed * Time.deltaTime;
+                yield return null;
+            }
+            while (!combatant.facingLeft && transform.position.x < combatant.positionBounds.x)
+            {
+                transform.position = (Vector2)transform.position + Vector2.right * ridingSpeed * Time.deltaTime;
+                yield return null;
+            }
+
+            combatant.rtt = true;
+
+            while (!combatant.opposingKnight.GetComponent<Combatant>().rtt)
+            {
+                yield return null;
+            }
+
+            combatant.opposingKnight.GetComponent<Combatant>().rtt = false;
+
+            if (combatant.facingLeft)
+            {
+                spr.sortingOrder = (int)combatant.sortingOrders.x;
+                spr2.sortingOrder = (int)combatant.sortingOrders.x;
+                GetComponent<BoxCollider2D>().offset = new Vector2(combatant.hitBoxXOffsets.y, 0.2f);
+                _hasJavelin = true;
+                StartCoroutine("TrotLeft");
+            }
+            else
+            {
+                spr.sortingOrder = (int)combatant.sortingOrders.y;
+                spr2.sortingOrder = (int)combatant.sortingOrders.y;
+                _hasJavelin = true;
+                GetComponent<BoxCollider2D>().offset = new Vector2(combatant.hitBoxXOffsets.x, 0.2f);
+                StartCoroutine("TrotRight");
+            }
+
             yield return null;
-        }
-        while (!combatant.facingLeft && transform.position.x < combatant.positionBounds.x)
-        {
-            transform.position = (Vector2)transform.position + Vector2.right * ridingSpeed * Time.deltaTime;
-            yield return null;
-        }
-
-        combatant.rtt = true;
-
-        while (!combatant.opposingKnight.GetComponent<Combatant>().rtt)
-        {
-            yield return null;
-        }
-
-        combatant.opposingKnight.GetComponent<Combatant>().rtt = false;
-
-        if (combatant.facingLeft)
-        {
-            spr.sortingOrder = (int)combatant.sortingOrders.x;
-            spr2.sortingOrder = (int)combatant.sortingOrders.x;
-            GetComponent<BoxCollider2D>().offset = new Vector2(combatant.hitBoxXOffsets.y, 0.2f);
-            _hasJavelin = true;
-            StartCoroutine("TrotLeft");
         }
         else
         {
-            spr.sortingOrder = (int)combatant.sortingOrders.y;
-            spr2.sortingOrder = (int)combatant.sortingOrders.y;
-            _hasJavelin = true;
-            GetComponent<BoxCollider2D>().offset = new Vector2(combatant.hitBoxXOffsets.x, 0.2f);
-            StartCoroutine("TrotRight");
+            while (true)
+            {
+                if (combatant.facingLeft)
+                {
+                    transform.position = (Vector2)transform.position + Vector2.left * ridingSpeed * Time.deltaTime;
+                }
+                else
+                {
+                    transform.position = (Vector2)transform.position + Vector2.right * ridingSpeed * Time.deltaTime;
+                }
+                yield return null;
+            }
         }
-
-        yield return null;
     }
 
     float getThrowDirection()

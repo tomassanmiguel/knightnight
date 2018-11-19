@@ -199,6 +199,7 @@ MonoBehaviour:
   _timeToDestroy: 60
   stopped: 0
   collided: 0
+  hitSparks: {fileID: 1274757840567916, guid: c8206e5277ef07845bc356f7de1343f6, type: 2}
   _speed: 69
   _gravity: 0.08
 --- !u!212 &212859194558823736

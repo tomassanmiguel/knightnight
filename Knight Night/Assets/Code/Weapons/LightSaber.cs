@@ -72,6 +72,13 @@ public class LightSaber : Weapon
             Camera.main.GetComponent<Shake>().startShake(1.0f, 0.3f);
             other.GetComponent<Combatant>().deadTimer = 1.2f;
             GameManager.instance.toDelete.Add(g);
+            GameObject sparks = Instantiate(hitSparks);
+            Vector3 moveDirection = transform.position - previousPosition;
+            if (moveDirection != Vector3.zero)
+            {
+                float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+            }
+            sparks.transform.position = _otherKnight.transform.position + moveDirection/3;
             Time.timeScale = 0.6f;
             Destroy(gameObject);
         }

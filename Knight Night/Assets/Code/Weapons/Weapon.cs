@@ -14,6 +14,7 @@ public abstract class Weapon : MonoBehaviour
     private BoxCollider2D col;
     protected Vector3 previousPosition;
     public bool collided = false;
+    public GameObject hitSparks;
 
     public void update()
     {

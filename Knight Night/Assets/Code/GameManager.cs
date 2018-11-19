@@ -39,6 +39,9 @@ public class GameManager : MonoBehaviour {
     private GameObject p2;
 
     public bool knightsReady;
+    private bool battleFinished;
+    public GameObject fireworks;
+    public Vector3 fireworksposition;
 
     public int p1Wins;
     public int p2Wins; 
@@ -67,6 +70,13 @@ public class GameManager : MonoBehaviour {
         p2Knight = p2;
     }
 
+    void Update()
+    {
+        if (battleFinished && Input.GetButtonDown("AllFire1"))
+        {
+            LoadManager.instance.LoadScene("CharacterSelect");
+        }
+    }
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnLevelFinishedLoading;
@@ -132,7 +142,20 @@ public class GameManager : MonoBehaviour {
         bool draw = !(p1.GetComponent<Combatant>().deadTimer == 0 || p2.GetComponent<Combatant>().deadTimer == 0);
         if ((p1Wins > 2 || p2Wins > 2) && !draw)
         {
-            LoadManager.instance.LoadScene("CharacterSelect");
+            Time.timeScale = 1;
+            battleFinished = true;
+            GameObject fw = Instantiate(fireworks);
+            fw.transform.position = fireworksposition;
+            if (p1Wins > p2Wins)
+            {
+                GameObject.Find("P2Wins").SetActive(false);
+                p1.GetComponent<BoxCollider2D>().enabled = false;
+            }
+            else
+            {
+                GameObject.Find("P1Wins").SetActive(false);
+                p2.GetComponent<BoxCollider2D>().enabled = false;
+            }
         }
         else
         {

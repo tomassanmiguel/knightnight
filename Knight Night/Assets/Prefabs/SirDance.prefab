@@ -686,6 +686,7 @@ MonoBehaviour:
   combatant: {fileID: 114370821049302720}
   ridingSpeed: 12
   aimArrow: {fileID: 1389178723521168}
+  jumpCloud: {fileID: 1573296480948222, guid: 8c8e071ac52aa0f4eabb07049c2ab155, type: 2}
   airborne: 0
   aimTolerance: 0.1
   armLeft: {fileID: 1716574590868292}

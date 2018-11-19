@@ -41,6 +41,13 @@ public class Discus : Weapon
         {
             SoundEffectsManager.instance.playSound(12, false);
             SoundEffectsManager.instance.playSound(5, false, 0.4f);
+            GameObject sparks = Instantiate(hitSparks);
+            Vector3 moveDirection = transform.position - previousPosition;
+            if (moveDirection != Vector3.zero)
+            {
+                float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+            }
+            sparks.transform.position = _otherKnight.transform.position + moveDirection/3;
         }
         else if (other.gameObject.tag == "Ground")
         {

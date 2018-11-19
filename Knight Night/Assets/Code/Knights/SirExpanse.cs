@@ -31,6 +31,8 @@ public class SirExpanse : Knight
                 _vSpeed = jumpForce;
                 GameManager.instance.GetComponent<CrowdController>().increaseExcitement(combatant.player, 0.05f);
                 SoundEffectsManager.instance.playSound(27, false);
+                GameObject jc = Instantiate(jumpCloud);
+                jc.transform.position = transform.position + new Vector3(0, -0.75f, 0);
             }
         }
 
