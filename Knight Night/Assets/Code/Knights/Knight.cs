@@ -50,11 +50,12 @@ public abstract class Knight : MonoBehaviour {
         {
             SpriteRenderer spr = body.GetComponent<SpriteRenderer>();
             SpriteRenderer spr2 = horse.GetComponent<SpriteRenderer>();
-            body.GetComponent<SpriteRenderer>().color = Color.blue;
-            armLeft.GetComponent<SpriteRenderer>().color = Color.blue;
-            armRight.GetComponent<SpriteRenderer>().color = Color.blue;
-            bodyLeft.GetComponent<SpriteRenderer>().color = Color.blue;
-            bodyRight.GetComponent<SpriteRenderer>().color = Color.blue;
+            Color c = new Color(56f/256, 215f/256, 243f/256);
+            body.GetComponent<SpriteRenderer>().color = c;
+            armLeft.GetComponent<SpriteRenderer>().color = c;
+            armRight.GetComponent<SpriteRenderer>().color = c;
+            bodyLeft.GetComponent<SpriteRenderer>().color = c;
+            bodyRight.GetComponent<SpriteRenderer>().color = c;
             spr.sortingOrder = (int)combatant.sortingOrders.y;
             spr2.sortingOrder = (int)combatant.sortingOrders.y;
         }
@@ -62,7 +63,7 @@ public abstract class Knight : MonoBehaviour {
 
     public void update()
     {
-        GameManager.instance.GetComponent<CrowdController>().increaseExcitement(combatant.player, -Time.deltaTime / 16);
+        GameManager.instance.GetComponent<CrowdController>().increaseExcitement(combatant.player, - Time.deltaTime / 20);
         if (!going)
         {
             aimArrow.GetComponent<SpriteRenderer>().enabled = false;
@@ -78,7 +79,7 @@ public abstract class Knight : MonoBehaviour {
             {
                 if (aiming)
                 {
-                    GameManager.instance.GetComponent<CrowdController>().increaseExcitement(combatant.player, 0.2f);
+                    GameManager.instance.GetComponent<CrowdController>().increaseExcitement(combatant.player, 0.25f);
                     thro();
                     aiming = false;
                     _hasJavelin = false;

@@ -32,12 +32,14 @@ public class SirLance : Knight
             {
                 _vSpeed = jumpForce;
                 SoundEffectsManager.instance.playSound(27, false);
+                GameManager.instance.GetComponent<CrowdController>().increaseExcitement(combatant.player, 0.05f);
             }
             else if (doubleJump)
             {
                 doubleJump = false;
                 _vSpeed = doubleJumpForce;
                 SoundEffectsManager.instance.playSound(27, false);
+                GameManager.instance.GetComponent<CrowdController>().increaseExcitement(combatant.player, 0.05f);
             }
         }
 

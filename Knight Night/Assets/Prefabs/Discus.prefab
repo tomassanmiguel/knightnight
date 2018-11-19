@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4727709035277568}
   - component: {fileID: 212992177125043494}
   m_Layer: 0
-  m_Name: Javelin
+  m_Name: Discus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 61928917119819032}
   m_Layer: 0
   m_Name: Discus
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
