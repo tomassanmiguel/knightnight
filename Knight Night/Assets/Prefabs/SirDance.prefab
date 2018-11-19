@@ -487,8 +487,8 @@ MonoBehaviour:
   discus: {fileID: 1658849218952848, guid: 8a2892b501bc6544bbce50d7b1055077, type: 2}
   jumpForce: 44
   gravity: 130
-  dashSpeed: 18
-  dashDistance: 2.4
+  dashSpeed: 36
+  dashDistance: 6.2
 --- !u!212 &212074231919623210
 SpriteRenderer:
   m_ObjectHideFlags: 1
