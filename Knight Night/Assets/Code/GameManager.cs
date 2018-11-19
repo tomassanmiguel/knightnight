@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour {
         p1Wins = 0;
         p2Wins = 0;
         knightsReady = false;
+        if (CharacterSelectManager.knightChoice != null)
+            setKnightData(CharacterSelectManager.knightChoice.player1, CharacterSelectManager.knightChoice.player2);
     }
 
 	// Use this for initialization
@@ -80,6 +82,9 @@ public class GameManager : MonoBehaviour {
 
             p1Text.text = p1Knight.KnightName;
             p2Text.text = p2Knight.KnightName;
+
+            p1Portrait.sprite = p1Knight.Portrait;
+            p2Portrait.sprite = p2Knight.Portrait;
 
             //Set Portraits
 

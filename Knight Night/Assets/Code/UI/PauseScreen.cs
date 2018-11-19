@@ -16,7 +16,7 @@ public class PauseScreen : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetButtonDown("AllMenu"))
+        if (Input.GetButtonDown("AllMenu") && GameManager.instance.knightsReady)
         {
             if (paused)
             {

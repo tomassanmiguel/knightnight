@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Name: SirDance
   m_EditorClassIdentifier: 
   knightName: Sir Dance
-  description: An expert saxophone player and master of the DiscoJoust
-  prefab: {fileID: 1841254986594150, guid: 380d577acbb326c4390997b8df93e74d, type: 2}
+  description: Master of the DiscoJoust. Wields a record discus and is able to make
+    his steed dash.
+  prefab: {fileID: 1118296630245010, guid: 380d577acbb326c4390997b8df93e74d, type: 2}
+  charSelectImage: {fileID: 21300000, guid: 6693b3365541c994b844b98925978f41, type: 3}
+  portrait: {fileID: 21300000, guid: 7707ac7665d611d42bcf364e11cbd294, type: 3}

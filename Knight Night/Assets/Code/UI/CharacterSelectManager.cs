@@ -8,6 +8,7 @@ public class CharacterSelectManager : MonoBehaviour {
     //ScrollSelectors
     public ScrollSelector p1Selector;
     public ScrollSelector p2Selector;
+    public static PlayerChoiceData knightChoice;
 
     //Character selects
     [SerializeField] private CharacterSelect p1Select;
@@ -25,6 +26,7 @@ public class CharacterSelectManager : MonoBehaviour {
             p2Select.enabled = false;
             playerChoice.player1 = p1Selector.GetSelectedKnight();
             playerChoice.player2 = p2Selector.GetSelectedKnight();
+            CharacterSelectManager.knightChoice = playerChoice;
             LoadManager.instance.LoadScene("BattleScene");
         }
     }

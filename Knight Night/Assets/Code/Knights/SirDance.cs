@@ -45,17 +45,20 @@ public class SirDance : Knight
         if (_vSpeed != 0)
         {
             _vSpeed = _vSpeed - gravity * Time.deltaTime;
+            airborne = true;
         }
 
         if (transform.position.y < _groundY)
         {
             _vSpeed = 0;
+            airborne = false;
             transform.position = new Vector3(transform.position.x, _groundY, 0);
         }
     }
     public override void throwWeapon(float aimDir)
     {
         GameObject disc = Instantiate(discus);
+        SoundEffectsManager.instance.playSound(9, false);
         disc.GetComponent<Discus>()._otherKnight = combatant.opposingKnight;
         disc.transform.position = transform.position;
         disc.transform.Rotate(0, 0, aimDir);

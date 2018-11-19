@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Name: SirExpanse
   m_EditorClassIdentifier: 
   knightName: Sir Expanse
-  description: Comes from another planet and got roped into this farcical duel
+  description: Moon Jouster. Wields a lightsword and can make his steed hover.
   prefab: {fileID: 1477422519902426, guid: e6ca27d41f5164c46b31d7d00fa03257, type: 2}
+  charSelectImage: {fileID: 21300000, guid: b52f01ff796105e4b9d1f47051316f0d, type: 3}
+  portrait: {fileID: 21300000, guid: 53588147a42f9114dab5c45be7947cb1, type: 3}

@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Name: SirLance
   m_EditorClassIdentifier: 
   knightName: Sir Lance
-  description: Default Knight
+  description: Always gets the damsel. Has mastered the ancient art of the double
+    jump.
   prefab: {fileID: 1294198668226220, guid: 635ab5036d6bc0b469fc5862c11604ed, type: 2}
+  charSelectImage: {fileID: 21300000, guid: 6693b3365541c994b844b98925978f41, type: 3}
+  portrait: {fileID: 21300000, guid: 7707ac7665d611d42bcf364e11cbd294, type: 3}
