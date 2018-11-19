@@ -71,6 +71,16 @@ public class LightSaber : Weapon
             Time.timeScale = 0.6f;
             Destroy(gameObject);
         }
+        if (other.gameObject.tag == "Weapon" && !collided)
+        {
+            SoundEffectsManager.instance.playSound(29, false);
+            collided = true;
+            transform.Rotate(0, 0, 180);
+            Camera.main.GetComponent<Shake>().startShake(0.15f, 0.5f);
+            SoundEffectsManager.instance.playSound(4, false, 0.3f);
+            GameManager.instance.GetComponent<CrowdController>().increaseExcitement(1, 0.4f);
+            GameManager.instance.GetComponent<CrowdController>().increaseExcitement(1, 0.4f);
+        }
     }
 }
 

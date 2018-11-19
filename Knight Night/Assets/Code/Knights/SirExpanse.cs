@@ -29,6 +29,7 @@ public class SirExpanse : Knight
             if (transform.position.y == _groundY)
             {
                 _vSpeed = jumpForce;
+                GameManager.instance.GetComponent<CrowdController>().increaseExcitement(combatant.player, 0.05f);
                 SoundEffectsManager.instance.playSound(27, false);
             }
         }

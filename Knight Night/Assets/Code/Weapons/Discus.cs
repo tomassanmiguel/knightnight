@@ -46,6 +46,12 @@ public class Discus : Weapon
         {
             SoundEffectsManager.instance.playSound(11, false);
         }
+        else if (other.gameObject.tag == "Weapon" && !collided)
+        {
+            SoundEffectsManager.instance.playSound(12, false);
+            transform.Rotate(0, 0, 180);
+            Camera.main.GetComponent<Shake>().startShake(0.15f, 0.5f);
+        }
         onTriggerEnter2D(other);
     }
 }
