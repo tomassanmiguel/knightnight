@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuMusic : MonoBehaviour {
 
@@ -17,13 +18,20 @@ public class MenuMusic : MonoBehaviour {
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+
+        SceneManager.sceneLoaded += OnLevelFinishedLoading;
     }
 
-    private void OnLevelWasLoaded(int level)
+    void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
-        if(LoadManager.GetCurrentSceneName() != "Menu" || LoadManager.GetCurrentSceneName() != "CharacterSelect")
+        if(scene.name != "Menu" && scene.name != "CharacterSelect")
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnLevelFinishedLoading;
     }
 }
