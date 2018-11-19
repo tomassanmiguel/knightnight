@@ -55,13 +55,17 @@ public abstract class Weapon : MonoBehaviour
             other.GetComponent<BoxCollider2D>().enabled = false;
             g.GetComponent<BoxCollider2D>().enabled = true;
             g.GetComponent<Rigidbody2D>().isKinematic = false;
-            g.GetComponent<Rigidbody2D>().mass = 10;
-            g.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
-            g.GetComponent<Rigidbody2D>().AddForce((transform.position + new Vector3(0, 0.5f, 0) - previousPosition) / (transform.position - previousPosition).magnitude * 8000);
-            Camera.main.GetComponent<Shake>().startShake(1.0f, 1f);
-            other.GetComponent<Combatant>().deadTimer = 1.5f;
-            GameManager.instance.toDelete = g;
-            Time.timeScale = 0.6f;
+            g.GetComponent<Rigidbody2D>().mass = 8;
+            g.GetComponent<Rigidbody2D>().gravityScale = 4.0f;
+            g.GetComponent<Rigidbody2D>().AddForce(((transform.position + new Vector3(0, 0.2f, 0) - previousPosition) / (transform.position - previousPosition).magnitude) * 8000);
+            if (transform.position.x > previousPosition.x)
+                g.GetComponent<Rigidbody2D>().AddTorque(-800);
+            else
+                g.GetComponent<Rigidbody2D>().AddTorque(800);
+            Camera.main.GetComponent<Shake>().startShake(1.0f, 0.3f);
+            other.GetComponent<Combatant>().deadTimer = 1.2f;
+            GameManager.instance.toDelete.Add(g);
+            Time.timeScale = 0.3f;
             Destroy(gameObject);
         }
 
@@ -74,7 +78,7 @@ public abstract class Weapon : MonoBehaviour
         {
             GameManager.instance.GetComponent<CrowdController>().increaseExcitement(1, 0.4f);
             GameManager.instance.GetComponent<CrowdController>().increaseExcitement(1, 0.4f);
-            SoundEffectsManager.instance.playSound(4, false, 0.3f);
+            SoundEffectsManager.instance.playSound(4, false, 0.5f);
             collided = true;
         }
     }

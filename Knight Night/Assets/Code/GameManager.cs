@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour {
     public Text p1Text;
     public Text p2Text;
 
-    public GameObject toDelete = null;
+    public List<GameObject> toDelete = null;
 
     public PlayerInputData p1inputdata;
     public PlayerInputData p2inputdata;
@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour {
         instance = this;
         p1Wins = 0;
         p2Wins = 0;
+        toDelete = new List<GameObject>(0);
         knightsReady = false;
         if (CharacterSelectManager.knightChoice != null)
             setKnightData(CharacterSelectManager.knightChoice.player1, CharacterSelectManager.knightChoice.player2);
@@ -137,8 +138,8 @@ public class GameManager : MonoBehaviour {
         {
             Destroy(p1);
             Destroy(p2);
-            if (toDelete != null)
-                Destroy(toDelete);
+            for (int i = 0; i < toDelete.Count; i++)
+                Destroy(toDelete[i]);
 
             if (draw)
             {

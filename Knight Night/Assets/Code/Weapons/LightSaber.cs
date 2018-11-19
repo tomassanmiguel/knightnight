@@ -62,12 +62,16 @@ public class LightSaber : Weapon
             other.GetComponent<BoxCollider2D>().enabled = false;
             g.GetComponent<BoxCollider2D>().enabled = true;
             g.GetComponent<Rigidbody2D>().isKinematic = false;
-            g.GetComponent<Rigidbody2D>().mass = 10;
-            g.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
-            g.GetComponent<Rigidbody2D>().AddForce((transform.position + new Vector3(0, 0.5f, 0) - previousPosition) / (transform.position - previousPosition).magnitude * 8000);
-            other.GetComponent<Combatant>().deadTimer = 1.5f;
-            Camera.main.GetComponent<Shake>().startShake(0.35f, 1f);
-            GameManager.instance.toDelete = g;
+            g.GetComponent<Rigidbody2D>().mass = 8;
+            g.GetComponent<Rigidbody2D>().gravityScale = 4.0f;
+            g.GetComponent<Rigidbody2D>().AddForce(((transform.position + new Vector3(0, 0.2f, 0) - previousPosition) / (transform.position - previousPosition).magnitude) * 8000);
+            if (transform.position.x > previousPosition.x)
+                g.GetComponent<Rigidbody2D>().AddTorque(-800);
+            else
+                g.GetComponent<Rigidbody2D>().AddTorque(800);
+            Camera.main.GetComponent<Shake>().startShake(1.0f, 0.3f);
+            other.GetComponent<Combatant>().deadTimer = 1.2f;
+            GameManager.instance.toDelete.Add(g);
             Time.timeScale = 0.6f;
             Destroy(gameObject);
         }
@@ -76,7 +80,7 @@ public class LightSaber : Weapon
             SoundEffectsManager.instance.playSound(29, false);
             collided = true;
             transform.Rotate(0, 0, 180);
-            Camera.main.GetComponent<Shake>().startShake(0.15f, 0.5f);
+            Camera.main.GetComponent<Shake>().startShake(0.15f, 0.15f);
             SoundEffectsManager.instance.playSound(4, false, 0.3f);
             GameManager.instance.GetComponent<CrowdController>().increaseExcitement(1, 0.4f);
             GameManager.instance.GetComponent<CrowdController>().increaseExcitement(1, 0.4f);

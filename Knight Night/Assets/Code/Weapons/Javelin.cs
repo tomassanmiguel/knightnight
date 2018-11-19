@@ -50,7 +50,7 @@ public class Javelin : Weapon
         {
             SoundEffectsManager.instance.playSound(10, false);
             transform.Rotate(0, 0, 180);
-            Camera.main.GetComponent<Shake>().startShake(0.15f, 0.5f);
+            Camera.main.GetComponent<Shake>().startShake(0.15f, 0.15f);
         }
         onTriggerEnter2D(other);
     }

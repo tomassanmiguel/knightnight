@@ -9229,6 +9229,7 @@ GameObject:
   - component: {fileID: 1223773001}
   - component: {fileID: 1223773000}
   - component: {fileID: 1223773002}
+  - component: {fileID: 1223773003}
   m_Layer: 0
   m_Name: GroundTrigger
   m_TagString: Ground
@@ -9294,6 +9295,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &1223773003
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1223772999}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 0e4b296a1c81ab14493dc3dc0591bc1e, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 60, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1233016865
 GameObject:
   m_ObjectHideFlags: 0
@@ -9635,11 +9661,11 @@ MonoBehaviour:
   p2Portrait: {fileID: 222438038}
   p1Text: {fileID: 370689642}
   p2Text: {fileID: 2032821179}
-  toDelete: {fileID: 0}
+  toDelete: []
   p1inputdata: {fileID: 11400000, guid: 8bc85a969338d7c418ca3f79ead8a047, type: 2}
   p2inputdata: {fileID: 11400000, guid: e3f59a1ccce989e4d83af972f2d7b0ee, type: 2}
   ag: {fileID: 390717014}
-  p1Knight: {fileID: 11400000, guid: 75ac1bb7408ff6e448dad23002a21278, type: 2}
+  p1Knight: {fileID: 11400000, guid: bafec5c7faff07946937140e99446bb8, type: 2}
   p2Knight: {fileID: 11400000, guid: bafec5c7faff07946937140e99446bb8, type: 2}
   knightsReady: 0
   p1Wins: 0
