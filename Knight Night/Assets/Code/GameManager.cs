@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour {
     public ScoreIndicator p1ScoreIndicator;
     public ScoreIndicator p2ScoreIndicator;
 
-    public Transform p1Spawn;
-    public Transform p2Spawn;
+    public Vector3 p1Spawn;
+    public Vector3 p2Spawn;
 
     public Image p1Portrait;
     public Image p2Portrait;
@@ -61,32 +61,6 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-	}
-
-    public void setKnightData(KnightData p1, KnightData p2)
-    {
-        p1Knight = p1;
-        p2Knight = p2;
-    }
-
-    void Update()
-    {
-        if (battleFinished && Input.GetButtonDown("AllFire1"))
-        {
-            LoadManager.instance.LoadScene("CharacterSelect");
-        }
-    }
-    void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnLevelFinishedLoading;
-    }
-
-    void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
-    {
-        //Set Knight UI Stuff
-
-        //Instantiate the Knights
         if (p1Wins < 3 && p2Wins < 3)
         {
             instantiateKnights();
@@ -100,6 +74,20 @@ public class GameManager : MonoBehaviour {
             //Set Portraits
 
             startBattle();
+        }
+    }
+
+    public void setKnightData(KnightData p1, KnightData p2)
+    {
+        p1Knight = p1;
+        p2Knight = p2;
+    }
+
+    void Update()
+    {
+        if (battleFinished && Input.GetButtonDown("AllFire1"))
+        {
+            LoadManager.instance.LoadScene("CharacterSelect");
         }
     }
 
@@ -128,13 +116,13 @@ public class GameManager : MonoBehaviour {
         c2.xAxisAim = p2inputdata.Horizontal;
         c1.yAxisAim = p1inputdata.Vertical;
         c2.yAxisAim = p2inputdata.Vertical;
-        c1.positionBounds = new Vector2(p1Spawn.position.x, p2Spawn.position.x);
-        c2.positionBounds = new Vector2(p1Spawn.position.x, p2Spawn.position.x);
+        c1.positionBounds = new Vector2(p1Spawn.x, p2Spawn.x);
+        c2.positionBounds = new Vector2(p1Spawn.x, p2Spawn.x);
         c2.facingLeft = true;
         c1.player = 1;
         c2.player = 2;
-        p1.transform.position = p1Spawn.position;
-        p2.transform.position = p2Spawn.position;
+        p1.transform.position = p1Spawn;
+        p2.transform.position = p2Spawn;
     }
 
     public void resetScene()

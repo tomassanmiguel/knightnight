@@ -80,7 +80,7 @@ public class SirDance : Knight
         if (combatant.facingLeft)
         {
             float endDashPos = transform.position.x - dashDistance;
-            while (transform.position.x > endDashPos)
+            while (transform.position.x > endDashPos && transform.position.x != combatant.invisibleWallBounds.x && transform.position.x != combatant.invisibleWallBounds.y)
             {
                 transform.position = (Vector2)transform.position + Vector2.left * dashSpeed * Time.deltaTime;
                 yield return null;
@@ -89,7 +89,7 @@ public class SirDance : Knight
         else
         {      //Sir Dance is facing right
             float endDashPos = transform.position.x + dashDistance;
-            while (transform.position.x < endDashPos)
+            while (transform.position.x < endDashPos && transform.position.x != combatant.invisibleWallBounds.x && transform.position.x != combatant.invisibleWallBounds.y)
             {
                 transform.position = (Vector2)transform.position + Vector2.right * dashSpeed * Time.deltaTime;
                 yield return null;

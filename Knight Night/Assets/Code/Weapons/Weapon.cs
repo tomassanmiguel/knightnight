@@ -15,6 +15,7 @@ public abstract class Weapon : MonoBehaviour
     protected Vector3 previousPosition;
     public bool collided = false;
     public GameObject hitSparks;
+    public bool deflected = false;
 
     public void update()
     {
@@ -26,6 +27,22 @@ public abstract class Weapon : MonoBehaviour
         if (stopped)
         {
             col.enabled = false;
+            GetComponentInChildren<Light>().enabled = false;
+        }
+
+        else if (_otherKnight != null && (transform.position.x > _otherKnight.GetComponent<Combatant>().invisibleWallBounds.y || transform.position.x < _otherKnight.GetComponent<Combatant>().invisibleWallBounds.x))
+        {
+            col.enabled = false;
+        }
+
+        else
+        {
+            col.enabled = true;
+        }
+
+        if (deflected)
+        {
+            GetComponentInChildren<Light>().enabled = false;
         }
     }
 
@@ -63,6 +80,7 @@ public abstract class Weapon : MonoBehaviour
                 g.GetComponent<Rigidbody2D>().AddTorque(-800);
             else
                 g.GetComponent<Rigidbody2D>().AddTorque(800);
+            g.GetComponent<Animator>().enabled = false;
             Camera.main.GetComponent<Shake>().startShake(1.0f, 0.3f);
             other.GetComponent<Combatant>().deadTimer = 1.2f;
             GameManager.instance.toDelete.Add(g);
@@ -77,6 +95,7 @@ public abstract class Weapon : MonoBehaviour
 
         if (other.gameObject.tag == "Weapon")
         {
+            deflected = true;
             GameManager.instance.GetComponent<CrowdController>().increaseExcitement(1, 0.4f);
             GameManager.instance.GetComponent<CrowdController>().increaseExcitement(1, 0.4f);
             SoundEffectsManager.instance.playSound(4, false, 0.5f);

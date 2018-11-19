@@ -19,7 +19,8 @@ public class ScoreIndicator : MonoBehaviour {
     {
         if(score > indicators.Length)
         {
-            Debug.LogError("ERROR: Score is larger than number of indicators");
+            return;
+            //Debug.LogError("ERROR: Score is larger than number of indicators");
         }
         else
         {

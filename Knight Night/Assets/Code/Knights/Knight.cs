@@ -114,7 +114,7 @@ public abstract class Knight : MonoBehaviour {
             }
 
       
-            if (aiming)
+            if (aiming && combatant.deadTimer == 0)
             {
                 aimArrow.GetComponent<SpriteRenderer>().enabled = true;
                 aimArrow.transform.eulerAngles = new Vector3(0, 0, aimDir);

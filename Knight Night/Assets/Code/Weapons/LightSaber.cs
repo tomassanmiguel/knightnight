@@ -69,24 +69,24 @@ public class LightSaber : Weapon
                 g.GetComponent<Rigidbody2D>().AddTorque(-800);
             else
                 g.GetComponent<Rigidbody2D>().AddTorque(800);
+            g.GetComponent<Animator>().enabled = false;
             Camera.main.GetComponent<Shake>().startShake(1.0f, 0.3f);
             other.GetComponent<Combatant>().deadTimer = 1.2f;
             GameManager.instance.toDelete.Add(g);
             GameObject sparks = Instantiate(hitSparks);
             Vector3 moveDirection = transform.position - previousPosition;
-            if (moveDirection != Vector3.zero)
-            {
-                float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-            }
             sparks.transform.position = _otherKnight.transform.position + moveDirection/3;
             Time.timeScale = 0.6f;
             Destroy(gameObject);
         }
         if (other.gameObject.tag == "Weapon" && !collided)
         {
+            deflected = true;
             SoundEffectsManager.instance.playSound(29, false);
             collided = true;
             transform.Rotate(0, 0, 180);
+            GameObject sparks = Instantiate(hitSparks);
+            sparks.transform.position = transform.position;
             Camera.main.GetComponent<Shake>().startShake(0.15f, 0.15f);
             SoundEffectsManager.instance.playSound(4, false, 0.3f);
             GameManager.instance.GetComponent<CrowdController>().increaseExcitement(1, 0.4f);
