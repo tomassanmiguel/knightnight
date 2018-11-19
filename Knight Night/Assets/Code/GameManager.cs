@@ -128,7 +128,8 @@ public class GameManager : MonoBehaviour {
 
     public void resetScene()
     {
-        if (p1Wins > 2 || p2Wins > 2)
+        bool draw = !(p1.GetComponent<Combatant>().deadTimer == 0 || p2.GetComponent<Combatant>().deadTimer == 0);
+        if ((p1Wins > 2 || p2Wins > 2) && !draw)
         {
             LoadManager.instance.LoadScene("CharacterSelect");
         }
@@ -138,6 +139,15 @@ public class GameManager : MonoBehaviour {
             Destroy(p2);
             if (toDelete != null)
                 Destroy(toDelete);
+
+            if (draw)
+            {
+                p1Wins -= 1;
+                p2Wins -= 1;
+                p1ScoreIndicator.ShowScore(p1Wins);
+                p2ScoreIndicator.ShowScore(p2Wins);
+                SoundEffectsManager.instance.playSound(32, false);
+            }
 
             knightsReady = false;
 
@@ -161,7 +171,7 @@ public class GameManager : MonoBehaviour {
                 {
                     SoundEffectsManager.instance.playSound(14, false);
                 }
-                else
+                else if (p2Wins == 2)
                 {
                     SoundEffectsManager.instance.playSound(15, false);
                 }

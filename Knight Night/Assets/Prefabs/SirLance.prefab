@@ -459,6 +459,7 @@ MonoBehaviour:
   player: 1
   facingLeft: 0
   positionBounds: {x: 0, y: 0}
+  invisibleWallBounds: {x: -23, y: 23}
   hitBoxXOffsets: {x: -0.2, y: -0.05}
   deadTimer: 0
   rtt: 0
