@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Combatant : MonoBehaviour {
@@ -27,6 +28,10 @@ public class Combatant : MonoBehaviour {
     public Vector2 invisibleWallBounds;
     [SerializeField]
     public Vector2 hitBoxXOffsets;
+    [SerializeField]
+    private GameObject player1Indicator;
+    [SerializeField]
+    private GameObject player2Indicator;
 
     public float deadTimer = 0;
 
@@ -42,6 +47,15 @@ public class Combatant : MonoBehaviour {
                 deadTimer = 10000;
                 GameManager.instance.resetScene();
             }
+        }
+
+        if (player == 1)
+        {
+            player2Indicator.SetActive(false);
+        }
+        else
+        {
+            player1Indicator.SetActive(false);
         }
     }
 
