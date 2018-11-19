@@ -174,6 +174,14 @@ public abstract class Knight : MonoBehaviour {
             body.GetComponent<Animator>().speed = movementMod;
             horse.GetComponent<Animator>().speed = movementMod;
         }
+        if (transform.position.x < combatant.invisibleWallBounds.x)
+        {
+            transform.position = new Vector3(combatant.invisibleWallBounds.x, transform.position.y, transform.position.z);
+        }
+        if (transform.position.x > combatant.invisibleWallBounds.y)
+        {
+            transform.position = new Vector3(combatant.invisibleWallBounds.y, transform.position.y, transform.position.z);
+        }
         previouspos = transform.position;
     }
 
@@ -237,7 +245,7 @@ public abstract class Knight : MonoBehaviour {
         float dist = combatant.positionBounds.y - transform.position.x;
         float speedMod = 0.1f;
         float desiredSpeedMod = 1;
-        while ((dist > 0 || transform.position.y != _groundY || speedMod > 0.3f))
+        while ((dist > 0 || transform.position.y != _groundY || speedMod > 0.3f) && transform.position.x != combatant.invisibleWallBounds.y)
         {
             if (dist < maxDist / 5 && _vSpeed == 0)
             {
@@ -298,7 +306,7 @@ public abstract class Knight : MonoBehaviour {
         float dist = transform.position.x - combatant.positionBounds.x;
         float speedMod = 0.1f;
         float desiredSpeedMod = 1;
-        while ((dist > 0 || transform.position.y != _groundY || speedMod > 0.3f))
+        while ((dist > 0 || transform.position.y != _groundY || speedMod > 0.3f) && transform.position.x != combatant.invisibleWallBounds.x)
         {
             if (dist < maxDist / 5 && _vSpeed == 0)
             {
