@@ -66,7 +66,7 @@ public class SirDance : Knight
         GameObject disc = Instantiate(discus);
         SoundEffectsManager.instance.playSound(9, false);
         disc.GetComponent<Discus>()._otherKnight = combatant.opposingKnight;
-        disc.transform.position = transform.position;
+        disc.transform.position = transform.position + new Vector3(0, 1.3f, 0);
         disc.transform.Rotate(0, 0, aimDir);
     }
 

@@ -20,6 +20,8 @@ public abstract class Knight : MonoBehaviour {
     private Vector3 previouspos;
     public float aimTolerance;
     private float curaimtol;
+    private bool playedAnim = false;
+    private bool playingThrowAnim = false;
 
     public GameObject armLeft;
     public GameObject armRight;
@@ -27,6 +29,7 @@ public abstract class Knight : MonoBehaviour {
     public GameObject bodyRight;
     public GameObject horse;
     public GameObject body;
+    public GameObject noWeaponBody;
 
     public void start()
     {
@@ -41,24 +44,31 @@ public abstract class Knight : MonoBehaviour {
         {
             SpriteRenderer spr = body.GetComponent<SpriteRenderer>();
             SpriteRenderer spr2 = horse.GetComponent<SpriteRenderer>();
+            SpriteRenderer spr3 = noWeaponBody.GetComponent<SpriteRenderer>();
             spr.flipX = !spr.flipX;
             spr2.flipX = !spr2.flipX;
+            spr3.flipX = !spr3.flipX;
             spr.sortingOrder = (int)combatant.sortingOrders.x;
-            spr2.sortingOrder = (int)combatant.sortingOrders.x;
+            spr2.sortingOrder = (int)combatant.sortingOrders.x - 1;
+            spr3.sortingOrder = (int)combatant.sortingOrders.x;
+            armLeft.GetComponent<SpriteRenderer>().sortingOrder = (int)combatant.sortingOrders.x;
+            armRight.GetComponent<SpriteRenderer>().sortingOrder = (int)combatant.sortingOrders.x;
+            bodyLeft.GetComponent<SpriteRenderer>().sortingOrder = (int)combatant.sortingOrders.x;
+            bodyRight.GetComponent<SpriteRenderer>().sortingOrder = (int)combatant.sortingOrders.x;
             GetComponent<BoxCollider2D>().offset = new Vector2(combatant.hitBoxXOffsets.y,0.2f);
         }
         else
         {
             SpriteRenderer spr = body.GetComponent<SpriteRenderer>();
             SpriteRenderer spr2 = horse.GetComponent<SpriteRenderer>();
-            Color c = new Color(56f/256, 215f/256, 243f/256);
-            body.GetComponent<SpriteRenderer>().color = c;
-            armLeft.GetComponent<SpriteRenderer>().color = c;
-            armRight.GetComponent<SpriteRenderer>().color = c;
-            bodyLeft.GetComponent<SpriteRenderer>().color = c;
-            bodyRight.GetComponent<SpriteRenderer>().color = c;
+            SpriteRenderer spr3 = noWeaponBody.GetComponent<SpriteRenderer>();
             spr.sortingOrder = (int)combatant.sortingOrders.y;
-            spr2.sortingOrder = (int)combatant.sortingOrders.y;
+            spr2.sortingOrder = (int)combatant.sortingOrders.y - 1;
+            spr3.sortingOrder = (int)combatant.sortingOrders.y;
+            armLeft.GetComponent<SpriteRenderer>().sortingOrder = (int)combatant.sortingOrders.y;
+            armRight.GetComponent<SpriteRenderer>().sortingOrder = (int)combatant.sortingOrders.y;
+            bodyLeft.GetComponent<SpriteRenderer>().sortingOrder = (int)combatant.sortingOrders.y;
+            bodyRight.GetComponent<SpriteRenderer>().sortingOrder = (int)combatant.sortingOrders.y;
         }
     }
 
@@ -82,7 +92,6 @@ public abstract class Knight : MonoBehaviour {
                 {
                     GameManager.instance.GetComponent<CrowdController>().increaseExcitement(combatant.player, 0.25f);
                     thro();
-                    aiming = false;
                     _hasJavelin = false;
                 }
             }
@@ -104,7 +113,7 @@ public abstract class Knight : MonoBehaviour {
                     }
                 }
             }
-            else if (!Input.GetButton(combatant.throwButton) || aimDir < 0)
+            else if ((!Input.GetButton(combatant.throwButton) || aimDir < 0) && !playingThrowAnim)
             {
                 curaimtol -= Time.deltaTime;
                 if (curaimtol < 0)
@@ -113,7 +122,9 @@ public abstract class Knight : MonoBehaviour {
                 }
             }
 
-      
+            
+            //I sincerely apologize for this fucking mess... I had some problems
+            //with the sprites and just fixed it the dumb way
             if (aiming && combatant.deadTimer == 0)
             {
                 aimArrow.GetComponent<SpriteRenderer>().enabled = true;
@@ -121,18 +132,25 @@ public abstract class Knight : MonoBehaviour {
 
                 body.GetComponent<Animator>().enabled = false;
                 body.GetComponent<SpriteRenderer>().enabled = false;
+                noWeaponBody.GetComponent<Animator>().enabled = false;
+                noWeaponBody.GetComponent<SpriteRenderer>().enabled = false;
                 if (combatant.facingLeft)
                 {
                     bodyLeft.GetComponent<Animator>().enabled = true;
                     armLeft.GetComponent<Animator>().enabled = true;
                     bodyLeft.GetComponent<SpriteRenderer>().enabled = true;
                     armLeft.GetComponent<SpriteRenderer>().enabled = true;
-                    bodyLeft.GetComponent<Animator>().Play("Body");
-                    armLeft.GetComponent<Animator>().Play("Arm");
                     bodyRight.GetComponent<Animator>().enabled = false;
                     armRight.GetComponent<Animator>().enabled = false;
                     bodyRight.GetComponent<SpriteRenderer>().enabled = false;
                     armRight.GetComponent<SpriteRenderer>().enabled = false;
+
+                    if (!playedAnim)
+                    {
+                        bodyLeft.GetComponent<Animator>().Play("Body", 0, 0);
+                        armLeft.GetComponent<Animator>().Play("Arm", 0, 0);
+                        playedAnim = true;
+                    }
                 }
                 else
                 {
@@ -140,19 +158,37 @@ public abstract class Knight : MonoBehaviour {
                     armRight.GetComponent<Animator>().enabled = true;
                     bodyRight.GetComponent<SpriteRenderer>().enabled = true;
                     armRight.GetComponent<SpriteRenderer>().enabled = true;
-                    bodyRight.GetComponent<Animator>().Play("Body");
-                    armRight.GetComponent<Animator>().Play("Arm");
                     bodyLeft.GetComponent<Animator>().enabled = false;
                     armLeft.GetComponent<Animator>().enabled = false;
                     bodyLeft.GetComponent<SpriteRenderer>().enabled = false;
                     armLeft.GetComponent<SpriteRenderer>().enabled = false;
+
+                    if (!playedAnim)
+                    {
+                        bodyRight.GetComponent<Animator>().Play("Body", 0, 0);
+                        armRight.GetComponent<Animator>().Play("Arm", 0, 0);
+                        playedAnim = true;
+                    }
                 }
             }
             else
             {
+                playedAnim = false;
                 aimArrow.GetComponent<SpriteRenderer>().enabled = false;
-                body.GetComponent<Animator>().enabled = true;
-                body.GetComponent<SpriteRenderer>().enabled = true;
+                if (_hasJavelin)
+                {
+                    body.GetComponent<Animator>().enabled = true;
+                    body.GetComponent<SpriteRenderer>().enabled = true;
+                    noWeaponBody.GetComponent<Animator>().enabled = false;
+                    noWeaponBody.GetComponent<SpriteRenderer>().enabled = false;
+                }
+                else
+                {
+                    noWeaponBody.GetComponent<Animator>().enabled = true;
+                    noWeaponBody.GetComponent<SpriteRenderer>().enabled = true;
+                    body.GetComponent<Animator>().enabled = false;
+                    body.GetComponent<SpriteRenderer>().enabled = false;
+                }
                 bodyRight.GetComponent<Animator>().enabled = false;
                 armRight.GetComponent<Animator>().enabled = false;
                 bodyLeft.GetComponent<Animator>().enabled = false;
@@ -175,6 +211,7 @@ public abstract class Knight : MonoBehaviour {
             body.GetComponent<Animator>().speed = movementMod;
             horse.GetComponent<Animator>().speed = movementMod;
         }
+
         if (transform.position.x < combatant.invisibleWallBounds.x && combatant.deadTimer == 0)
         {
             transform.position = new Vector3(combatant.invisibleWallBounds.x, transform.position.y, transform.position.z);
@@ -205,8 +242,11 @@ public abstract class Knight : MonoBehaviour {
 
     IEnumerator throwCoroutine()
     {
-        yield return new WaitForSeconds(0.02f);
+        playingThrowAnim = true;
+        yield return new WaitForSeconds(0.1f);
         throwWeapon(aimDir);
+        yield return new WaitForSeconds(0.25f);
+        playingThrowAnim = false;
         if (combatant.facingLeft)
         {
             bodyLeft.GetComponent<Animator>().SetBool("Throw", false);
@@ -369,8 +409,10 @@ public abstract class Knight : MonoBehaviour {
             turnAround();
             SpriteRenderer spr = body.GetComponent<SpriteRenderer>();
             SpriteRenderer spr2 = horse.GetComponent<SpriteRenderer>();
+            SpriteRenderer spr3 = noWeaponBody.GetComponent<SpriteRenderer>();
             spr.flipX = !spr.flipX;
             spr2.flipX = !spr2.flipX;
+            spr3.flipX = !spr3.flipX;
             combatant.facingLeft = !combatant.facingLeft;
 
             while (combatant.facingLeft && transform.position.x > combatant.positionBounds.y)
@@ -396,7 +438,12 @@ public abstract class Knight : MonoBehaviour {
             if (combatant.facingLeft)
             {
                 spr.sortingOrder = (int)combatant.sortingOrders.x;
-                spr2.sortingOrder = (int)combatant.sortingOrders.x;
+                spr2.sortingOrder = (int)combatant.sortingOrders.x - 1;
+                spr3.sortingOrder = (int)combatant.sortingOrders.x;
+                armLeft.GetComponent<SpriteRenderer>().sortingOrder = (int)combatant.sortingOrders.x;
+                armRight.GetComponent<SpriteRenderer>().sortingOrder = (int)combatant.sortingOrders.x;
+                bodyLeft.GetComponent<SpriteRenderer>().sortingOrder = (int)combatant.sortingOrders.x;
+                bodyRight.GetComponent<SpriteRenderer>().sortingOrder = (int)combatant.sortingOrders.x;
                 GetComponent<BoxCollider2D>().offset = new Vector2(combatant.hitBoxXOffsets.y, 0.2f);
                 _hasJavelin = true;
                 StartCoroutine("TrotLeft");
@@ -404,7 +451,12 @@ public abstract class Knight : MonoBehaviour {
             else
             {
                 spr.sortingOrder = (int)combatant.sortingOrders.y;
-                spr2.sortingOrder = (int)combatant.sortingOrders.y;
+                spr2.sortingOrder = (int)combatant.sortingOrders.y - 1;
+                spr3.sortingOrder = (int)combatant.sortingOrders.y;
+                armLeft.GetComponent<SpriteRenderer>().sortingOrder = (int)combatant.sortingOrders.y;
+                armRight.GetComponent<SpriteRenderer>().sortingOrder = (int)combatant.sortingOrders.y;
+                bodyLeft.GetComponent<SpriteRenderer>().sortingOrder = (int)combatant.sortingOrders.y;
+                bodyRight.GetComponent<SpriteRenderer>().sortingOrder = (int)combatant.sortingOrders.y;
                 _hasJavelin = true;
                 GetComponent<BoxCollider2D>().offset = new Vector2(combatant.hitBoxXOffsets.x, 0.2f);
                 StartCoroutine("TrotRight");

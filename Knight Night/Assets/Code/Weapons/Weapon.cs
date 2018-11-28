@@ -75,7 +75,7 @@ public abstract class Weapon : MonoBehaviour
             g.GetComponent<Rigidbody2D>().isKinematic = false;
             g.GetComponent<Rigidbody2D>().mass = 8;
             g.GetComponent<Rigidbody2D>().gravityScale = 4.0f;
-            g.GetComponent<Rigidbody2D>().AddForce(((transform.position + new Vector3(0, 0.2f, 0) - previousPosition) / (transform.position - previousPosition).magnitude) * 8000);
+            g.GetComponent<Rigidbody2D>().AddForce(((transform.position - previousPosition) / (transform.position - previousPosition).magnitude) * 8000);
             if (transform.position.x > previousPosition.x)
                 g.GetComponent<Rigidbody2D>().AddTorque(-800);
             else

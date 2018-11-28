@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour {
     public KnightData p1Knight;
     public KnightData p2Knight;
 
+    public KnightCollection possibleKnights;
+
     private GameObject p1;
     private GameObject p2;
 
@@ -56,7 +58,9 @@ public class GameManager : MonoBehaviour {
         toDelete = new List<GameObject>(0);
         knightsReady = false;
         if (CharacterSelectManager.knightChoice != null)
+        {
             setKnightData(CharacterSelectManager.knightChoice.player1, CharacterSelectManager.knightChoice.player2);
+        }
     }
 
 	// Use this for initialization
@@ -79,6 +83,17 @@ public class GameManager : MonoBehaviour {
 
     public void setKnightData(KnightData p1, KnightData p2)
     {
+        float rand;
+        if (p1.KnightName == "Sir Chance")
+        {
+            rand = Random.value;
+            p1 = possibleKnights.Collection[(int)(rand * possibleKnights.Collection.Length-1)];
+        }
+        if (p2.KnightName == "Sir Chance")
+        {
+            rand = Random.value;
+            p2 = possibleKnights.Collection[(int)(rand * possibleKnights.Collection.Length - 1)];
+        }
         p1Knight = p1;
         p2Knight = p2;
     }
@@ -257,9 +272,13 @@ public class GameManager : MonoBehaviour {
             {
                 soundToPlay = 26;
             }
-            else
+            else if (p1Knight.KnightName == "Sir Expanse")
             {
                 soundToPlay = 25;
+            }
+            else
+            {
+                soundToPlay = 33;
             }
             Invoke("delaySound", 0.2f);
         }
@@ -283,9 +302,13 @@ public class GameManager : MonoBehaviour {
             {
                 soundToPlay = 26;
             }
-            else
+            else if(p1Knight.KnightName == "Sir Expanse")
             {
                 soundToPlay = 25;
+            }
+            else
+            {
+                soundToPlay = 33;
             }
             Invoke("delaySound", 0.2f);
         }

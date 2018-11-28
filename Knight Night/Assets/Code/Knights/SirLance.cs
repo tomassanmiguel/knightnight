@@ -71,7 +71,7 @@ public class SirLance : Knight
         GameObject jav = Instantiate(javelin);
         SoundEffectsManager.instance.playSound(9, false);
         jav.GetComponent<Javelin>()._otherKnight = combatant.opposingKnight;
-        jav.transform.position = transform.position;
+        jav.transform.position = transform.position + new Vector3(0,1.3f,0);
         jav.transform.Rotate(0, 0, aimDir);
     }
 

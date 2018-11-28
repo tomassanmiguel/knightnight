@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4727709035277568}
   - component: {fileID: 212992177125043494}
+  - component: {fileID: 114558963516552256}
   m_Layer: 0
   m_Name: Discus
   m_TagString: Untagged
@@ -68,8 +69,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1658849218952848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.24807847, y: -1.8515924, z: 0.015625}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalPosition: {x: 1.0801061, y: -4.3246565, z: 0.015625}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 4868486439955472}
   - {fileID: 4727709035277568}
@@ -84,7 +85,7 @@ Transform:
   m_GameObject: {fileID: 1387057506574612}
   m_LocalRotation: {x: -0, y: -0, z: -0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 4037628594949706}
   m_RootOrder: 1
@@ -145,7 +146,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.8, y: 2.8}
+  m_Size: {x: 1.2, y: 1.2}
   m_EdgeRadius: 0
 --- !u!108 &108818282635453854
 Light:
@@ -184,6 +185,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114558963516552256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1387057506574612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0927472eda928a4d98d6e0857c77a2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 30
 --- !u!114 &114949136351045864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -200,9 +213,10 @@ MonoBehaviour:
   stopped: 0
   collided: 0
   hitSparks: {fileID: 1274757840567916, guid: c8206e5277ef07845bc356f7de1343f6, type: 2}
-  _speed: 45
-  _turnAroundSpeed: 40
-  delayTime: 0.3
+  deflected: 0
+  _speed: 50
+  _turnAroundSpeed: 42
+  delayTime: 0.15
 --- !u!212 &212992177125043494
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -238,7 +252,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c35ff8bf1cd23254ea910220cf45a6fb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0e4b62a44131b564c982de85c71400f8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

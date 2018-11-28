@@ -60,7 +60,7 @@ public class SirExpanse : Knight
     {
         GameObject saber = Instantiate(lightsaber);
         saber.GetComponent<LightSaber>()._otherKnight = combatant.opposingKnight;
-        saber.transform.position = transform.position + new Vector3(0, 0.2f, 0);
+        saber.transform.position = transform.position + new Vector3(0, 0.2f, 0) + new Vector3(0, 1.3f, 0);
         saber.transform.Rotate(0, 0, aimDir);
     }
 

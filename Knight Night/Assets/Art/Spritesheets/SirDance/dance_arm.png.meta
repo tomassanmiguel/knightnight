@@ -1,0 +1,320 @@
+fileFormatVersion: 2
+guid: db60e344556387643b71013725942a48
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: dance_arm_0
+    21300002: dance_arm_1
+    21300004: dance_arm_2
+    21300006: dance_arm_3
+    21300008: dance_arm_4
+    21300010: dance_arm_5
+    21300012: dance_arm_6
+    21300014: dance_arm_7
+    21300016: dance_arm_8
+    21300018: dance_arm_9
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dance_arm_0
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 478
+        width: 48
+        height: 41
+      alignment: 9
+      pivot: {x: 0.47691163, y: 0.71398777}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6598b36a52adfe40a7c44f313394667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dance_arm_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 482
+        width: 36
+        height: 39
+      alignment: 9
+      pivot: {x: 0.6705971, y: 0.70246536}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1b2c84f6ee20b54da8cdf1b7725405e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dance_arm_2
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 486
+        width: 52
+        height: 47
+      alignment: 9
+      pivot: {x: 0.8205707, y: 0.537334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e21c929c7558de4ea77fe4f9dfa075e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dance_arm_3
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 366
+        width: 59
+        height: 39
+      alignment: 9
+      pivot: {x: 0.8866304, y: 0.20754926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0f9e601a78e34f4a86025288afdf7c5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dance_arm_4
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 361
+        width: 49
+        height: 49
+      alignment: 9
+      pivot: {x: 0.82229304, y: 0.17770697}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23b6a3f82d264f84fb1572ecffc4d079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dance_arm_5
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 358
+        width: 54
+        height: 45
+      alignment: 9
+      pivot: {x: 0.8249455, y: 0.18805203}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74fa7bc8afbdf084f9e37ea23a4527c0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dance_arm_6
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 210
+        width: 42
+        height: 29
+      alignment: 9
+      pivot: {x: 0.77156174, y: 0.37898517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fce72186c8b5cd743abb9678753d03c2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dance_arm_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 203
+        width: 29
+        height: 24
+      alignment: 9
+      pivot: {x: 0.74202806, y: 0.7193381}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51455453b8a5669439932ab7cf0d3267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dance_arm_8
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 211
+        width: 29
+        height: 26
+      alignment: 9
+      pivot: {x: 0.8025355, y: 0.66872114}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3b736e00b999ed4782f62ee0de96862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dance_arm_9
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 59
+        width: 29
+        height: 24
+      alignment: 9
+      pivot: {x: 0.68152195, y: 0.71933746}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 381d882e4ed6c4249bdc3c883a364831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 1a221480338903a41b9b2a05cecac6a9
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
