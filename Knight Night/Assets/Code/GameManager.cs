@@ -60,7 +60,9 @@ public class GameManager : MonoBehaviour {
     }
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("BattleScene"));
         if (p1Wins < 3 && p2Wins < 3)
         {
             instantiateKnights();

@@ -79,10 +79,13 @@
     <Compile Include="Assets\Code\PlayerInputData.cs" />
     <Compile Include="Assets\Code\Shake.cs" />
     <Compile Include="Assets\Code\SoundEffectsManager.cs" />
+    <Compile Include="Assets\Code\UI\AnimationTimedSound.cs" />
     <Compile Include="Assets\Code\UI\AnnouncementGenerator.cs" />
     <Compile Include="Assets\Code\UI\AnnouncementText.cs" />
     <Compile Include="Assets\Code\UI\AudioFade.cs" />
+    <Compile Include="Assets\Code\UI\BlurLoop.cs" />
     <Compile Include="Assets\Code\UI\ButtonSelectEffect.cs" />
+    <Compile Include="Assets\Code\UI\CameraAssigner.cs" />
     <Compile Include="Assets\Code\UI\CharacterSelect.cs" />
     <Compile Include="Assets\Code\UI\CharacterSelectManager.cs" />
     <Compile Include="Assets\Code\UI\DescriptionBox.cs" />
@@ -94,6 +97,7 @@
     <Compile Include="Assets\Code\UI\PauseScreen.cs" />
     <Compile Include="Assets\Code\UI\ScoreIndicator.cs" />
     <Compile Include="Assets\Code\UI\ScrollSelector.cs" />
+    <Compile Include="Assets\Code\UI\VersusScreen.cs" />
     <Compile Include="Assets\Code\Weapons\Discus.cs" />
     <Compile Include="Assets\Code\Weapons\Javelin.cs" />
     <Compile Include="Assets\Code\Weapons\LightSaber.cs" />
