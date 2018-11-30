@@ -32,7 +32,11 @@ public class CharacterSelectManager : MonoBehaviour {
             playerChoice.player1 = p1Selector.GetSelectedKnight();
             playerChoice.player2 = p2Selector.GetSelectedKnight();
             CharacterSelectManager.knightChoice = playerChoice;
-            LoadManager.instance.LoadScene("BattleScene");
+            LoadManager.instance.LoadScene("Versus");
+        }
+        if (Input.GetButtonDown("AllMenu"))
+        {
+            BackToMainMenu();
         }
     }
 
