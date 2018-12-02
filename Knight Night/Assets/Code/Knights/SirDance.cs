@@ -5,6 +5,7 @@ using UnityEngine;
 public class SirDance : Knight
 {
     public GameObject discus;
+    public GameObject afterimage;
     public float jumpForce;
     public float gravity;
     private bool _canDash = true;
@@ -82,6 +83,9 @@ public class SirDance : Knight
             float endDashPos = transform.position.x - dashDistance;
             while (transform.position.x > endDashPos && transform.position.x != combatant.invisibleWallBounds.x && transform.position.x != combatant.invisibleWallBounds.y)
             {
+                GameObject g = Instantiate(afterimage);
+                g.transform.position = transform.position;
+                g.GetComponent<FlipSpr>().flip();
                 transform.position = (Vector2)transform.position + Vector2.left * dashSpeed * Time.deltaTime;
                 yield return null;
             }
@@ -91,6 +95,8 @@ public class SirDance : Knight
             float endDashPos = transform.position.x + dashDistance;
             while (transform.position.x < endDashPos && transform.position.x != combatant.invisibleWallBounds.x && transform.position.x != combatant.invisibleWallBounds.y)
             {
+                GameObject g = Instantiate(afterimage);
+                g.transform.position = transform.position;
                 transform.position = (Vector2)transform.position + Vector2.right * dashSpeed * Time.deltaTime;
                 yield return null;
             }
