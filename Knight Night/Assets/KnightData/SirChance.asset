@@ -15,5 +15,5 @@ MonoBehaviour:
   description: One cannot predict what they will get with Sir Chance. Perhaps a random
     knight.
   prefab: {fileID: 0}
-  charSelectImage: {fileID: 21300000, guid: 9997c728e908e034d99ad223beac64c1, type: 3}
+  charSelectImage: {fileID: 21300000, guid: 6d1fa8877cf3b114ab6402cb9c332212, type: 3}
   portrait: {fileID: 0}

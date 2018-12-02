@@ -14,5 +14,5 @@ MonoBehaviour:
   knightName: Sir Expanse
   description: Moon Jouster. Wields a lightsword and can make his steed hover.
   prefab: {fileID: 1477422519902426, guid: e6ca27d41f5164c46b31d7d00fa03257, type: 2}
-  charSelectImage: {fileID: 21300000, guid: cc63d04dadca45344bb059d2a40775f4, type: 3}
+  charSelectImage: {fileID: 21300000, guid: b52f01ff796105e4b9d1f47051316f0d, type: 3}
   portrait: {fileID: 21300000, guid: e0fb30bd07668ef4b9369fdac73f0a4c, type: 3}
