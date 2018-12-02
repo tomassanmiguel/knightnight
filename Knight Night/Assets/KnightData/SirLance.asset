@@ -16,4 +16,4 @@ MonoBehaviour:
     jump.
   prefab: {fileID: 1294198668226220, guid: 635ab5036d6bc0b469fc5862c11604ed, type: 2}
   charSelectImage: {fileID: 21300000, guid: bbd43e3985a9b4046a9ec63e35fad67c, type: 3}
-  portrait: {fileID: 21300000, guid: 53c245bafb29c5a43a9754ebab7ef9db, type: 3}
+  portrait: {fileID: 21300000, guid: 91b226321c5d461499a664c23e3e9866, type: 3}

@@ -29,7 +29,7 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         Vector3 distance = transform.position - desiredPosition;
-        if (distance.magnitude > movementSpeed*Time.deltaTime*2)
+        if (distance.magnitude > movementSpeed*Time.deltaTime*4)
         {
             if (transform.position.x > desiredPosition.x)
             {
