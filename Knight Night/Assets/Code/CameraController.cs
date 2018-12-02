@@ -12,6 +12,8 @@ public class CameraController : MonoBehaviour
     public static CameraController instance;
     public Vector3 curPosition;
     private float minY;
+    private float maxX;
+    private float minX;
 
     void Awake()
     {
@@ -24,6 +26,8 @@ public class CameraController : MonoBehaviour
         desiredPosition = transform.position;
         curPosition = transform.position;
         minY = transform.position.y - Camera.main.orthographicSize / 16 * 9;
+        minX = transform.position.x - Camera.main.orthographicSize;
+        maxX = transform.position.x + Camera.main.orthographicSize;
     }
 
     void Update()
@@ -31,34 +35,20 @@ public class CameraController : MonoBehaviour
         Vector3 distance = transform.position - desiredPosition;
         if (distance.magnitude > movementSpeed*Time.deltaTime*4)
         {
-            if (transform.position.x > desiredPosition.x)
-            {
-                transform.position = new Vector3(transform.position.x - movementSpeed * Time.deltaTime, transform.position.y, transform.position.z);
-            }
-            else
-            {
-                transform.position = new Vector3(transform.position.x + movementSpeed * Time.deltaTime, transform.position.y, transform.position.z);
-            }
-            if (transform.position.y > desiredPosition.y)
-            {
-                transform.position = new Vector3(transform.position.x, transform.position.y - movementSpeed * Time.deltaTime, transform.position.z);
-            }
-            else
-            {
-                transform.position = new Vector3(transform.position.x, transform.position.y + movementSpeed * Time.deltaTime, transform.position.z);
-            }
-            if (transform.position.z > desiredPosition.z)
-            {
-                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - movementSpeed * Time.deltaTime);
-            }
-            else
-            {
-                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + movementSpeed * Time.deltaTime);
-            }
+            transform.Translate(-1 * distance/distance.magnitude * Time.deltaTime * zoomSpeed);
 
             if (transform.position.y - Camera.main.orthographicSize / 16 * 9 < minY)
             {
                 transform.position = new Vector3(transform.position.x, minY + Camera.main.orthographicSize / 16 * 9, transform.position.z);
+            }
+
+            if (transform.position.x + Camera.main.orthographicSize > maxX)
+            {
+                transform.position = new Vector3(maxX - Camera.main.orthographicSize, transform.position.y, transform.position.z);
+            }
+            if (transform.position.x - Camera.main.orthographicSize < minX)
+            {
+                transform.position = new Vector3(maxX + Camera.main.orthographicSize, transform.position.y, transform.position.z);
             }
 
             curPosition = transform.position;
