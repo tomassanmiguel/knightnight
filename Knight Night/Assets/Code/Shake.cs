@@ -17,7 +17,7 @@ public class Shake : MonoBehaviour {
     {
         if (shaking)
         {
-            transform.position = originalPosition + Random.insideUnitSphere * shakeIntensity;
+            transform.position = CameraController.instance.curPosition + Random.insideUnitSphere * shakeIntensity;
         }
 	}
 
@@ -35,10 +35,9 @@ public class Shake : MonoBehaviour {
 
     IEnumerator ShakeNow()
     {
-        originalPosition = transform.position;
         shaking = true;
         yield return new WaitForSeconds(shakeDuration);
         shaking = false;
-        transform.position = originalPosition;
+        transform.position = CameraController.instance.curPosition;
     }
 }

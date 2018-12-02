@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour {
     private bool battleFinished;
     public GameObject fireworks;
     public Vector3 fireworksposition;
+    public Vector3 startingCameraPos;
 
     public int p1Wins;
     public int p2Wins; 
@@ -78,7 +79,7 @@ public class GameManager : MonoBehaviour {
             p2Portrait.sprite = p2Knight.Portrait;
 
             //Set Portraits
-
+            startingCameraPos = CameraController.instance.gameObject.transform.position;
             startBattle();
         }
     }
@@ -142,13 +143,18 @@ public class GameManager : MonoBehaviour {
         p2.transform.position = p2Spawn;
     }
 
+    void unlockCharSelect()
+    {
+        battleFinished = true;
+    }
     public void resetScene()
     {
+        CameraController.instance.newZoom(startingCameraPos, 15);
         bool draw = !(p1.GetComponent<Combatant>().deadTimer == 0 || p2.GetComponent<Combatant>().deadTimer == 0);
         if ((p1Wins > 2 || p2Wins > 2) && !draw)
         {
             Time.timeScale = 1;
-            battleFinished = true;
+            Invoke("unlockCharSelect", 1.5f);
             GameObject fw = Instantiate(fireworks);
             fw.transform.position = fireworksposition;
             if (p1Wins > p2Wins)

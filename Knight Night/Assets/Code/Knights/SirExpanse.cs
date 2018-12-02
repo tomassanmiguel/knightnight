@@ -5,6 +5,7 @@ using UnityEngine;
 public class SirExpanse : Knight
 {
     public GameObject lightsaber;
+    public GameObject hoversound;
     public float jumpForce;
     public float gravity;
     public float floatingSpeed;
@@ -24,7 +25,7 @@ public class SirExpanse : Knight
     {
         update();
         //Jump Logic
-        if (Input.GetButtonDown(combatant.jumpButton) && transform.position.x > combatant.positionBounds.x && transform.position.x < combatant.positionBounds.y)
+        if (Input.GetButtonDown(combatant.jumpButton) && GameManager.instance.knightsReady && combatant.deadTimer == 0)
         {
             if (transform.position.y == _groundY)
             {
@@ -36,9 +37,23 @@ public class SirExpanse : Knight
             }
         }
 
-        if (Input.GetButton(combatant.jumpButton))
+        if (Input.GetButton(combatant.jumpButton) && combatant.deadTimer == 0)
         {
+            GameObject hoverSound = GameObject.Find("SirExpanseHoverSound");
+            if (hoverSound == null)
+            {
+                GameObject g = Instantiate(hoversound);
+                g.name = "SirExpanseHoverSound";
+            }
             _vSpeed = Mathf.Max(floatingSpeed * -1, _vSpeed);
+        }
+        else
+        {
+            GameObject hoverSound = GameObject.Find("SirExpanseHoverSound");
+            if (hoverSound != null)
+            {
+                Destroy(hoverSound);
+            }
         }
 
         transform.Translate(0, _vSpeed * Time.deltaTime, 0);

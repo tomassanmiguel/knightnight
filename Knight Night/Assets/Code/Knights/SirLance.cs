@@ -26,7 +26,7 @@ public class SirLance : Knight
     {
         update();
         //Jump Logic
-        if (Input.GetButtonDown(combatant.jumpButton) && transform.position.x > combatant.positionBounds.x && transform.position.x < combatant.positionBounds.y)
+        if (Input.GetButtonDown(combatant.jumpButton) && GameManager.instance.knightsReady && combatant.deadTimer == 0)
         {
             if (transform.position.y == _groundY)
             {

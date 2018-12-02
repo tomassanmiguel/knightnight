@@ -48,6 +48,7 @@ public abstract class Knight : MonoBehaviour {
             spr.flipX = !spr.flipX;
             spr2.flipX = !spr2.flipX;
             spr3.flipX = !spr3.flipX;
+            aimArrow.GetComponent<SpriteRenderer>().color = Color.blue;
             spr.sortingOrder = (int)combatant.sortingOrders.x;
             spr2.sortingOrder = (int)combatant.sortingOrders.x - 1;
             spr3.sortingOrder = (int)combatant.sortingOrders.x;
@@ -62,6 +63,7 @@ public abstract class Knight : MonoBehaviour {
             SpriteRenderer spr = body.GetComponent<SpriteRenderer>();
             SpriteRenderer spr2 = horse.GetComponent<SpriteRenderer>();
             SpriteRenderer spr3 = noWeaponBody.GetComponent<SpriteRenderer>();
+            aimArrow.GetComponent<SpriteRenderer>().color = Color.red;
             spr.sortingOrder = (int)combatant.sortingOrders.y;
             spr2.sortingOrder = (int)combatant.sortingOrders.y - 1;
             spr3.sortingOrder = (int)combatant.sortingOrders.y;

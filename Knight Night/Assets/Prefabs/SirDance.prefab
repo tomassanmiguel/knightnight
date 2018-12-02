@@ -793,6 +793,7 @@ MonoBehaviour:
   body: {fileID: 1827535565212508}
   noWeaponBody: {fileID: 1516984935921144}
   discus: {fileID: 1658849218952848, guid: 8a2892b501bc6544bbce50d7b1055077, type: 2}
+  afterimage: {fileID: 1361863621346322, guid: f067fb61be795564b93b9e7779c15bfb, type: 2}
   jumpForce: 44
   gravity: 130
   dashSpeed: 36

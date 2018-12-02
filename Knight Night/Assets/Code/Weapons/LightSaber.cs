@@ -56,7 +56,7 @@ public class LightSaber : Weapon
             SoundEffectsManager.instance.playSound(29, false);
             SoundEffectsManager.instance.playSound(5, false, 0.4f);
 
-            //Camera.main.GetComponent<CameraController>().StartSlowMo(0.2f, other.GetComponent<Combatant>().player);
+            CameraController.instance.newZoom(_otherKnight.transform.position + new Vector3(0, 0, -10), 10);
             GameObject g = other.GetComponent<Knight>().body;
             g.transform.parent = null;
             other.GetComponent<BoxCollider2D>().enabled = false;
@@ -70,7 +70,7 @@ public class LightSaber : Weapon
             else
                 g.GetComponent<Rigidbody2D>().AddTorque(800);
             g.GetComponent<Animator>().enabled = false;
-            Camera.main.GetComponent<Shake>().startShake(1.0f, 0.3f);
+            Camera.main.GetComponent<Shake>().startShake(0.5f, 0.3f);
             other.GetComponent<Combatant>().deadTimer = 1.2f;
             GameManager.instance.toDelete.Add(g);
             GameObject sparks = Instantiate(hitSparks);
@@ -84,11 +84,12 @@ public class LightSaber : Weapon
             deflected = true;
             SoundEffectsManager.instance.playSound(29, false);
             collided = true;
+            Destroy(gameObject);
             transform.Rotate(0, 0, 180);
             GameObject sparks = Instantiate(hitSparks);
             sparks.transform.position = transform.position;
             Camera.main.GetComponent<Shake>().startShake(0.15f, 0.15f);
-            SoundEffectsManager.instance.playSound(4, false, 0.3f);
+            SoundEffectsManager.instance.playSound(34, false, 0.3f);
             GameManager.instance.GetComponent<CrowdController>().increaseExcitement(1, 0.4f);
             GameManager.instance.GetComponent<CrowdController>().increaseExcitement(1, 0.4f);
         }

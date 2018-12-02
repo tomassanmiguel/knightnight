@@ -27,7 +27,7 @@ public class SirDance : Knight
     {
         update();
         //Jump Logic
-        if (Input.GetButtonDown(combatant.jumpButton) && _canDash && transform.position.y > _groundY)
+        if (Input.GetButtonDown(combatant.jumpButton) && combatant.deadTimer == 0 && _canDash && transform.position.y > _groundY && transform.position.x > combatant.positionBounds.x + 0.2f && transform.position.x < combatant.positionBounds.y - 0.2f)
         {
             _vSpeed = 0.1f;
             StartCoroutine("dash");
@@ -35,7 +35,7 @@ public class SirDance : Knight
             GameManager.instance.GetComponent<CrowdController>().increaseExcitement(combatant.player, 0.05f);
             SoundEffectsManager.instance.playSound(31, false);
         }
-        if (Input.GetButtonDown(combatant.jumpButton) && transform.position.x > combatant.positionBounds.x && transform.position.x < combatant.positionBounds.y)
+        if (Input.GetButtonDown(combatant.jumpButton) && GameManager.instance.knightsReady && combatant.deadTimer == 0)
         {
             if (transform.position.y == _groundY)
             {
