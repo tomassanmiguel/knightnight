@@ -92,18 +92,18 @@ TextureImporter:
       name: expanse_sit_sprite_0
       rect:
         serializedVersion: 2
-        x: 34
-        y: 261
-        width: 54
-        height: 104
+        x: 0
+        y: 1312
+        width: 656
+        height: 656
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27c42ff3e0bf0cf4693c16f4550afb00
+      spriteID: 1e02b91bf6fb88048b871a93b5ffde5c
       vertices: []
       indices: 
       edges: []
@@ -112,18 +112,18 @@ TextureImporter:
       name: expanse_sit_sprite_1
       rect:
         serializedVersion: 2
-        x: 154
-        y: 261
-        width: 56
-        height: 104
+        x: 656
+        y: 1312
+        width: 656
+        height: 656
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f56882c7892a0448a8c5ef944d18875
+      spriteID: aa56be155fb636347b95ea360ef9e6d2
       vertices: []
       indices: 
       edges: []
@@ -132,18 +132,18 @@ TextureImporter:
       name: expanse_sit_sprite_2
       rect:
         serializedVersion: 2
-        x: 29
-        y: 137
-        width: 58
-        height: 100
+        x: 0
+        y: 656
+        width: 656
+        height: 656
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1288ebe8c17863b4e8a53e52383bf06c
+      spriteID: 46a691624add2e14eba4845dabae94dc
       vertices: []
       indices: 
       edges: []
@@ -152,18 +152,18 @@ TextureImporter:
       name: expanse_sit_sprite_3
       rect:
         serializedVersion: 2
-        x: 138
-        y: 144
-        width: 92
-        height: 106
+        x: 656
+        y: 656
+        width: 656
+        height: 656
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce1a22ee4a014c1489c0dccf493248ae
+      spriteID: af699e2d1a5ce2948b7ce9c6cc77a5af
       vertices: []
       indices: 
       edges: []
@@ -172,18 +172,18 @@ TextureImporter:
       name: expanse_sit_sprite_4
       rect:
         serializedVersion: 2
-        x: 33
-        y: 12
-        width: 54
-        height: 106
+        x: 0
+        y: 0
+        width: 656
+        height: 656
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68015d58d4b158d41a370750c7a07e5a
+      spriteID: c1c67af0c7d8bb34cb751d1ec3abe5c3
       vertices: []
       indices: 
       edges: []

@@ -98,18 +98,18 @@ TextureImporter:
       name: expanse_arm_sprite_0
       rect:
         serializedVersion: 2
-        x: 25
-        y: 292
-        width: 26
-        height: 73
+        x: 0
+        y: 1968
+        width: 656
+        height: 656
       alignment: 9
-      pivot: {x: 0.8403282, y: 0.5519484}
+      pivot: {x: 0.4952055, y: 0.5623277}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e06e5285109e2d643b6f316c72fe9022
+      spriteID: 5f8682e50dd027a4ba8980f019d183c6
       vertices: []
       indices: 
       edges: []
@@ -118,18 +118,18 @@ TextureImporter:
       name: expanse_arm_sprite_1
       rect:
         serializedVersion: 2
-        x: 108
-        y: 294
-        width: 34
-        height: 69
+        x: 656
+        y: 1968
+        width: 656
+        height: 656
       alignment: 9
-      pivot: {x: 0.87178755, y: 0.51831985}
+      pivot: {x: 0.48082212, y: 0.50958884}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f85502543d9a5c45ac3cf5fef2b7dfe
+      spriteID: 78cde4e0ce6584046a5efcdd0c6fc0a1
       vertices: []
       indices: 
       edges: []
@@ -138,18 +138,18 @@ TextureImporter:
       name: expanse_arm_sprite_2
       rect:
         serializedVersion: 2
-        x: 194
-        y: 308
-        width: 49
-        height: 59
+        x: 1312
+        y: 1968
+        width: 656
+        height: 656
       alignment: 9
-      pivot: {x: 0.79667133, y: 0.38216233}
+      pivot: {x: 0.4808223, y: 0.5239719}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a62b70dfd9d3e8498b63b64e81c37c3
+      spriteID: 1690fda03d993574e9c44bf14a1dc944
       vertices: []
       indices: 
       edges: []
@@ -158,18 +158,18 @@ TextureImporter:
       name: expanse_arm_sprite_3
       rect:
         serializedVersion: 2
-        x: 6
-        y: 239
-        width: 74
-        height: 26
+        x: 0
+        y: 1312
+        width: 656
+        height: 656
       alignment: 9
-      pivot: {x: 0.55978745, y: 0.1839805}
+      pivot: {x: 0.5095888, y: 0.5815052}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f68f3ad02ca3034aa42a8ce67e11247
+      spriteID: 513640f3117bafc4a9a5d280225254ab
       vertices: []
       indices: 
       edges: []
@@ -178,18 +178,18 @@ TextureImporter:
       name: expanse_arm_sprite_4
       rect:
         serializedVersion: 2
-        x: 107
-        y: 235
-        width: 70
-        height: 35
+        x: 656
+        y: 1312
+        width: 656
+        height: 656
       alignment: 9
-      pivot: {x: 0.42776665, y: 0.13883492}
+      pivot: {x: 0.45685, y: 0.533561}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7257e717359a6b14eaeec8b9d310b9f7
+      spriteID: 89f121ff1e9a5f44caf5273f4938070f
       vertices: []
       indices: 
       edges: []
@@ -198,18 +198,18 @@ TextureImporter:
       name: expanse_arm_sprite_5
       rect:
         serializedVersion: 2
-        x: 192
-        y: 237
-        width: 75
-        height: 22
+        x: 1312
+        y: 1312
+        width: 656
+        height: 656
       alignment: 9
-      pivot: {x: 0.5337087, y: 0.2127096}
+      pivot: {x: 0.4808223, y: 0.54794425}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcb648c0f1c65b346b73cec2d9dcdbd4
+      spriteID: 89c8128e2ea23004ba61308d68c723a5
       vertices: []
       indices: 
       edges: []
@@ -218,18 +218,18 @@ TextureImporter:
       name: expanse_arm_sprite_6
       rect:
         serializedVersion: 2
-        x: 26
-        y: 138
-        width: 21
-        height: 13
+        x: 0
+        y: 656
+        width: 656
+        height: 656
       alignment: 9
-      pivot: {x: 0.83106774, y: 0.20829068}
+      pivot: {x: 0.48082218, y: 0.4999999}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96031c87c80e6764f9a8e4e69c18fb6b
+      spriteID: 34e7a491236a79346997ab1692aeeca9
       vertices: []
       indices: 
       edges: []
@@ -238,18 +238,18 @@ TextureImporter:
       name: expanse_arm_sprite_7
       rect:
         serializedVersion: 2
-        x: 120
-        y: 139
-        width: 21
-        height: 13
+        x: 656
+        y: 656
+        width: 656
+        height: 656
       alignment: 9
-      pivot: {x: 0.7708733, y: 0.35414594}
+      pivot: {x: 0.4760277, y: 0.5239721}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d3076ed02c571d48aea31aec770a299
+      spriteID: 766feb25496af8f4ba148f0cdc158313
       vertices: []
       indices: 
       edges: []
@@ -258,18 +258,18 @@ TextureImporter:
       name: expanse_arm_sprite_8
       rect:
         serializedVersion: 2
-        x: 218
-        y: 142
-        width: 21
-        height: 11
+        x: 1312
+        y: 656
+        width: 656
+        height: 656
       alignment: 9
-      pivot: {x: 0.7407757, y: 0.5000014}
+      pivot: {x: 0.51438326, y: 0.5958887}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6bf567e371b44047bd2877383382467
+      spriteID: 326bdbdd9bfd5ca4a93c5c32c701f645
       vertices: []
       indices: 
       edges: []
@@ -278,38 +278,18 @@ TextureImporter:
       name: expanse_arm_sprite_9
       rect:
         serializedVersion: 2
-        x: 6
-        y: 107
-        width: 6
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e293f8fc2a1d91a41ad5a9e076f4e6b5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: expanse_arm_sprite_10
-      rect:
-        serializedVersion: 2
-        x: 27
-        y: 40
-        width: 20
-        height: 14
+        x: 0
+        y: 0
+        width: 656
+        height: 656
       alignment: 9
-      pivot: {x: 0.784417, y: 0.5902917}
+      pivot: {x: 0.45685, y: 0.5431498}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef783536a55d1384e94bc6e297461d2b
+      spriteID: c9b016b5085690547890ecffc6c14841
       vertices: []
       indices: 
       edges: []

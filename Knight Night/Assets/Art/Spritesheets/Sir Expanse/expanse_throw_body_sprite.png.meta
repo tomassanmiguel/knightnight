@@ -97,18 +97,18 @@ TextureImporter:
       name: expanse_throw_body_sprite_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 294
-        width: 32
-        height: 76
+        x: 0
+        y: 1968
+        width: 656
+        height: 656
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13f0e0ec226b3fc4993715476b849ad4
+      spriteID: 7450a41e2b6778846b28296c20d900f3
       vertices: []
       indices: 
       edges: []
@@ -117,18 +117,18 @@ TextureImporter:
       name: expanse_throw_body_sprite_1
       rect:
         serializedVersion: 2
-        x: 126
-        y: 291
-        width: 31
-        height: 74
+        x: 656
+        y: 1968
+        width: 656
+        height: 656
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19dae5cfd48554d4298ef989229743dc
+      spriteID: b956b31ae6efd044e9081b64e1b7545d
       vertices: []
       indices: 
       edges: []
@@ -137,18 +137,18 @@ TextureImporter:
       name: expanse_throw_body_sprite_2
       rect:
         serializedVersion: 2
-        x: 216
-        y: 296
-        width: 35
-        height: 71
+        x: 1312
+        y: 1968
+        width: 656
+        height: 656
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6e969854dbdba64d94fa2a7e1d4d124
+      spriteID: a43990b60a6f9d84687475fd57d15210
       vertices: []
       indices: 
       edges: []
@@ -157,18 +157,18 @@ TextureImporter:
       name: expanse_throw_body_sprite_3
       rect:
         serializedVersion: 2
-        x: 33
-        y: 206
-        width: 35
-        height: 73
+        x: 0
+        y: 1312
+        width: 656
+        height: 656
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21ac1b091ec913e4e9c794b42713528f
+      spriteID: 915faa5f787f3f94d83cd2dd7738eb26
       vertices: []
       indices: 
       edges: []
@@ -177,18 +177,18 @@ TextureImporter:
       name: expanse_throw_body_sprite_4
       rect:
         serializedVersion: 2
-        x: 122
-        y: 199
-        width: 34
-        height: 74
+        x: 656
+        y: 1312
+        width: 656
+        height: 656
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5acdf47f9f3a7ef42b157c3c27f1b517
+      spriteID: 43e4efa844071124e88770e912269739
       vertices: []
       indices: 
       edges: []
@@ -197,18 +197,18 @@ TextureImporter:
       name: expanse_throw_body_sprite_5
       rect:
         serializedVersion: 2
-        x: 221
-        y: 200
-        width: 32
-        height: 76
+        x: 1312
+        y: 1312
+        width: 656
+        height: 656
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd1991ab6b427f9418b40a8984f938bc
+      spriteID: f2d49f5a0af9c794e805618d96e59471
       vertices: []
       indices: 
       edges: []
@@ -217,18 +217,18 @@ TextureImporter:
       name: expanse_throw_body_sprite_6
       rect:
         serializedVersion: 2
-        x: 32
-        y: 103
-        width: 31
-        height: 74
+        x: 0
+        y: 656
+        width: 656
+        height: 656
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ace4fd880e697a744a40bae7614f756c
+      spriteID: 035de542136014742bb486bfea067fe5
       vertices: []
       indices: 
       edges: []
@@ -237,18 +237,18 @@ TextureImporter:
       name: expanse_throw_body_sprite_7
       rect:
         serializedVersion: 2
-        x: 118
-        y: 108
-        width: 41
-        height: 71
+        x: 656
+        y: 656
+        width: 656
+        height: 656
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0957b657f5b4314580baf7fee6885ec
+      spriteID: 17a094e702bb43644984b5f895a883f2
       vertices: []
       indices: 
       edges: []
@@ -257,18 +257,18 @@ TextureImporter:
       name: expanse_throw_body_sprite_8
       rect:
         serializedVersion: 2
-        x: 221
-        y: 112
-        width: 33
-        height: 73
+        x: 1312
+        y: 656
+        width: 656
+        height: 656
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 266387db6c5afc84d9459926dae11bde
+      spriteID: 1fa14bd95f73a4d408ef699487eb603f
       vertices: []
       indices: 
       edges: []
@@ -277,18 +277,18 @@ TextureImporter:
       name: expanse_throw_body_sprite_9
       rect:
         serializedVersion: 2
-        x: 28
-        y: 11
-        width: 35
-        height: 74
+        x: 0
+        y: 0
+        width: 656
+        height: 656
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b6bec4e42188cc41b3fce907b53cd16
+      spriteID: ad59c68371ba8104fb1e3844d348c85b
       vertices: []
       indices: 
       edges: []

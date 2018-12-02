@@ -97,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1418593483902894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.0060654, y: 0.020505667, z: 0.015625}
+  m_LocalPosition: {x: 1.775, y: -1.971, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 4422477644371586}
@@ -127,7 +127,7 @@ Transform:
   m_GameObject: {fileID: 1939004302224388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.3, y: 2.3, z: 1}
+  m_LocalScale: {x: 1.15, y: 1.15, z: 1}
   m_Children: []
   m_Father: {fileID: 4390933991825522}
   m_RootOrder: 1
@@ -164,7 +164,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.2}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -175,7 +175,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.5, y: 0.4}
+  m_Size: {x: 6, y: 0.3}
   m_EdgeRadius: 0
 --- !u!108 &108362185842375252
 Light:
@@ -267,6 +267,7 @@ MonoBehaviour:
   stopped: 0
   collided: 0
   hitSparks: {fileID: 1274757840567916, guid: c8206e5277ef07845bc356f7de1343f6, type: 2}
+  deflected: 0
   _speed: 42
 --- !u!212 &212270535622445210
 SpriteRenderer:
