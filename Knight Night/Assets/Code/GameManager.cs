@@ -255,7 +255,7 @@ public class GameManager : MonoBehaviour {
         ag.Announce("3", 0.5f);
         ag.Announce("2", 0.5f);
         ag.Announce("1", 0.5f);
-        ag.Announce("Fight!", 0.75f, true, 0.5f, 2);
+        ag.Announce("Fight!", 0.75f);
     }
 
     void unlock()
