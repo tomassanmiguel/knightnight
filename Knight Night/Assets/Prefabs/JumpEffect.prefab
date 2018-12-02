@@ -221,8 +221,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.6313726, g: 0.6313726, b: 0.6313726, a: 1}
-      maxColor: {r: 0.30980393, g: 0.30980393, b: 0.30980393, a: 1}
+      minColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
+      maxColor: {r: 0.41509432, g: 0.26530793, b: 0.18600924, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -623,12 +623,12 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 5
     enabled: 1
-    type: 5
+    type: 17
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
-    donutRadius: 0.2
+    donutRadius: 0.5
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 0.91455406, y: 0, z: 100}

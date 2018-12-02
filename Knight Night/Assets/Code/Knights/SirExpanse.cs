@@ -33,7 +33,10 @@ public class SirExpanse : Knight
                 GameManager.instance.GetComponent<CrowdController>().increaseExcitement(combatant.player, 0.05f);
                 SoundEffectsManager.instance.playSound(27, false);
                 GameObject jc = Instantiate(jumpCloud);
-                jc.transform.position = transform.position + new Vector3(0, -0.75f, 0);
+                if (combatant.facingLeft)
+                    jc.transform.position = transform.position + new Vector3(0, -1.75f, 0);
+                else
+                    jc.transform.position = transform.position + new Vector3(0, -1.75f, -1f);
             }
         }
 

@@ -34,14 +34,17 @@ public class SirLance : Knight
                 SoundEffectsManager.instance.playSound(27, false);
                 GameManager.instance.GetComponent<CrowdController>().increaseExcitement(combatant.player, 0.05f);
                 GameObject jc = Instantiate(jumpCloud);
-                jc.transform.position = transform.position + new Vector3(0, -0.75f, 0);
+                if (combatant.facingLeft)
+                    jc.transform.position = transform.position + new Vector3(0, -1.75f, 0);
+                else
+                    jc.transform.position = transform.position + new Vector3(0, -1.75f, -1f);
             }
             else if (doubleJump)
             {
                 doubleJump = false;
                 _vSpeed = doubleJumpForce;
                 GameObject jc = Instantiate(jumpCloud);
-                jc.transform.position = transform.position + new Vector3(0, -0.75f, 0);
+                jc.transform.position = transform.position + new Vector3(0, -1.75f, 0);
                 SoundEffectsManager.instance.playSound(27, false);
                 GameManager.instance.GetComponent<CrowdController>().increaseExcitement(combatant.player, 0.05f);
             }
