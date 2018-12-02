@@ -103,10 +103,10 @@ TextureImporter:
       name: dance_sit_wo_disk_0
       rect:
         serializedVersion: 2
-        x: 70
-        y: 406
-        width: 72
-        height: 133
+        x: 0
+        y: 1312
+        width: 656
+        height: 656
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,7 +114,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4249ffe6be2d6c4697f9c12dfca9499
+      spriteID: 3f53abbc9c6dcee45957cb82d6582987
       vertices: []
       indices: 
       edges: []
@@ -123,10 +123,10 @@ TextureImporter:
       name: dance_sit_wo_disk_1
       rect:
         serializedVersion: 2
-        x: 255
-        y: 403
-        width: 45
-        height: 132
+        x: 656
+        y: 1312
+        width: 656
+        height: 656
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,7 +134,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbec6faa5588fc1459bf967ca7e3bebf
+      spriteID: 91e83a2c9c2d87a45acfb7d10832c3ee
       vertices: []
       indices: 
       edges: []
@@ -143,10 +143,10 @@ TextureImporter:
       name: dance_sit_wo_disk_2
       rect:
         serializedVersion: 2
-        x: 55
-        y: 215
-        width: 55
-        height: 130
+        x: 0
+        y: 656
+        width: 656
+        height: 656
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,7 +154,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e94005dcbbc76c54dbf408cb7773ed1e
+      spriteID: 010cd8989afe1514a8426df08e53bfa2
       vertices: []
       indices: 
       edges: []
@@ -163,10 +163,10 @@ TextureImporter:
       name: dance_sit_wo_disk_3
       rect:
         serializedVersion: 2
-        x: 258
-        y: 226
-        width: 44
-        height: 134
+        x: 656
+        y: 656
+        width: 656
+        height: 656
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,7 +174,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb926883af4de5345ac2dd328e1a5435
+      spriteID: 9306ae815d30ba046861f6583e919de4
       vertices: []
       indices: 
       edges: []
@@ -183,10 +183,10 @@ TextureImporter:
       name: dance_sit_wo_disk_4
       rect:
         serializedVersion: 2
-        x: 66
-        y: 22
-        width: 51
-        height: 136
+        x: 0
+        y: 0
+        width: 656
+        height: 656
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,7 +194,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ad6550e4d068b54489968c52c0864e5
+      spriteID: ab36f10ce9cfbcc46b7bab9f9da43232
       vertices: []
       indices: 
       edges: []

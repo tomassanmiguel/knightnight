@@ -103,18 +103,18 @@ TextureImporter:
       name: expanse_no_arm_sit_0
       rect:
         serializedVersion: 2
-        x: 73
-        y: 402
-        width: 63
-        height: 161
-      alignment: 9
-      pivot: {x: 0.3530214, y: 0.49589187}
+        x: 0
+        y: 1312
+        width: 656
+        height: 656
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05c10e2052375434ab844e1026034577
+      spriteID: f408a4c9a3dc8c4428313a3722cd8fc8
       vertices: []
       indices: 
       edges: []
@@ -123,18 +123,18 @@ TextureImporter:
       name: expanse_no_arm_sit_1
       rect:
         serializedVersion: 2
-        x: 258
-        y: 403
-        width: 66
-        height: 160
-      alignment: 9
-      pivot: {x: 0.36972415, y: 0.495866}
+        x: 656
+        y: 1312
+        width: 656
+        height: 656
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4efbd2371f3abe48965c56051d481f0
+      spriteID: 93285a8d562bc2f48b14471ded933fa3
       vertices: []
       indices: 
       edges: []
@@ -143,18 +143,18 @@ TextureImporter:
       name: expanse_no_arm_sit_2
       rect:
         serializedVersion: 2
-        x: 61
-        y: 219
-        width: 132
-        height: 143
-      alignment: 9
-      pivot: {x: 0.18433045, y: 0.504625}
+        x: 0
+        y: 656
+        width: 656
+        height: 656
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 561026516002910468fd364f80490629
+      spriteID: 1b0f6970c2ef21344b5a3d849fc0c7a9
       vertices: []
       indices: 
       edges: []
@@ -163,18 +163,18 @@ TextureImporter:
       name: expanse_no_arm_sit_3
       rect:
         serializedVersion: 2
-        x: 260
-        y: 220
-        width: 71
-        height: 164
-      alignment: 9
-      pivot: {x: 0.29505855, y: 0.5040328}
+        x: 656
+        y: 656
+        width: 656
+        height: 656
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 376ae7b0711ce894d8739e2e6b27094c
+      spriteID: fd75070c9b92c074285d6b6c1535f724
       vertices: []
       indices: 
       edges: []
@@ -183,18 +183,18 @@ TextureImporter:
       name: expanse_no_arm_sit_4
       rect:
         serializedVersion: 2
-        x: 69
-        y: 20
-        width: 65
-        height: 162
-      alignment: 9
-      pivot: {x: 0.3473682, y: 0.48775163}
+        x: 0
+        y: 0
+        width: 656
+        height: 656
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbf6b0a6a0cc1344292431c7db608603
+      spriteID: 858120fdb13b5cc449e8f0f6f45807e7
       vertices: []
       indices: 
       edges: []
