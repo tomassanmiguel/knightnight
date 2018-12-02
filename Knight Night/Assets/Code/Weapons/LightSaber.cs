@@ -76,7 +76,7 @@ public class LightSaber : Weapon
             GameObject sparks = Instantiate(hitSparks);
             Vector3 moveDirection = transform.position - previousPosition;
             sparks.transform.position = _otherKnight.transform.position + moveDirection/3;
-            Time.timeScale = 0.6f;
+            Time.timeScale = 0.2f;
             Destroy(gameObject);
         }
         if (other.gameObject.tag == "Weapon" && !collided)

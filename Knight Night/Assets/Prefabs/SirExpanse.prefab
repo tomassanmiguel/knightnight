@@ -723,6 +723,7 @@ MonoBehaviour:
   body: {fileID: 1115532328056206}
   noWeaponBody: {fileID: 1927069106665914}
   lightsaber: {fileID: 1418593483902894, guid: 13ae4225f41b2764b85170fc9cb379c6, type: 2}
+  hoversound: {fileID: 1989916881209168, guid: b03d01bcd8f4059479048cb5d5c66718, type: 2}
   jumpForce: 46
   gravity: 110
   floatingSpeed: 3.7

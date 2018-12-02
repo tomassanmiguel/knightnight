@@ -84,7 +84,7 @@ public abstract class Weapon : MonoBehaviour
             Camera.main.GetComponent<Shake>().startShake(0.5f, 0.3f);
             other.GetComponent<Combatant>().deadTimer = 1.2f;
             GameManager.instance.toDelete.Add(g);
-            Time.timeScale = 0.3f;
+            Time.timeScale = 0.2f;
             Destroy(gameObject);
         }
 
