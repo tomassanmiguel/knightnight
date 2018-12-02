@@ -69,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1658849218952848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.0772924, y: -1.2161252, z: 0.015625}
+  m_LocalPosition: {x: -3.8715084, y: -4.457382, z: 0.015625}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children:
   - {fileID: 4868486439955472}
@@ -158,7 +158,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.4
+  m_Intensity: 4
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -214,9 +214,9 @@ MonoBehaviour:
   collided: 0
   hitSparks: {fileID: 1274757840567916, guid: c8206e5277ef07845bc356f7de1343f6, type: 2}
   deflected: 0
-  _speed: 50
-  _turnAroundSpeed: 42
-  delayTime: 0.15
+  _speed: 52
+  _turnAroundSpeed: 46
+  delayTime: 0.05
 --- !u!212 &212992177125043494
 SpriteRenderer:
   m_ObjectHideFlags: 1

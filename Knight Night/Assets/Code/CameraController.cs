@@ -32,6 +32,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        /*
         Vector3 distance = transform.position - desiredPosition;
         if (distance.magnitude > movementSpeed*Time.deltaTime*4)
         {
@@ -65,6 +66,7 @@ public class CameraController : MonoBehaviour
                 Camera.main.orthographicSize -= zoomSpeed * Time.deltaTime;
             }
         }
+        */
     }
 
     public void newZoom(Vector3 pos, float orthoSize)
