@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 471}
   m_MaxSize: {x: 14000, y: 14021}
   vertical: 0
-  controlID: 11581
+  controlID: 12789
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 471}
   m_MaxSize: {x: 10000, y: 14021}
   vertical: 1
-  controlID: 11582
+  controlID: 12790
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 221}
   m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 11550
+  controlID: 12772
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,8 +169,8 @@ MonoBehaviour:
     y: 0
     width: 303
     height: 448
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -205,21 +205,21 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 6a600000
     m_LastClickedID: 24682
-    m_ExpandedIDs: 0afdfcff7e10fdff4445fdff3669fdffa484fdff7400feff841afefff226feff6e27feff3234feff8068feff8087feff1cc3feff64e2feffd6f2feff7806ffffd417ffffde17ffff0045ffff86f1ffff000000007c610000
+    m_ExpandedIDs: c4dcfcff0afdfcff7e10fdff4445fdff3669fdffa484fdff7400feff841afefff226feff6e27feff3234feff8068feff8087feff1cc3feff64e2feffd6f2feff7806ffffd417ffffde17ffff0045ffff86f1ffff000000007c610000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Point Light
-      m_OriginalName: Point Light
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: -197382
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 5}
     m_SearchString: 
@@ -286,9 +286,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -2.772841, y: -1.5724137, z: -0.15645106}
+    m_Target: {x: -6.251478, y: -1.5160279, z: -0.29219863}
     speed: 2
-    m_Value: {x: -2.772841, y: -1.5724137, z: -0.15645106}
+    m_Value: {x: -6.251478, y: -1.5160279, z: -0.29219863}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -320,9 +320,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 6.0383096
+    m_Target: 19.617947
     speed: 2
-    m_Value: 6.0383096
+    m_Value: 19.617947
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -422,19 +422,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/KnightData
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/KnightData
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\tsanm_000\Documents\knightnight\Knight Night
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 358}
-    m_SelectedIDs: 98330000
-    m_LastClickedID: 13208
+    m_SelectedIDs: fe310000
+    m_LastClickedID: 12798
     m_ExpandedIDs: 00000000382f0000c630000012310000a4310000f032000078330000e2330000fc330000cc340000ce340000d23400004e35000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -490,7 +490,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 6a600000
     m_LastClickedInstanceID: 24682
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 9e2e0000462e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

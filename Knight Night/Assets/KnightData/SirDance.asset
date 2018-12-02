@@ -16,4 +16,4 @@ MonoBehaviour:
     his steed dash.
   prefab: {fileID: 1118296630245010, guid: 380d577acbb326c4390997b8df93e74d, type: 2}
   charSelectImage: {fileID: 21300000, guid: 108190eb9f1e0be4ea442ef110b2bb5d, type: 3}
-  portrait: {fileID: 21300000, guid: 834da8a9a36ac674e816473e28f14d02, type: 3}
+  portrait: {fileID: 21300000, guid: 4b54d32a14f7d114192295f7819a0325, type: 3}
