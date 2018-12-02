@@ -201,7 +201,7 @@ MonoBehaviour:
   collided: 0
   hitSparks: {fileID: 1274757840567916, guid: c8206e5277ef07845bc356f7de1343f6, type: 2}
   deflected: 0
-  _speed: 82
+  _speed: 69
   _gravity: 0.07
 --- !u!212 &212389167663502330
 SpriteRenderer:

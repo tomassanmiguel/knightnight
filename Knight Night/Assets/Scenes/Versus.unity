@@ -1106,7 +1106,7 @@ MonoBehaviour:
   canvas: {fileID: 1646663733}
   versusText: {fileID: 305088751}
   main: {fileID: 1690853903}
-  minWaitTime: 1.5
+  minWaitTime: 1
 --- !u!4 &1419863204
 Transform:
   m_ObjectHideFlags: 0
