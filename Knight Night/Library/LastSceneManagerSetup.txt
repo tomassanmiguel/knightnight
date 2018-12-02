@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/Versus.unity
+=======
+- path: Assets/Scenes/CharacterSelect.unity
+>>>>>>> 1df4b523bfad6c8331130c5db056ab1d230a1938
   isLoaded: 1
   isActive: 1
