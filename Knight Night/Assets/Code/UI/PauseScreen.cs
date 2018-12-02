@@ -41,7 +41,7 @@ public class PauseScreen : MonoBehaviour {
 
     public void ReturnToMenu()
     {
-        LoadManager.instance.LoadScene("Menu");
+        LoadManager.instance.LoadScene("CharacterSelect");
     }
 
     public void Quit()
