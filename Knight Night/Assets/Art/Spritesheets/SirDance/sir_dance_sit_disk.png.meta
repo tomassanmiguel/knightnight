@@ -103,18 +103,18 @@ TextureImporter:
       name: sir_dance_sit_disk_0
       rect:
         serializedVersion: 2
-        x: 70
-        y: 406
-        width: 72
-        height: 133
-      alignment: 9
-      pivot: {x: 0.32546276, y: 0.49502677}
+        x: 0
+        y: 1312
+        width: 656
+        height: 656
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d3d85c864608bc4db9f681dfb1919f8
+      spriteID: 63295f357b0ad344ea7507c89827a9cb
       vertices: []
       indices: 
       edges: []
@@ -123,18 +123,18 @@ TextureImporter:
       name: sir_dance_sit_disk_1
       rect:
         serializedVersion: 2
-        x: 255
-        y: 403
-        width: 53
-        height: 132
-      alignment: 9
-      pivot: {x: 0.4251231, y: 0.5050104}
+        x: 656
+        y: 1312
+        width: 656
+        height: 656
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3507fe12b8e19a746b6c7e331a61a9a1
+      spriteID: 1cdfc076bc79e574db2d54c2e542538f
       vertices: []
       indices: 
       edges: []
@@ -143,18 +143,18 @@ TextureImporter:
       name: sir_dance_sit_disk_2
       rect:
         serializedVersion: 2
-        x: 55
-        y: 215
-        width: 55
-        height: 130
+        x: 0
+        y: 656
+        width: 656
+        height: 656
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c53d14eee4aa7da40ad07f59835c35d4
+      spriteID: 54e0e9031fc74004d99e95b20f865eb8
       vertices: []
       indices: 
       edges: []
@@ -163,18 +163,18 @@ TextureImporter:
       name: sir_dance_sit_disk_3
       rect:
         serializedVersion: 2
-        x: 258
-        y: 226
-        width: 52
-        height: 134
-      alignment: 9
-      pivot: {x: 0.47456124, y: 0.50493586}
+        x: 656
+        y: 656
+        width: 656
+        height: 656
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d912ec106dd3c14daf855ab3d255398
+      spriteID: bb9c7533c8d08a94ab1aa6baba6b7b75
       vertices: []
       indices: 
       edges: []
@@ -183,18 +183,18 @@ TextureImporter:
       name: sir_dance_sit_disk_4
       rect:
         serializedVersion: 2
-        x: 66
-        y: 22
-        width: 54
-        height: 136
-      alignment: 9
-      pivot: {x: 0.47550356, y: 0.49999994}
+        x: 0
+        y: 0
+        width: 656
+        height: 656
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b03c3e580c057674ebdecef58b968911
+      spriteID: c87b5b678f773d045a7c9a4afea1367a
       vertices: []
       indices: 
       edges: []

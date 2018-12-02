@@ -50,7 +50,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1000
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,18 +103,18 @@ TextureImporter:
       name: lance_sit_no_lance_0
       rect:
         serializedVersion: 2
-        x: 90
-        y: 440
-        width: 76
-        height: 91
-      alignment: 9
-      pivot: {x: 0.11078493, y: 0.5}
+        x: 0
+        y: 1312
+        width: 656
+        height: 656
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e53d508d33c8858448d8ce993f7f88d7
+      spriteID: 628447f4c0afb6048b1c6807c5d9d8cb
       vertices: []
       indices: 
       edges: []
@@ -123,18 +123,18 @@ TextureImporter:
       name: lance_sit_no_lance_1
       rect:
         serializedVersion: 2
-        x: 278
-        y: 442
-        width: 74
-        height: 106
-      alignment: 9
-      pivot: {x: 0.1624463, y: 0.43178543}
+        x: 656
+        y: 1312
+        width: 656
+        height: 656
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60611e4e52c676f46b747ff68f067963
+      spriteID: b48799918ab00c945bfd78d448f88cb1
       vertices: []
       indices: 
       edges: []
@@ -143,18 +143,18 @@ TextureImporter:
       name: lance_sit_no_lance_2
       rect:
         serializedVersion: 2
-        x: 81
-        y: 245
-        width: 71
-        height: 96
-      alignment: 9
-      pivot: {x: 0.12966672, y: 0.5068474}
+        x: 0
+        y: 656
+        width: 656
+        height: 656
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00ad816c5e84250419d8aaf2097eaa3c
+      spriteID: e284c5108eed8a548a8f6b2b48df0666
       vertices: []
       indices: 
       edges: []
@@ -163,18 +163,18 @@ TextureImporter:
       name: lance_sit_no_lance_3
       rect:
         serializedVersion: 2
-        x: 278
-        y: 253
-        width: 68
-        height: 103
-      alignment: 9
-      pivot: {x: 0.18099572, y: 0.46809047}
+        x: 656
+        y: 656
+        width: 656
+        height: 656
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55bca405741ac23468e0be6e0c622e77
+      spriteID: e364733b57c5306498c6951f24c8b790
       vertices: []
       indices: 
       edges: []
@@ -183,18 +183,18 @@ TextureImporter:
       name: lance_sit_no_lance_4
       rect:
         serializedVersion: 2
-        x: 86
-        y: 54
-        width: 79
-        height: 102
-      alignment: 9
-      pivot: {x: 0.16716892, y: 0.49355555}
+        x: 0
+        y: 0
+        width: 656
+        height: 656
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a988e166d46c2545958b2e19737b31d
+      spriteID: 1af43daa120bb9e4a9323fefe188a3a9
       vertices: []
       indices: 
       edges: []
