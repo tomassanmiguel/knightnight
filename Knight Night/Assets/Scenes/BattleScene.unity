@@ -9653,7 +9653,7 @@ MonoBehaviour:
   p1inputdata: {fileID: 11400000, guid: 8bc85a969338d7c418ca3f79ead8a047, type: 2}
   p2inputdata: {fileID: 11400000, guid: e3f59a1ccce989e4d83af972f2d7b0ee, type: 2}
   ag: {fileID: 390717014}
-  p1Knight: {fileID: 11400000, guid: 75ac1bb7408ff6e448dad23002a21278, type: 2}
+  p1Knight: {fileID: 11400000, guid: bafec5c7faff07946937140e99446bb8, type: 2}
   p2Knight: {fileID: 11400000, guid: 2a063f913ce59614eb9c4fabdbd92b9f, type: 2}
   possibleKnights: {fileID: 11400000, guid: 30ee03c28bf1a9e44ae4da3795bbca56, type: 2}
   knightsReady: 0
